@@ -1,4 +1,4 @@
-## customs - my custom configs
+## dotfiles - my custom configs
 
 ### including
 - vimrc
