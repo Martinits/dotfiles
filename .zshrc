@@ -139,6 +139,25 @@ mkcd(){
     mkdir -p $1 && cd $1
 }
 
+dumpinto(){
+    if (( $# == 0 )); then
+        echo Need one argument
+        return 1
+    fi
+    if (( $# > 1 )); then
+        echo Too many arguments
+        return 1
+    fi
+    if [ ! -d "$1" ]; then
+        mkdir "$1"
+    fi
+    if (( `ls "$1" | wc -l` > 0 )); then
+        echo Directory "$1" exists and not empty
+        return 1
+    fi
+    mv `ls | grep -v "$1"` "$1"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Lines configured by zsh-newuser-install
