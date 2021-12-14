@@ -111,15 +111,31 @@ alias la='ls -lAF'
 alias ll='ls -l'
 alias lh='ls -lh'
 alias lt='ls -lht'
-alias lc='ls | wc -l'
 alias rr='rm -r'
 alias ra='ranger'
 alias rf='rm -rf'
 
-
 export LC_ALL="en_US.UTF-8"
 export PATH="/var/lib/snapd/snap/bin:$PATH"
 export VDPAU_DRIVER=radeonsi
+
+lc(){
+    if (( $# == 0 ));
+    then
+        ls | wc -l
+    else
+        ls "$1" | wc -l
+    fi
+}
+
+lac(){
+    if (( $# == 0 ));
+    then
+        echo $[ `la | wc -l` - 1 ]
+    else
+        echo $[ `la "$1" | wc -l` - 1 ]
+    fi
+}
 
 up(){
     local old=`pwd`
