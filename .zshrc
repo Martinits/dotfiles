@@ -171,7 +171,7 @@ dumpinto(){
         echo Directory "$1" exists and not empty
         return 1
     fi
-    mv `ls | grep -v "$1"` "$1"
+    ls -A | grep -v "$1" | xargs -I file mv file "$1"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
