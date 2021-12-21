@@ -171,7 +171,7 @@ dumpinto(){
         echo Directory "$1" exists and not empty
         return 1
     fi
-    ls -A | grep -v "$1" | xargs -I file mv file "$1"
+    ls -A | grep -v "^$1$" | xargs -I file mv file "$1"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -192,3 +192,5 @@ compinit
 
 # https://github.com/arzzen/calc.plugin.zsh
 source $HOME/.oh-my-zsh/plugins/calc/calc.plugin.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
