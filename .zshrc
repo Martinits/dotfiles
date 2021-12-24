@@ -114,6 +114,8 @@ alias lt='ls -lht'
 alias rr='rm -r'
 alias ra='ranger'
 alias rf='rm -rf'
+alias sudo='sudo -E '
+alias sd='sudo -E '
 
 export LC_ALL="en_US.UTF-8"
 export PATH="/var/lib/snapd/snap/bin:$PATH"
