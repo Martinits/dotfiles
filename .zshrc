@@ -178,6 +178,10 @@ dumpinto(){
     ls -A | grep -v "^$1$" | xargs -I file mv file "$1"
 }
 
+if [ -f ~/.zshrc.thismachine ] ; then
+	source ~/.zshrc.thismachine
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Lines configured by zsh-newuser-install
