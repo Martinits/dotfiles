@@ -1,0 +1,67 @@
+# xas - xrandr auto switch
+# Used to switch between monitors
+# Usage:
+#	xas 0  - switch to main monitor (laptop's screen) 
+#	xas 1  - switch to extra monitor
+#	xas 01 - switch to both monitor, 'xas 10' is the same
+
+xas(){
+	local arr=(`xrandr | grep -P '(?<!dis)connected' | awk '{print $1}'`)
+	
+	if (( $#arr < 1 )) ; then
+		echo "0 monitor detected!" >&2
+		return 1
+	fi
+	
+	local switch_to_main(){
+		xrandr --output $arr[1] --auto
+		for i in ${arr[*]:1} ; do
+			xrandr --output $i --off
+		done
+	}
+	
+	local switch_to_extra(){
+		if (( $#arr < 2 )) ; then
+			echo "Less than 2 monitors!" >&2
+			return 1
+		fi
+		xrandr --output $arr[1] --off
+		xrandr --output $arr[2] --auto
+		for i in ${arr[*]:2} ; do
+			xrandr --output $i --off
+		done
+	}
+	
+	local switch_to_both(){
+		if (( $#arr < 2 )) ; then
+			echo "Less than 2 monitors!" >&2
+			return 1
+		fi
+		#xrandr --output $arr[1] --off
+		#xrandr --output $arr[2] --off
+		xrandr --output $arr[2] --auto --pos 0x0
+		xrandr --output $arr[1] --auto --pos 0x1080
+		for i in ${arr[*]:2} ; do
+			xrandr --output $i --off
+		done
+	}
+	
+	case "x$1" in
+		x0)
+			switch_to_main ;;
+		x1)
+			switch_to_extra ;;
+		x01) ;&
+		x10) 
+			switch_to_both ;;
+		x)
+			if (( $#arr == 1 )) ; then
+				switch_to_main
+			elif (( $#arr > 1 )) ; then
+				switch_to_extra
+			fi
+			;;
+		*)
+			echo 'Invalid input!' >&2
+	esac
+}
