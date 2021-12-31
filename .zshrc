@@ -202,3 +202,6 @@ compinit
 source $HOME/.oh-my-zsh/plugins/calc/calc.plugin.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+
+#env export
+export BAT_CONFIG_PATH="$HOME/.config/bat.conf"
