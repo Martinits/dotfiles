@@ -28,7 +28,8 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/Pictures/background.png
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/Pictures/background.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockr -b 20 -i Pictures/lock.png -- --nofork --ignore-empty-password
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -208,7 +209,8 @@ client.background       #ffffff
 new_window 1pixel
 gaps inner 1
 bindsym $mod+x [urgent=latest] focus
-bindsym $mod+Ctrl+l exec --no-startup-id i3lock --nofork -i ~/Pictures/background.png
+#bindsym $mod+Ctrl+l exec --no-startup-id i3lock --nofork -i ~/Pictures/background.png
+bindsym $mod+Ctrl+l exec --no-startup-id i3lockr -b 20 -i Pictures/lock.png -- --nofork --ignore-empty-password
 
 #window settings
 for_window [class="wechat.exe"] floating enable
