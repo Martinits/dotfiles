@@ -502,7 +502,7 @@ hints:
       action: Copy
       post_processing: false
       binding:
-        key: U
+        key: H
         mods: Control|Shift
 
 # Mouse bindings
