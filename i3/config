@@ -211,6 +211,11 @@ gaps inner 1
 bindsym $mod+x [urgent=latest] focus
 #bindsym $mod+Ctrl+l exec --no-startup-id i3lock --nofork -i ~/Pictures/background.png
 bindsym $mod+Ctrl+l exec --no-startup-id i3lockr -b 100 -i Pictures/lock.png -- --nofork --ignore-empty-password
+bindsym $mod+Ctrl+j workspace prev
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+k workspace next
+bindsym $mod+Ctrl+Right workspace next
+
 
 #window settings
 for_window [class="wechat.exe"] floating enable
