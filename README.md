@@ -14,4 +14,5 @@
     - picom
     - ranger
     - polybar
+    - redshift
 
