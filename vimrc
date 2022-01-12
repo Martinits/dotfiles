@@ -36,10 +36,10 @@ Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
-Plug 'iamcco/markdown-preview.nvim'
+" Plug 'iamcco/markdown-preview.nvim'
 Plug 'dhruvasagar/vim-table-mode'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -50,3 +50,4 @@ let g:SnazzyTransparent = 0
 
 set showcmd
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set clipboard=unnamedplus
