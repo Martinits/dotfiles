@@ -116,12 +116,10 @@ alias ra='ranger'
 alias rf='rm -rf'
 alias sudo='sudo -E '
 alias sd='sudo -E '
-alias sdn='shutdown now'
+alias sdn='shutdown -h now'
 alias rbt='reboot'
 
 export LC_ALL="en_US.UTF-8"
-export PATH="/var/lib/snapd/snap/bin:$PATH"
-export VDPAU_DRIVER=radeonsi
 
 lc(){
     if (( $# == 0 ));
