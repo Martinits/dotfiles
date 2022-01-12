@@ -1,3 +1,18 @@
+[alias]
+    a = add
+    aa = add -A
+    b = branch
+    ba = branch -a
+    c = commit -m
+    ck = checkout
+    d = diff
+    s = status
+    cl = clone
+    cld = clone --depth 1
+    ud = reset HEAD~1
+    p = push
+    pl = pull
+
 [user]
 	email = mamartinitramam@163.com
 	name = Martinits
