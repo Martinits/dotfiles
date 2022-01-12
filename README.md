@@ -13,4 +13,5 @@
     - i3
     - picom
     - ranger
+    - polybar
 
