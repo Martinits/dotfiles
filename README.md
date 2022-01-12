@@ -15,4 +15,5 @@
     - ranger
     - polybar
     - redshift
+    - rofi
 
