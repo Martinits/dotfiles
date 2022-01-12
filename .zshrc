@@ -118,6 +118,13 @@ alias sudo='sudo -E '
 alias sd='sudo -E '
 alias sdn='shutdown -h now'
 alias rbt='reboot'
+alias .1='..'
+alias .2='...'
+alias .3='....'
+alias .4='.....'
+alias .5='......'
+alias v='vim'
+alias cat='bat'
 
 export LC_ALL="en_US.UTF-8"
 
