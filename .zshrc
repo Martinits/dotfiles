@@ -195,6 +195,22 @@ dumpinto(){
     ls -A | grep -v "^$1$" | xargs -I file mv file "$1"
 }
 
+swap(){
+    if (( $# != 2 )) ; then
+        echo "Exact 2 command line arguments needed!" >&2
+        return 1
+    fi
+    local tmpnames=(tmp.$$ .tmp.$$ tmp temp .tmp .temp)
+    for ((i = 1; i <= $#tmpnames; i++)) ; do
+        if [ ! -f "$i" ] ; then
+            mv "$1" $tmpnames[i] && mv "$2" "$1" && mv $tmpnames[i] "$2"
+            return 0
+        fi
+    done
+    echo "tmpfile names are all in conflict!" >$2
+    return 1
+}
+
 if [ -f ~/.zshrc.thismachine ] ; then
 	source ~/.zshrc.thismachine
 fi
