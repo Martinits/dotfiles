@@ -131,6 +131,14 @@ alias mv='mv -iv'
 alias ln='ln -iv'
 alias md='mkdir -v'
 alias rm='rm -iv'
+alias cs='cowsay'
+alias ft='figlet'
+alias gaa='git add -A'
+alias gpl='git pull'
+alias gp='git push'
+alias gc='git commit -vm'
+alias gd='git diff'
+alias gs='git status'
 
 lc(){
     if (( $# == 0 ));
