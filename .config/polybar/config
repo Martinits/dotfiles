@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #cc333333
+background = #cc222222
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -31,9 +31,9 @@ alert = #bd2c40
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 30
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+offset-x = 0%
+offset-y = 0%
+radius = 0.0
 fixed-center = false
 
 background = ${colors.background}
@@ -43,11 +43,11 @@ line-size = 4
 line-color = #f00
 
 border-size = 1
-border-color = #00000000
+border-color = ${colors.background}
 border-top-size = 5
-border-top-color = #00000000
-border-bottom-size = 5
-border-bottom-color = #00000000
+border-top-color = ${colors.background}
+border-bottom-size = 3
+border-bottom-color = ${colors.background}
 
 padding-left = 1
 padding-right = 1
