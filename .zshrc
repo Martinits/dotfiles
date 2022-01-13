@@ -125,8 +125,12 @@ alias .4='.....'
 alias .5='......'
 alias v='vim'
 alias cat='bat'
-
-export LC_ALL="en_US.UTF-8"
+alias dud='du -hd1'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias ln='ln -iv'
+alias md='mkdir -v'
+alias rm='rm -iv'
 
 lc(){
     if (( $# == 0 ));
@@ -161,7 +165,7 @@ up(){
 }
 
 mkcd(){
-    mkdir -p $1 && cd $1
+    mkdir -vp $1 && cd $1
 }
 
 dumpinto(){
@@ -210,3 +214,4 @@ source /usr/share/fzf/key-bindings.zsh
 
 #env export
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
+export LC_ALL="en_US.UTF-8"
