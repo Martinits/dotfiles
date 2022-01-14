@@ -217,7 +217,7 @@ bindsym $mod+r mode "resize"
 # client.background       #ffffff
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
+client.focused          #606c64 #606c64 #ffffff #dddddd   #606c64
 client.focused_inactive #212121 #212121 #86888c #292d2e   #5a5a5a
 client.unfocused        #212121 #212121 #86888c #292d2e   #5a5a5a
 client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
@@ -233,7 +233,7 @@ gaps outer 2
 default_border          none
 default_floating_border none
 # hide_edge_borders       none
-for_window [class="wechat.exe"] floating enable
+for_window [class="Wine"] floating enable
 
 # autostart
 exec --no-startup-id qv2ray
@@ -246,3 +246,4 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id xset m 3/1 0
 exec_always --no-startup-id xset s 600 600
 exec_always --no-startup-id xset dpms 1800 1800 1800
+exec_always --no-startup-id flameshot
