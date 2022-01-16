@@ -10,10 +10,11 @@
     - alacritty
     - bat
     - conky
+    - dunst
     - i3
     - picom
-    - ranger
     - polybar
+    - ranger
     - redshift
     - rofi
 
