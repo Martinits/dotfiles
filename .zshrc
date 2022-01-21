@@ -260,4 +260,5 @@ export LC_ALL="en_US.UTF-8"
 # zsh plugins
 # zsh-autocomplete
 zstyle ':autocomplete:*' recent-dirs zoxide
+zstyle ':autocomplete:*' fzf-completion yes
 source ~/.zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
