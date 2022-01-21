@@ -77,7 +77,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z sudo zsh-autosuggestions zsh-syntax-highlighting)
+plugins=( git
+          zoxide
+          sudo
+          zsh-autosuggestions
+          zsh-syntax-highlighting
+          colored-man-pages
+          copyfile
+          cp
+          dircycle
+          history
+        )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,6 +121,8 @@ alias la='ls -lAF'
 alias ll='ls -l'
 alias lh='ls -lh'
 alias lt='ls -lht'
+alias rr='\rm -rv'
+alias rf='\rm -rfv'
 alias rm='echo "Do you really want RM ??? Use th to trash!"; false'
 alias th='trash'
 alias thp='trash-put'
@@ -118,9 +130,6 @@ alias thl='trash-list'
 alias the='trash-empty'
 alias thr='trash-restore'
 alias thrm='trash-rm'
-alias rr='rm -rv'
-alias ra='ranger'
-alias rf='rm -rfv'
 alias sudo='sudo -E '
 alias sd='sudo -E '
 alias sdn='shutdown -h now'
@@ -130,6 +139,7 @@ alias .2='...'
 alias .3='....'
 alias .4='.....'
 alias .5='......'
+alias ra='ranger'
 alias v='vim'
 alias cat='bat'
 alias dud='du -hd1'
