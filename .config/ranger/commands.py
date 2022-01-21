@@ -38,19 +38,19 @@ class mkcd(Command):
             self.fm.notify("file/directory exists!", bad=True)
 
 
-class z(Command):
-    """:z
-    Uses .z file to set the current directory.
-    """
-
-    def execute(self):
-        # location of rupa z source file
-        z_loc = "$HOME/.oh-my-zsh/plugins/z/z.sh" # getenv("_Z_SRC")
-        try:
-            arguments = 'source {} && _z -e {}'.format(
-                z_loc, " ".join(self.args[1:]))
-            cmd = ['zsh', '-c', arguments]
-            directory = check_output(cmd).decode("utf-8").rstrip("\n")
-            self.fm.execute_console("cd " + directory)
-        except Exception as e:
-            raise Exception("Directory not found")
+# class z(Command):
+#     """:z
+#     Uses .z file to set the current directory.
+#     """
+# 
+#     def execute(self):
+#         # location of rupa z source file
+#         z_loc = "$HOME/.oh-my-zsh/plugins/z/z.sh" # getenv("_Z_SRC")
+#         try:
+#             arguments = 'source {} && _z -e {}'.format(
+#                 z_loc, " ".join(self.args[1:]))
+#             cmd = ['zsh', '-c', arguments]
+#             directory = check_output(cmd).decode("utf-8").rstrip("\n")
+#             self.fm.execute_console("cd " + directory)
+#         except Exception as e:
+#             raise Exception("Directory not found")
