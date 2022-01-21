@@ -244,8 +244,8 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/martinit/.zshrc'
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 # End of lines added by compinstall
 
 # https://github.com/arzzen/calc.plugin.zsh
@@ -256,3 +256,8 @@ source /usr/share/fzf/key-bindings.zsh
 #env export
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
 export LC_ALL="en_US.UTF-8"
+
+# zsh plugins
+# zsh-autocomplete
+zstyle ':autocomplete:*' recent-dirs zoxide
+source ~/.zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
