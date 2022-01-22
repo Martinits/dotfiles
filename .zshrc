@@ -248,17 +248,20 @@ zstyle :compinstall filename '/home/martinit/.zshrc'
 # compinit
 # End of lines added by compinstall
 
+export LC_ALL="en_US.UTF-8"
+
 # https://github.com/arzzen/calc.plugin.zsh
 source $HOME/.oh-my-zsh/plugins/calc/calc.plugin.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-#env export
+# bat
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
-export LC_ALL="en_US.UTF-8"
 
-# zsh plugins
 # zsh-autocomplete
-zstyle ':autocomplete:*' recent-dirs zoxide
-zstyle ':autocomplete:*' fzf-completion yes
-source ~/.zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#zstyle ':autocomplete:*' recent-dirs zoxide
+#zstyle ':autocomplete:*' fzf-completion yes
+#source ~/.zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# fzf
+source ~/.fzf.zsh
