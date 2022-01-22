@@ -1,8 +1,16 @@
+# fzf with zsh
+
+# default keybindings
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+# custom config
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --info=inline'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 _fzf_compgen_path() {
   fd --hidden --exclude ".git" . "$1"
