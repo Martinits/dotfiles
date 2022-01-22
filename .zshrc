@@ -122,7 +122,7 @@ setopt autocd beep extendedglob notify nonomatch
 bindkey -e
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/martinit/.zshrc'
+# zstyle :compinstall filename '/home/martinit/.zshrc'
 # autoload -Uz compinit
 # compinit
 # End of lines added by compinstall
