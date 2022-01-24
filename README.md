@@ -17,4 +17,5 @@
     - ranger
     - redshift
     - rofi
-
+- .fzf.zsh - fzf config
+- .func.zsh - custom shell functions
