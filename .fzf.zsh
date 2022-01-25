@@ -6,12 +6,20 @@ source /usr/share/fzf/key-bindings.zsh
 
 # custom config
 export FZF_COMPLETION_TRIGGER='~~'
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d"
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --info=inline'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --info=inline
+                         --bind 'ctrl-c:cancel'
+                         --bind 'ctrl-g:last'
+                         --bind 'ctrl-f:first'
+                         --bind 'ctrl-b:reload($FZF_DEFAULT_COMMAND)'
+                         --bind 'ctrl-h:reload($FZF_DEFAULT_COMMAND --hidden)' "
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'
+                       --bind 'ctrl-b:reload($FZF_ALT_C_COMMAND)'
+                       --bind 'ctrl-h:reload($FZF_ALT_C_COMMAND --hidden)' "
 
+# ~~ completion
 _fzf_compgen_path() {
   fd --hidden --exclude ".git" . "$1"
 }
@@ -95,6 +103,7 @@ bind-git-helper() {
 bind-git-helper f b t r h s
 unset -f bind-git-helper
 
+#rga-fzf
 rga-fzf() {
 	RG_PREFIX="rga --files-with-matches"
 	local file
