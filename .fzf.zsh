@@ -114,6 +114,5 @@ rga-fzf() {
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
 	)" &&
-	echo "opening $file" &&
-	xdg-open "$file"
+	echo -n "$file"
 }
