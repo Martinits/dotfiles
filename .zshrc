@@ -119,7 +119,17 @@ SAVEHIST=1000
 
 # zsh options
 setopt autocd beep extendedglob notify nonomatch
-bindkey -e
+bindkey -v
+
+function zle-keymap-select {
+	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+		echo -ne '\e[1 q'
+	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+echo -ne '\e[5 q'
 
 # The following lines were added by compinstall
 # zstyle :compinstall filename '/home/martinit/.zshrc'
