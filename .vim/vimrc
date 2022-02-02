@@ -1,6 +1,12 @@
 if &t_Co > 1
   syntax on
 endif
+set encoding=UTF-8
+set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
 set number
 set cursorline
 set wrap
@@ -11,13 +17,16 @@ exec "nohlsearch"
 set incsearch
 set ignorecase
 set smartcase
-set nocompatible
 set ttimeout
 set ttimeoutlen=100
-filetype on
-filetype indent on
-filetype plugin on
-filetype plugin indent on
+set showcmd
+set tabstop=4
+set softtabstop=0
+set expandtab
+set shiftwidth=2
+set smarttab
+set clipboard=unnamedplus
+
 if has('mouse')
   set mouse=a
 endif
@@ -28,47 +37,145 @@ set listchars=tab:▸\ ,trail:▫
 set backspace=indent,eol,start
 set iskeyword+=-
 set autochdir
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 set scrolloff=3
+set foldmethod=indent
+set foldlevel=99
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'connorholyday/vim-snazzy'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'preservim/nerdtree'
-Plug 'dense-analysis/ale'
-Plug 'preservim/tagbar'
-Plug 'mbbill/undotree'
-" Plug 'iamcco/markdown-preview.nvim'
-Plug 'dhruvasagar/vim-table-mode'
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'vimwiki/vimwiki'
-Plug 'junegunn/fzf'
-
-call plug#end()
-
-" colorscheme molokai
-color snazzy
-let g:SnazzyTransparent = 0
-
-
-set showcmd
-set tabstop=4
-set softtabstop=0
-set expandtab
-set shiftwidth=2
-set smarttab
-
-set clipboard=unnamedplus
-set completeopt-=preview
-runtime! ftplugin/man.vim
-
+" keymaps
+let mapleader=" "
+" fast move
 noremap H 5h
 noremap J 5j
 noremap K 5k
 noremap L 5l
+noremap <C-e> $
+noremap <C-s> 0
+" search result
+noremap = nzz
+noremap - Nzz
+" nohlsearch
+noremap <LEADER>h :nohlsearch<CR>
+" number
+noremap <LEADER>n :set relativenumber!<CR>
+" command
+noremap ; :
+" split window
+map Sh :set nosplitright<CR>:vsplit<CR>
+map Sj :set splitbelow<CR>:split<CR>
+map Sk :set nosplitbelow<CR>:split<CR>
+map Sl :set splitright<CR>:vsplit<CR>
+map SH <C-w>H
+map SJ <C-w>J
+map SK <C-w>K
+map SL <C-w>L
+map sh <C-w>h
+map sj <C-w>j
+map sk <C-w>k
+map sl <C-w>l
+map s< <C-w><
+map s> <C-w>>
+map s- <C-w>-
+map s= <C-w>+
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'connorholyday/vim-snazzy'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'preservim/nerdtree' |
+  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+  \ Plug 'ryanoasis/vim-devicons' |
+  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'dense-analysis/ale'
+Plug 'preservim/tagbar'
+Plug 'mbbill/undotree'
+" Plug 'dhruvasagar/vim-table-mode'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/vim-peekaboo'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/vim-cursorword'
+Plug 'jiangmiao/auto-pairs'
+Plug 'gcmt/wildfire.vim'
+Plug 'godlygeek/tabular'
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+call plug#end()
+
+" color and themes
+" airline
+let g:airline_theme='dark'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = '  '
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = ' ☰'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nnoremap <LEADER>t :tabnew<CR>
+nmap <LEADER>1 <Plug>AirlineSelectTab1
+nmap <LEADER>2 <Plug>AirlineSelectTab2
+nmap <LEADER>3 <Plug>AirlineSelectTab3
+nmap <LEADER>4 <Plug>AirlineSelectTab4
+nmap <LEADER>5 <Plug>AirlineSelectTab5
+nmap <LEADER>6 <Plug>AirlineSelectTab6
+nmap <LEADER>7 <Plug>AirlineSelectTab7
+nmap <LEADER>8 <Plug>AirlineSelectTab8
+nmap <LEADER>9 <Plug>AirlineSelectTab9
+nmap <LEADER>0 <Plug>AirlineSelectTab0
+nmap <LEADER>- <Plug>AirlineSelectPrevTab
+nmap <LEADER>= <Plug>AirlineSelectNextTab
+" colortheme
+color snazzy
+let g:SnazzyTransparent = 0
+
+" ycm
+set completeopt-=preview
+let g:ycm_auto_hover=""
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nmap g/ <Plug>(YCMHover)
+nnoremap gt :YcmCompleter GetType<CR>
+nnoremap gr :YcmCompleter GoToReferences<CR>
+
+" man
+runtime! ftplugin/man.vim
+
+" nerdtree
+noremap tt :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" undotree
+nnoremap <F5> :UndotreeToggle<CR>
+if has("persistent_undo")
+  let target_path = expand('~/.undodir')
+
+  " create the directory and any parent directories
+  " if the location does not exist.
+  if !isdirectory(target_path)
+    call mkdir(target_path, "p", 0700)
+  endif
+
+  let &undodir=target_path
+  set undofile
+endif
+
+" tabularize
+noremap tb :Tabularize<SPACE>
