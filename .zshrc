@@ -120,6 +120,9 @@ SAVEHIST=1000
 # zsh options
 setopt autocd beep extendedglob notify nonomatch
 bindkey -v
+bindkey '^ ' autosuggest-accept
+bindkey '^f' forward-word
+bindkey '^b' backward-word
 
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
