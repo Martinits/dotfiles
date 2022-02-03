@@ -109,7 +109,12 @@ Plug 'itchyny/vim-cursorword'
 Plug 'jiangmiao/auto-pairs'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
-" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Plug 'tmhedberg/SimpylFold'
+Plug 'Konfekt/FastFold'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " color and themes
