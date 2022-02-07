@@ -90,12 +90,12 @@ map s= <C-w>+
 " arrows in command mode
 cnoremap <C-s> <Home>
 cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
 cnoremap <C-h> <Left>
 cnoremap <C-l> <Right>
-cnoremap <C-j> <C-Left>
-cnoremap <C-k> <C-Right>
+cnoremap <C-b> <C-Left>
+cnoremap <C-f> <C-Right>
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
