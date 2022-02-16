@@ -84,7 +84,7 @@ alias .4='.....'
 alias .5='......'
 alias ra='ranger'
 alias v='vim'
-alias cat='bat'
+# alias cat='bat'
 alias dud='du -hd1'
 alias cp='cp -iv'
 alias mv='mv -iv'
@@ -129,6 +129,7 @@ bindkey '^l' vi-forward-char
 bindkey '^h' vi-backward-char
 bindkey '^s' beginning-of-line
 bindkey '^e' end-of-line
+bindkey '^o' clear-screen
 
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
