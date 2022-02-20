@@ -27,6 +27,7 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set autoindent
+set smartindent
 set clipboard=unnamedplus
 
 if has('mouse')
@@ -119,7 +120,7 @@ Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
   \ Plug 'ryanoasis/vim-devicons' |
   \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode'
@@ -214,7 +215,7 @@ if has("persistent_undo")
 endif
 
 " tabularize
-noremap tb :Tabularize<SPACE>
+noremap tb :Tabularize<SPACE>/
 
 " highlighting yank
 let g:highlightedyank_highlight_duration = 500
@@ -249,3 +250,8 @@ autocmd FileType python setlocal foldmethod=indent
 
 " localvimrc
 let g:localvimrc_ask = 0
+
+" gitgutter
+nmap <LEADER>gp <Plug>(GitGutterPreviewHunk)
+nmap <LEADER>gs <Plug>(GitGutterStageHunk)
+nmap <LEADER>gu <Plug>(GitGutterUndoHunk)
