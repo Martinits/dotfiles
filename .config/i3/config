@@ -246,7 +246,7 @@ for_window [class="com.alibabainc.dingtalk"] floating enable
 exec --no-startup-id qv2ray
 #exec --no-startup-id fcitx5 -d
 exec --no-startup-id redshift-gtk
-exec_always --no-startup-id picom
+exec_always --no-startup-id picom --experimental-backends -bc
 exec_always --no-startup-id ~/.fehbg &
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
