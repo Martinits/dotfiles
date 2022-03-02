@@ -255,3 +255,6 @@ let g:localvimrc_ask = 0
 nmap <LEADER>gp <Plug>(GitGutterPreviewHunk)
 nmap <LEADER>gs <Plug>(GitGutterStageHunk)
 nmap <LEADER>gu <Plug>(GitGutterUndoHunk)
+
+" indentline
+let g:vim_json_conceal=0
