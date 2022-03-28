@@ -114,11 +114,11 @@ fi
 
 # command history
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
 
 # zsh options
-setopt autocd beep extendedglob notify nonomatch
+setopt autocd beep extendedglob notify nonomatch hist_ignore_all_dups
 bindkey -v
 bindkey '^ ' autosuggest-accept
 bindkey '^f' forward-word
