@@ -60,10 +60,11 @@ export LC_ALL="en_US.UTF-8"
 # export ARCHFLAGS="-arch x86_64"
 
 # aliases
-alias la='ls -lAF'
-alias ll='ls -l'
-alias lh='ls -lh'
-alias lt='ls -lht'
+alias exa='exa --icons '
+alias l='exa -l'
+alias ll='exa -la'
+alias lt='exa -la -s newest'
+alias ltt='exa -T'
 alias rr='\rm -rv'
 alias rf='\rm -rfv'
 alias rm='echo "Do you really want RM ??? Use th to trash!"; false'
