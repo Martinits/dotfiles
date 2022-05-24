@@ -1,0 +1,54 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  - trigger: ":datime"
+    replace: "{{datime}}"
+    vars:
+      - name: datime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M"
+
+  - trigger: ":today"
+    replace: "{{today}}"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":now"
+    replace: "{{now}}"
+    vars:
+      - name: now
+        type: date
+        params:
+          format: "%H:%M"
+
+  - trigger: ":time"
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M:%S"
+
+  # Print the output of a shell command
+  - trigger: ":ip"
+    replace: "{{getip}}"
+    vars:
+      - name: getip
+        type: shell
+        params:
+          cmd: "ip a | rg -o '(\\d+\\.){3}\\d+' | rg -v 127.0.0.1 | rg -v 172. | rg -v .255"
+
