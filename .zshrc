@@ -173,3 +173,6 @@ export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
 
 # fzf
 source ~/.fzf.zsh
+
+# thefuck
+eval $(thefuck --alias)
