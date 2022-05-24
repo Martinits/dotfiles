@@ -55,6 +55,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export LC_ALL="en_US.UTF-8"
+export VISUAL="/usr/bin/vim"
+export EDITOR="$VISUAL"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
