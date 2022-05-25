@@ -176,3 +176,6 @@ source ~/.fzf.zsh
 
 # thefuck
 eval $(thefuck --alias)
+
+# direnv
+eval "$(direnv hook zsh)"
