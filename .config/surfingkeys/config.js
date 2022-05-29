@@ -50,3 +50,4 @@ api.addSearchAlias('u', 'github', 'https://github.com/search?q=', 's', null, fun
         return r.phrase;
     });
 });
+api.unmap('<Ctrl-j>');
