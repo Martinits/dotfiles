@@ -161,7 +161,7 @@ precmd_functions+=(_fix_cursor)
 # End of lines added by compinstall
 
 # calc.plugin.zsh
-source $HOME/.oh-my-zsh/plugins/calc/calc.plugin.zsh
+source $HOME/.oh-my-zsh/custom/plugins/calc/calc.plugin.zsh
 
 # bat
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
