@@ -86,7 +86,7 @@ alias .3='....'
 alias .4='.....'
 alias .5='......'
 alias ra='ranger'
-alias v='vim'
+alias v='nvim'
 alias nv='nvim'
 # alias cat='bat'
 alias dud='du -hd1'
@@ -181,3 +181,6 @@ eval $(thefuck --alias)
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# ruby env
+export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
