@@ -108,6 +108,7 @@ Plug 'preservim/nerdtree' |
   \ Plug 'ryanoasis/vim-devicons' |
   \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'puremourning/vimspector'
+Plug 'kevinhwang91/rnvimr'
 " Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
@@ -374,3 +375,19 @@ nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<CR>
 " vimspector
 let g:vimspector_base_dir='/home/martinit/.local/share/nvim/plugged/vimspector'
 
+" rnvimr
+tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <M-o> :RnvimrToggle<CR>
+tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+" Make Ranger replace Netrw and be the file explorer
+let g:rnvimr_enable_ex = 1
+" Make Ranger to be hidden after picking a file
+let g:rnvimr_enable_picker = 1
+highlight link RnvimrNormal CursorLine
+let g:rnvimr_action = {
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-x>': 'NvimEdit split',
+            \ '<C-v>': 'NvimEdit vsplit',
+            \ 'gw': 'JumpNvimCwd',
+            \ 'yw': 'EmitRangerCwd'
+            \ }
