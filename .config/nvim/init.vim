@@ -62,22 +62,22 @@ nnoremap : ;
 vnoremap ; :
 vnoremap : ;
 " split window
-noremap Qh :set nosplitright<CR>:vsplit<CR>
-noremap Qj :set splitbelow<CR>:split<CR>
-noremap Qk :set nosplitbelow<CR>:split<CR>
-noremap Ql :set splitright<CR>:vsplit<CR>
-noremap QH <C-w>H
-noremap QJ <C-w>J
-noremap QK <C-w>K
-noremap QL <C-w>L
-noremap qh <C-w>h
-noremap qj <C-w>j
-noremap qk <C-w>k
-noremap ql <C-w>l
-noremap q, <C-w><
-noremap q. <C-w>>
-noremap q- <C-w>-
-noremap q= <C-w>+
+" noremap Qh :set nosplitright<CR>:vsplit<CR>
+" noremap Qj :set splitbelow<CR>:split<CR>
+" noremap Qk :set nosplitbelow<CR>:split<CR>
+" noremap Ql :set splitright<CR>:vsplit<CR>
+" noremap QH <C-w>H
+" noremap QJ <C-w>J
+" noremap QK <C-w>K
+" noremap QL <C-w>L
+" noremap qh <C-w>h
+" noremap qj <C-w>j
+" noremap qk <C-w>k
+" noremap ql <C-w>l
+" noremap q, <C-w><
+" noremap q. <C-w>>
+" noremap q- <C-w>-
+" noremap q= <C-w>+
 " arrows in command mode
 cnoremap <C-s> <Home>
 cnoremap <C-e> <End>
