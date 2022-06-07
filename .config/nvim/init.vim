@@ -107,6 +107,7 @@ Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
   \ Plug 'ryanoasis/vim-devicons' |
   \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'puremourning/vimspector'
 " Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
@@ -369,3 +370,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x  <Plug>(coc-convert-snippet)
 " coc-yank
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<CR>
+
+" vimspector
+let g:vimspector_base_dir='/home/martinit/.local/share/nvim/plugged/vimspector'
+
