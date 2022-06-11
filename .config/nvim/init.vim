@@ -49,6 +49,8 @@ noremap <C-e> $
 noremap <C-s> ^
 " join two lines (concatenate)
 noremap ct :join<CR>
+" change line
+noremap cc S
 " search result
 noremap = nzz
 noremap - Nzz
@@ -109,11 +111,17 @@ Plug 'preservim/nerdtree' |
   \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'puremourning/vimspector'
 Plug 'kevinhwang91/rnvimr'
+Plug 'svermeulen/vim-subversive'
+Plug 'junegunn/vim-easy-align'
+Plug 'easymotion/vim-easymotion'
+Plug 'lambdalisue/suda.vim'
+Plug 'liuchengxu/vista.vim'
 " Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/fzf'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-peekaboo'
@@ -172,7 +180,7 @@ noremap tt :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " tagbar
-nnoremap <F8> :TagbarToggle<CR>
+" nnoremap <F8> :TagbarToggle<CR>
 
 " undotree
 nnoremap <F5> :UndotreeToggle<CR>
@@ -226,11 +234,6 @@ autocmd FileType python setlocal foldmethod=indent
 " localvimrc
 let g:localvimrc_ask = 0
 
-" gitgutter
-" nmap <LEADER>gp <Plug>(GitGutterPreviewHunk)
-" nmap <LEADER>gs <Plug>(GitGutterStageHunk)
-" nmap <LEADER>gu <Plug>(GitGutterUndoHunk)
-
 " indentline
 let g:vim_json_conceal=0
 
@@ -269,6 +272,7 @@ let g:coc_global_extensions = [
     \ 'coc-tag',
     \ 'coc-texlab',
     \ 'coc-toml',
+    \ 'coc-translator',
     \ 'coc-tsserver',
     \ 'coc-vimlsp',
     \ 'coc-word',
@@ -350,9 +354,9 @@ omap ac <Plug>(coc-classobj-a)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 " Add (Neo)Vim's native statusline support.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Mappings for CoCList
@@ -361,7 +365,7 @@ nnoremap <silent><nowait> <LEADER>d  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <LEADER>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <LEADER>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <LEADER>b  :<C-u>CocList -I symbols<cr>
 " coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
@@ -371,6 +375,8 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x  <Plug>(coc-convert-snippet)
 " coc-yank
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<CR>
+" coc-translator
+nmap <LEADER>ts <Plug>(coc-translator-p)
 
 " vimspector
 let g:vimspector_base_dir='/home/martinit/.local/share/nvim/plugged/vimspector'
@@ -385,9 +391,27 @@ let g:rnvimr_enable_ex = 1
 let g:rnvimr_enable_picker = 1
 highlight link RnvimrNormal CursorLine
 let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
+            \ '<C-t>':  'NvimEdit tabedit',
+            \ '<C-x>':  'NvimEdit split',
+            \ '<C-v>':  'NvimEdit vsplit',
+            \ 'gw':     'JumpNvimCwd',
+            \ 'yw':     'EmitRangerCwd'
             \ }
+
+" subversive
+" s for substitute
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap <LEADER>s <plug>(SubversiveSubstituteRange)
+xmap <LEADER>s <plug>(SubversiveSubstituteRange)
+nmap <LEADER>ss <plug>(SubversiveSubstituteWordRange)
+
+" easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" suda.vim
+let g:suda_smart_edit = 1
+
+" vista
+nnoremap <F8> :Vista!!<CR>
