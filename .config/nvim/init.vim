@@ -1,44 +1,60 @@
-filetype on
-filetype indent on
-filetype plugin on
-filetype plugin indent on
+"
+"                       _   _       _ _   _
+"  _ __ ___   __ _ _ __| |_(_)_ __ (_) |_( )___
+" | '_ ` _ \ / _` | '__| __| | '_ \| | __|// __|
+" | | | | | | (_| | |  | |_| | | | | | |_  \__ \
+" |_| |_| |_|\__,_|_|   \__|_|_| |_|_|\__| |___/
+"
+"                        _                              __ _
+"  _ __   ___  _____   _(_)_ __ ___     ___ ___  _ __  / _(_) __ _
+" | '_ \ / _ \/ _ \ \ / / | '_ ` _ \   / __/ _ \| '_ \| |_| |/ _` |
+" | | | |  __/ (_) \ V /| | | | | | | | (_| (_) | | | |  _| | (_| |
+" |_| |_|\___|\___/ \_/ |_|_| |_| |_|  \___\___/|_| |_|_| |_|\__, |
+"                                                            |___/
+
+
+" ======= AUTO INSTALL VIM-PLUG =======
+if empty(glob($HOME.'/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+" ======= BASIC NVIM CONFIG =======
 set number
 set relativenumber
 set cursorline
 set wrap
-set hidden
-exec "nohlsearch"
+set autochdir
 set ignorecase
 set smartcase
-set ttimeout
-set ttimeoutlen=100
+set timeoutlen=50
 set updatetime=100
 set shortmess+=c
-
 set tabstop=8
 set softtabstop=4
-set expandtab
 set shiftwidth=4
 set smartindent
 set clipboard=unnamedplus
 set signcolumn=yes
-
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
-let &t_ut=''
+" let &t_ut=''
 set list
 set listchars=tab:▸\ ,trail:▫
-set autochdir
 set scrolloff=3
 set foldmethod=indent
 set foldlevel=99
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set inccommand=split
+set visualbell
+set virtualedit=block
+" return to last editing place
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" terminal setting
+autocmd TermOpen term://* startinsert
 
-" keymaps
+" ======= KEY MAPPINGS =======
 let mapleader=" "
 " fast move
 noremap H 7h
@@ -49,8 +65,6 @@ noremap <C-e> $
 noremap <C-s> ^
 " join two lines (concatenate)
 noremap ct :join<CR>
-" change line
-noremap cc S
 " search result
 noremap = nzz
 noremap - Nzz
@@ -99,7 +113,8 @@ inoremap <C-e> <End>
 " inoremap <C-b> <C-Left>
 " inoremap <C-f> <C-Right>
 
-call plug#begin('~/.local/share/nvim/plugged')
+" ======= PLUGINS VIA VIM-PLUG =======
+call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
