@@ -37,7 +37,7 @@
 |          | \<C-JK\>                    | history forward/backward                                |
 |          | \<C-WU\>                    | delete word/till line start                             |
 |          | \<C-D\>                     | show completion list                                    |
-|          | /pattern/{num,b,e} ?        | search    p                                             |
+|          | /pattern/{num,b,e} ?        | search p                                                |
 |          | {num},{num}                 | line ranger: can use: % ^ . $ + - ? / '                 |
 |          | {num}:                      | equal to :.,.+{num-1}                                   |
 |          | s/pattern/replace/gc        | search and replace                                      |
@@ -56,7 +56,7 @@
 |          | \<LEADER\>tdd tdc           | table mode delete row or line                           |
 |          | \<LEADER\>tic tiC           | table mode insert column after or before                |
 |          | [\| ]\| {\| }\|             | table mode move left right up down                      |
-|          | \<F8\>                      | tagbar toggle                                           |
+|          | \<F8\>                      | tagbar toggle / vista toggle                            |
 |          | \<F5\>                      | undo tree toggle                                        |
 |          | tb                          | tabularize                                              |
 |          | " @ \<C-r\>                 | peekaboo: show registers                                |
@@ -77,11 +77,29 @@
 |          | dsx                         | delete surround x                                       |
 |          | yiswx                       | add surround x                                          |
 |          | Sx                          | add surround x in visual mode                           |
-|          | [c ]c                       | gitgutter next/prev hunk                                |
-|          | \<LEADER\>gs/p/u            | gitgutter stage/preview/undo hunk                       |
+|          | \<UNUSED\> [c ]c            | gitgutter next/prev hunk                                |
+|          | \<UNUSED\> \<LEADER\>gs/p/u | gitgutter stage/preview/undo hunk                       |
+|          | \<M-o\>                     | rnvimr toggle                                           |
+|          | \<C-t\> \<C-x\> \<C-v\>     | (in rnvimr) tabedit / splitedit /vsplitedit             |
+|          | gw yw                       | (in rnvimr) goto nvim cwd / emt rnvimr cwd              |
+|          | s ss                        | subversive substitute (line)                            |
+|          | \<LEADER\>s ss              | subversive substitute range / word range                |
+|          | ga                          | easy align                                              |
+|          | \<LEADER\>\<LEADER\>w f[c]  | easymotion: jump to word / find and jump to some char   |
+| coc      | \<LEADER\>rn                | rename variable                                         |
+|          | \<LEADER\>- = d             | diagnostic prev / next / show all                       |
+|          | gd gt gi gr                 | goto def typedef imple reference                        |
+|          | gm                          | show man                                                |
+|          | \<LEADER\>f                 | format                                                  |
+|          | \<LEADER\>a ac              | code action for selected and whole buffer               |
+|          | \<LEADER\>o b               | find / show symbols                                     |
+|          | \<LEADER\>y                 | yank history                                            |
+|          | \<LEADER\>ts                | translate                                               |
+|          | \<C-j\> \<C-k\>             | snippet prev / next entry                               |
 | text obj | i\| a\|                     | table entry text object                                 |
 |          | i% a%                       | pairs                                                   |
-|          | ic ac                       | gitgutter hunk                                          |
+|          | \<UNUSED\> ic ac            | gitgutter hunk                                          |
 |          | % [% ]% z% i% a%            | matchpairs and text objects                             |
-
+|          | if af                       | function                                                |
+|          | ic ac                       | classobj                                                |
 
