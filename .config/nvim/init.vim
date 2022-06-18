@@ -20,6 +20,7 @@ if empty(glob($HOME.'/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+
 " ======= BASIC NVIM CONFIG =======
 set number
 set relativenumber
@@ -28,12 +29,14 @@ set wrap
 set autochdir
 set ignorecase
 set smartcase
-set timeoutlen=50
+set timeoutlen=500
+set ttimeoutlen=100
 set updatetime=100
 set shortmess+=c
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 set smartindent
 set clipboard=unnamedplus
 set signcolumn=yes
@@ -44,8 +47,6 @@ endif
 set list
 set listchars=tab:▸\ ,trail:▫
 set scrolloff=3
-set foldmethod=indent
-set foldlevel=99
 set inccommand=split
 set visualbell
 set virtualedit=block
@@ -53,6 +54,9 @@ set virtualedit=block
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " terminal setting
 autocmd TermOpen term://* startinsert
+" highlight yanked
+au TextYankPost * silent! lua vim.highlight.on_yank({timeout=500})
+
 
 " ======= KEY MAPPINGS =======
 let mapleader=" "
@@ -112,6 +116,8 @@ inoremap <C-e> <End>
 " inoremap <C-l> <Right>
 " inoremap <C-b> <C-Left>
 " inoremap <C-f> <C-Right>
+" find and replace
+noremap \s :%s//gc<left><left><left>
 
 " ======= PLUGINS VIA VIM-PLUG =======
 call plug#begin()
@@ -119,7 +125,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
   \ Plug 'ryanoasis/vim-devicons' |
@@ -132,7 +137,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'lambdalisue/suda.vim'
 Plug 'liuchengxu/vista.vim'
 " Plug 'dense-analysis/ale'
-Plug 'preservim/tagbar'
+" Plug 'preservim/tagbar'
 Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -149,18 +154,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'gcmt/wildfire.vim'
 Plug 'godlygeek/tabular'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'Konfekt/FastFold'
-Plug 'tpope/vim-repeat'
+" Plug 'Konfekt/FastFold'
+" Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 Plug 'andymass/vim-matchup'
 Plug 'embear/vim-localvimrc'
 Plug 'honza/vim-snippets'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
-" color and themes
+
+" ======= COLORS AND THEMES =======
 " airline
-let g:airline_theme='dark'
+let g:airline_theme='desertink' "dark desertink base16_classic ayu_dark base16_monokai
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -191,75 +198,8 @@ nmap <LEADER>= <Plug>AirlineSelectNextTab
 color snazzy
 let g:SnazzyTransparent = 0
 
-" nerdtree
-noremap tt :NERDTreeToggle<CR>
-let g:NERDTreeGitStatusUseNerdFonts = 1
 
-" tagbar
-" nnoremap <F8> :TagbarToggle<CR>
-
-" undotree
-nnoremap <F5> :UndotreeToggle<CR>
-if has("persistent_undo")
-  let target_path = expand('~/.undodir')
-
-  " create the directory and any parent directories
-  " if the location does not exist.
-  if !isdirectory(target_path)
-    call mkdir(target_path, "p", 0700)
-  endif
-
-  let &undodir=target_path
-  set undofile
-endif
-
-" tabularize
-noremap tb :Tabularize<SPACE>/
-
-" highlighting yank
-let g:highlightedyank_highlight_duration = 500
-
-" wildfire
-nmap <leader>s <Plug>(wildfire-quick-select)
-
-" fastfold
-nmap zuz <Plug>(FastFoldUpdate)
-let g:fastfold_savehook = 1
-let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-let g:markdown_folding = 1
-let g:rst_fold_enabled = 1
-let g:tex_fold_enabled = 1
-let g:vimsyn_folding = 'af'
-let g:xml_syntax_folding = 1
-let g:javaScript_fold = 1
-let g:sh_fold_enabled= 7
-let g:zsh_fold_enable = 1
-let g:ruby_fold = 1
-let g:perl_fold = 1
-let g:perl_fold_blocks = 1
-let g:r_syntax_folding = 1
-let g:rust_fold = 1
-let g:php_folding = 1
-let g:fortran_fold=1
-let g:clojure_fold = 1
-let g:baan_fold=1
-autocmd FileType c,cpp setlocal foldmethod=syntax
-autocmd FileType python setlocal foldmethod=indent
-
-" localvimrc
-let g:localvimrc_ask = 0
-
-" indentline
-let g:vim_json_conceal=0
-
-" autopairs
-let g:AutoPairsShortcutToggle = '<M-n>'
-
-" highlight yanked
-au TextYankPost * silent! lua vim.highlight.on_yank({timeout=500})
-
-" ===== coc =====
+" ======= COC SETTINGS =======
 let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-dictionary',
@@ -296,6 +236,7 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ 'coc-yank'
     \ ]
+
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -306,24 +247,29 @@ function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " navigate diagnostics
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 " Use gm to show documentation in preview window.
 nnoremap <silent> gm :call ShowDocumentation()<CR>
 function! ShowDocumentation()
@@ -333,31 +279,33 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * call CocActionAsync('highlight')
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+
 " json comment support
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " Applying codeAction to the selected region.
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
+
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
+
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+
 " Run the Code Lens action on the current line.
 nmap <leader>cl  <Plug>(coc-codelens-action)
+
 " Map function and class text objects
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -367,6 +315,7 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 " Add `:Fold` command to fold current buffer.
@@ -375,13 +324,15 @@ command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 command! -nargs=0 OR     :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 " Add (Neo)Vim's native statusline support.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-" Mappings for CoCList
+
+" CocList
 " Show all diagnostics.
 nnoremap <silent><nowait> <LEADER>d  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <LEADER>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent><nowait> <LEADER>b  :<C-u>CocList -I symbols<cr>
+
 " coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
@@ -389,10 +340,76 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 xmap <leader>x  <Plug>(coc-convert-snippet)
+
 " coc-yank
 nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<CR>
+
 " coc-translator
 nmap <LEADER>ts <Plug>(coc-translator-p)
+
+
+" ======= PLUGINS SETTINGS =======
+" nerdtree
+noremap tt :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" tagbar
+" nnoremap <F8> :TagbarToggle<CR>
+
+" undotree
+nnoremap <F5> :UndotreeToggle<CR>
+if has("persistent_undo")
+  let target_path = expand('~/.undodir')
+
+  " create the directory and any parent directories
+  " if the location does not exist.
+  if !isdirectory(target_path)
+    call mkdir(target_path, "p", 0700)
+  endif
+
+  let &undodir=target_path
+  set undofile
+endif
+
+" tabularize
+noremap tb :Tabularize<SPACE>/
+
+" wildfire
+" nmap <leader>s <Plug>(wildfire-quick-select)
+
+" fastfold
+" nmap zuz <Plug>(FastFoldUpdate)
+" let g:fastfold_savehook = 1
+" let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+" let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+" let g:markdown_folding = 1
+" let g:rst_fold_enabled = 1
+" let g:tex_fold_enabled = 1
+" let g:vimsyn_folding = 'af'
+" let g:xml_syntax_folding = 1
+" let g:javaScript_fold = 1
+" let g:sh_fold_enabled= 7
+" let g:zsh_fold_enable = 1
+" let g:ruby_fold = 1
+" let g:perl_fold = 1
+" let g:perl_fold_blocks = 1
+" let g:r_syntax_folding = 1
+" let g:rust_fold = 1
+" let g:php_folding = 1
+" let g:fortran_fold=1
+" let g:clojure_fold = 1
+" let g:baan_fold=1
+" autocmd FileType c,cpp setlocal foldmethod=syntax
+" autocmd FileType python setlocal foldmethod=indent
+
+" localvimrc
+let g:localvimrc_ask = 0
+
+" indentline
+let g:vim_json_conceal=0
+
+" autopairs
+let g:AutoPairsShortcutToggle = '<M-n>'
 
 " vimspector
 let g:vimspector_base_dir='/home/martinit/.local/share/nvim/plugged/vimspector'
@@ -431,3 +448,20 @@ let g:suda_smart_edit = 1
 
 " vista
 nnoremap <F8> :Vista!!<CR>
+
+" nvim treesitter
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=100
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = {"c", "bash", "go", "rust", "python", "cpp", "lua", "markdown"},
+    highlight = {
+        enable = true,
+        disable = {"vim"},
+    },
+    indent = {
+        enable = true,
+    }
+}
+EOF
