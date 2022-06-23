@@ -40,6 +40,7 @@ set expandtab
 set smartindent
 set clipboard=unnamedplus
 set signcolumn=yes
+set termguicolors
 if has('mouse')
     set mouse=a
 endif
@@ -125,6 +126,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
+Plug 'Iron-E/nvim-highlite'
+Plug 'theniceboy/nvim-deus'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'bbenzikry/snazzybuddy.nvim'
 Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
   \ Plug 'ryanoasis/vim-devicons' |
@@ -161,6 +166,8 @@ Plug 'andymass/vim-matchup'
 Plug 'embear/vim-localvimrc'
 Plug 'honza/vim-snippets'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'RRethy/vim-illuminate'
 call plug#end()
 
 
@@ -210,6 +217,7 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-java',
     \ 'coc-json',
+    \ 'coc-sumneko-lua',
     \ 'coc-marketplace',
     \ 'coc-omni',
     \ 'coc-perl',
@@ -280,7 +288,7 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * call CocActionAsync('highlight')
+"autocmd CursorHold * call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -464,3 +472,12 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 EOF
+
+" vim-hexokinase
+let g:Hexokinase_highlighters = ['backgroundfull']
+
+" vim-illuminate
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=white
+augroup END
