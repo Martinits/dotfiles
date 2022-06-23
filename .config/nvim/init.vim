@@ -126,13 +126,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
-Plug 'Iron-E/nvim-highlite'
 Plug 'theniceboy/nvim-deus'
 Plug 'tjdevries/colorbuddy.nvim'
 Plug 'bbenzikry/snazzybuddy.nvim'
+Plug 'Martinits/nvim-snazzi'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-  \ Plug 'ryanoasis/vim-devicons' |
   \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'puremourning/vimspector'
 Plug 'kevinhwang91/rnvimr'
@@ -201,7 +202,9 @@ nmap <LEADER>- <Plug>AirlineSelectPrevTab
 nmap <LEADER>= <Plug>AirlineSelectNextTab
 
 " colortheme
-color snazzy
+color snazzi
+
+" vim-snazzy
 let g:SnazzyTransparent = 0
 
 
@@ -414,6 +417,7 @@ let g:localvimrc_ask = 0
 
 " indentline
 let g:vim_json_conceal=0
+let g:indentLine_conceallevel = 0
 
 " autopairs
 let g:AutoPairsShortcutToggle = '<M-n>'
