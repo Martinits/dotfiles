@@ -86,6 +86,7 @@
 |          | \<LEADER\>s ss              | subversive substitute range / word range                |
 |          | ga                          | easy align                                              |
 |          | \<LEADER\>\<LEADER\>w f[c]  | easymotion: jump to word / find and jump to some char   |
+|          | gJ gS                       | split / join statements                                 |
 | coc      | \<LEADER\>rn                | rename variable                                         |
 |          | \<LEADER\>- = d             | diagnostic prev / next / show all                       |
 |          | gd gt gi gr                 | goto def typedef imple reference                        |
@@ -102,4 +103,6 @@
 |          | % [% ]% z% i% a%            | matchpairs and text objects                             |
 |          | if af                       | function                                                |
 |          | ic ac                       | classobj                                                |
+| commands | :GenToc[...]                | vim-markdown-toc: generate TOC                          |
+|          | :AGit                       | agit.vim: show git log messages                         |
 

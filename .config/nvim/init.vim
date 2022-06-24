@@ -145,6 +145,9 @@ Plug 'liuchengxu/vista.vim'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 " Plug 'Konfekt/FastFold'
+Plug 'nvim-lua/plenary.nvim' |
+    \ Plug 'nvim-pack/nvim-spectre'
+Plug 'AndrewRadev/splitjoin.vim'
 " text process
 Plug 'svermeulen/vim-subversive'
 Plug 'junegunn/vim-easy-align'
@@ -169,11 +172,15 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'petertriho/nvim-scrollbar'
+Plug 'kevinhwang91/nvim-hlslens'
 " git
-Plug 'tpope/vim-fugitive'
-Plug 'rbong/vim-flog'
+" Plug 'tpope/vim-fugitive'
+" Plug 'rbong/vim-flog'
+Plug 'cohama/agit.vim'
 " others
-Plug 'embear/vim-localvimrc'
+Plug 'klen/nvim-config-local'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 
@@ -417,9 +424,6 @@ noremap tb :Tabularize<SPACE>/
 " autocmd FileType c,cpp setlocal foldmethod=syntax
 " autocmd FileType python setlocal foldmethod=indent
 
-" localvimrc
-let g:localvimrc_ask = 0
-
 " indentline
 let g:vim_json_conceal=0
 let g:indentLine_conceallevel = 0
@@ -446,6 +450,8 @@ let g:rnvimr_action = {
             \ 'gw':     'JumpNvimCwd',
             \ 'yw':     'EmitRangerCwd'
             \ }
+" change ranger colorscheme for alacritty
+let g:rnvimr_ranger_cmd = ['ranger', '--cmd=set colorscheme jungle']
 
 " subversive
 " s for substitute
@@ -496,3 +502,38 @@ augroup illuminate_augroup
     autocmd!
     autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=white
 augroup END
+
+" vim-rooter
+let g:rooter_patterns = ['.git', 'Makefile', 'Cargo.toml', 'init.vim', '.gitignore', 'init.lua', 'package.json']
+
+" nvim-scrollbar
+lua <<EOF
+-- require("scrollbar").setup({
+--     set_highlights = false
+-- })
+-- require("scrollbar").setup()
+require("scrollbar").setup({
+    handle = {
+        color = '#888888',
+    },
+    marks = {
+        Search = { color = '#ff88ff' },
+        Error = { color = '#ff0000' },
+        Warn = { color = '#ff8800' },
+        Info = { color = '#0000ff' },
+        Hint = { color = '#00ff00' },
+        Misc = { color = '#ffff00' },
+    }
+})
+require("scrollbar.handlers.search").setup()
+EOF
+
+" nvim-local-config
+lua <<EOF
+require('config-local').setup {
+    -- Default configuration (optional)
+    config_files = { ".init.lua", ".init.vim" },
+    silent = true,
+    lookup_parents = true,
+}
+EOF
