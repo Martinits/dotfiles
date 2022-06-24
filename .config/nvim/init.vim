@@ -122,7 +122,7 @@ noremap \s :%s//gc<left><left><left>
 
 " ======= PLUGINS VIA VIM-PLUG =======
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" theme, color, highlight
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
@@ -130,45 +130,50 @@ Plug 'theniceboy/nvim-deus'
 Plug 'tjdevries/colorbuddy.nvim'
 Plug 'bbenzikry/snazzybuddy.nvim'
 Plug 'Martinits/nvim-snazzi'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'RRethy/vim-illuminate'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'preservim/nerdtree' |
-  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kshenoy/vim-signature'
+" coding, completion and debug
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
-Plug 'kevinhwang91/rnvimr'
+Plug 'liuchengxu/vista.vim'
+" Plug 'preservim/tagbar'
+Plug 'honza/vim-snippets'
+Plug 'preservim/nerdcommenter'
+" Plug 'Konfekt/FastFold'
+" text process
 Plug 'svermeulen/vim-subversive'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'lambdalisue/suda.vim'
-Plug 'liuchengxu/vista.vim'
-" Plug 'preservim/tagbar'
-Plug 'mbbill/undotree'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'andymass/vim-matchup'
+Plug 'godlygeek/tabular'
+Plug 'gcmt/wildfire.vim'
+" addition
+Plug 'preservim/nerdtree' |
+  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kevinhwang91/rnvimr'
+Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-peekaboo'
-Plug 'kshenoy/vim-signature'
+" git
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
-" Plug 'itchyny/vim-cursorword'
-Plug 'jiangmiao/auto-pairs'
-Plug 'gcmt/wildfire.vim'
-Plug 'godlygeek/tabular'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-" Plug 'Konfekt/FastFold'
-" Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdcommenter'
-Plug 'andymass/vim-matchup'
+" others
 Plug 'embear/vim-localvimrc'
-Plug 'honza/vim-snippets'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'RRethy/vim-illuminate'
 call plug#end()
 
 
@@ -473,6 +478,12 @@ require'nvim-treesitter.configs'.setup {
     },
     indent = {
         enable = true,
+    },
+    -- nvim-ts-rainbow
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
     }
 }
 EOF

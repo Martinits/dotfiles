@@ -47,5 +47,6 @@
     "prettier.formatterPriority": 1,
     "prettier.useTabs": true,
     "prettier.trailingComma": "all",
-    "prettier.singleQuote": false
+    "prettier.singleQuote": false,
+    "Lua.telemetry.enable": false
 }
