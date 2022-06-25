@@ -143,15 +143,16 @@ Plug 'puremourning/vimspector'
 Plug 'liuchengxu/vista.vim'
 " Plug 'preservim/tagbar'
 Plug 'honza/vim-snippets'
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
 " Plug 'Konfekt/FastFold'
 Plug 'nvim-lua/plenary.nvim' |
     \ Plug 'nvim-pack/nvim-spectre'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'numToStr/Comment.nvim'
 " text process
 Plug 'svermeulen/vim-subversive'
 Plug 'junegunn/vim-easy-align'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'lambdalisue/suda.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -163,6 +164,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'andymass/vim-matchup'
 Plug 'godlygeek/tabular'
 Plug 'gcmt/wildfire.vim'
+Plug 'tpope/vim-repeat'
+Plug 'ggandor/lightspeed.nvim'
 " addition
 Plug 'preservim/nerdtree' |
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -537,3 +540,22 @@ require('config-local').setup {
     lookup_parents = true,
 }
 EOF
+
+" nvim-hlslens
+lua <<EOF
+local kopts = {noremap = true, silent = true}
+vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
+EOF
+
+" Comment.nvim
+lua require('Comment').setup()
