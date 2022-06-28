@@ -117,11 +117,14 @@
 |          | [count]gcc gbc gc gb        | comment.nvim: toggle comment in normal / visual         |
 |          | \<C-\\\>                    | toggle terminal                                         |
 |          | \<A-hjkl\>                  | move line(s) or block                                   |
+|          | \<LEADER\>F f fw fp         | nvim-spectre: find and replace                          |
+|          | \<LEADER\>qf rc R           | nvim-spectre: send to quickfix / replace current / all  |
+|          | \<LEADER\>tu ti th          | nvim-spectre: toggle live-update / ignore case / hidden |
 | coc      | \<LEADER\>rn                | rename variable                                         |
 |          | \<LEADER\>- = d             | diagnostic prev / next / show all                       |
 |          | gd gt gi gr                 | goto def typedef imple reference                        |
 |          | gm                          | show man                                                |
-|          | \<LEADER\>f                 | format                                                  |
+|          | \<LEADER\>m                 | format                                                  |
 |          | \<LEADER\>a ac              | code action for selected and whole buffer               |
 |          | \<LEADER\>o b               | find / show symbols                                     |
 |          | \<LEADER\>y                 | yank history                                            |

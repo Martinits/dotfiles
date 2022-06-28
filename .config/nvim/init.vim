@@ -314,8 +314,8 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>m  <Plug>(coc-format-selected)
+nmap <leader>m  <Plug>(coc-format-selected)
 
 " json comment support
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -585,3 +585,9 @@ nnoremap <silent> <A-l> :MoveHChar(1)<CR>
 nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
 vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
 vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
+
+" nvim-spectre
+nnoremap <leader>F <cmd>lua require('spectre').open()<CR>
+nnoremap <leader>fw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>f <cmd>lua require('spectre').open_visual()<CR>
+nnoremap <leader>fp viw:lua require('spectre').open_file_search()<cr>
