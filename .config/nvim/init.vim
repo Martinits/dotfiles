@@ -179,6 +179,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'akinsho/toggleterm.nvim'
+Plug 'kevinhwang91/nvim-bqf'
 " git
 " Plug 'tpope/vim-fugitive'
 " Plug 'rbong/vim-flog'
