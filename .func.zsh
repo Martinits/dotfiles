@@ -70,3 +70,47 @@ swap(){
     echo "tmpfile names are all in conflict!" >$2
     return 1
 }
+
+makeold(){
+    if (( $# != 1 )) ; then
+        echo "Exact 1 command line arguments needed!" >&2
+        return 1
+    fi
+    local oldname="$1.old"
+    if [ -f "$oldname" ] ; then
+        echo "$oldname already exists!" >&2
+        return 1
+    fi
+    mv "$1" "$oldname"
+}
+
+rmold(){
+    if (( $# != 1 )) ; then
+        echo "Exact 1 command line arguments needed!" >&2
+        return 1
+    fi
+    if [ ${1:0-4} != ".old" ] ; then
+        echo "$1 is not an old!" >&2
+        return 1
+    fi
+    local name="${1:0:0-4}"
+    if [ -f "$name" ] ; then
+        echo "$name already exists!" >&2
+        return 1
+    fi
+    mv "$1" "$name"
+}
+
+swapold(){
+    if (( $# != 2 )) ; then
+        echo "Exact 2 command line arguments needed!" >&2
+        return 1
+    fi
+    local oldname="$2.old"
+    if [ -f "$oldname" ] ; then
+        echo "$oldname already exists!" >&2
+        return 1
+    fi
+    mv "$2" "$oldname"
+    mv "$1" "$2"
+}
