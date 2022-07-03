@@ -104,7 +104,7 @@ alias gc='git commit -vm'
 alias gd='git diff'
 alias gs='git status'
 alias scrot='scrot -z'
-alias duf='duf --only local'
+alias duf='duf --only local,network'
 
 # shell functions
 source ~/.func.zsh
