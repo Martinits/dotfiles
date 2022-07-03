@@ -112,5 +112,5 @@ swapold(){
         return 1
     fi
     mv "$2" "$oldname"
-    mv "$1" "$2"
+    cp -r "$1" "$2"
 }
