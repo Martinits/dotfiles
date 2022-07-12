@@ -243,7 +243,7 @@ for_window [class="flameshot"] floating enable
 for_window [class="com.alibabainc.dingtalk"] floating enable
 
 # autostart
-exec --no-startup-id qv2ray
+# exec --no-startup-id qv2ray
 #exec --no-startup-id fcitx5 -d
 exec --no-startup-id redshift-gtk
 exec_always --no-startup-id picom --experimental-backends -bc
@@ -254,3 +254,5 @@ exec_always --no-startup-id xset m 3/1 0
 exec_always --no-startup-id xset s 1200 1200
 exec_always --no-startup-id xset dpms 1800 1800 1800
 exec_always --no-startup-id flameshot
+# exec_always --no-startup-id source ~/.zlogin
+exec_always --no-startup-id killall autossh; autossh -f -M 8889 -fNR 8888:localhost:22 root@47.98.134.245
