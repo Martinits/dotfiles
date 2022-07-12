@@ -114,3 +114,7 @@ swapold(){
     mv "$2" "$oldname"
     cp -r "$1" "$2"
 }
+
+cless(){
+    script -c "$*" /dev/null < /dev/null |& less
+}
