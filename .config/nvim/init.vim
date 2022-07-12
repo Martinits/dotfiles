@@ -506,7 +506,7 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 " vim-illuminate
 augroup illuminate_augroup
     autocmd!
-    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=white
+    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=darkgrey
 augroup END
 
 " vim-rooter
