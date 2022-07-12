@@ -78,6 +78,8 @@ alias thr='trash-restore'
 alias thrm='trash-rm'
 alias sudo='sudo -E '
 alias sd='sudo -E '
+alias se='sudoedit'
+alias sv='se '
 alias sdn='shutdown -h now'
 alias rbt='reboot'
 alias .1='..'
@@ -185,3 +187,6 @@ eval "$(direnv hook zsh)"
 
 # ruby env
 export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
+# gtk theme
+export GTK_THEME=Arc-Dark
