@@ -21,6 +21,11 @@
     - redshift
     - rofi
     - surfingkeys
+    - kitty
+    - mako
+    - mpv
+    - sway
+    - waybar
 - .fzf.zsh - fzf config
 - .func.zsh - custom shell functions
 - .gdbinit - gdb-dashboard
