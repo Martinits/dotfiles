@@ -180,6 +180,8 @@ Plug 'petertriho/nvim-scrollbar'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " git
 " Plug 'tpope/vim-fugitive'
 " Plug 'rbong/vim-flog'
@@ -592,3 +594,25 @@ nnoremap <leader>F <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>fw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 vnoremap <leader>f <cmd>lua require('spectre').open_visual()<CR>
 nnoremap <leader>fp viw:lua require('spectre').open_file_search()<cr>
+
+" nvim-telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+lua <<EOF
+require('telescope').setup{
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-j>"] = "move_selection_next",
+                ["<C-k>"] = "move_selection_previous",
+            },
+            n = {
+                ["<C-c>"] = "close",
+            },
+        },
+    },
+}
+require('telescope').load_extension('fzf')
+EOF
