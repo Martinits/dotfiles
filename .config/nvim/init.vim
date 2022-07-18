@@ -122,7 +122,10 @@ noremap \s :%s//gc<left><left><left>
 
 " ======= PLUGINS VIA VIM-PLUG =======
 call plug#begin()
-" theme, color, highlight
+" deps
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+" theme, color, highlight, ui
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
@@ -131,22 +134,21 @@ Plug 'tjdevries/colorbuddy.nvim'
 Plug 'bbenzikry/snazzybuddy.nvim'
 Plug 'Martinits/nvim-snazzi'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'RRethy/vim-illuminate'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kshenoy/vim-signature'
+Plug 'chentoast/marks.nvim'
+Plug 'sitiom/nvim-numbertoggle'
+Plug 'kevinhwang91/promise-async'
+    \ | Plug 'kevinhwang91/nvim-ufo'
 " coding, completion and debug
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'liuchengxu/vista.vim'
-" Plug 'preservim/tagbar'
 Plug 'honza/vim-snippets'
-" Plug 'preservim/nerdcommenter'
-" Plug 'Konfekt/FastFold'
-Plug 'nvim-lua/plenary.nvim' |
-    \ Plug 'nvim-pack/nvim-spectre'
+Plug 'nvim-pack/nvim-spectre'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'numToStr/Comment.nvim'
 " text process
@@ -155,37 +157,37 @@ Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'lambdalisue/suda.vim'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'davidgranstrom/nvim-markdown-preview'
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-surround'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'kylechui/nvim-surround'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'andymass/vim-matchup'
 Plug 'godlygeek/tabular'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-repeat'
-Plug 'ggandor/lightspeed.nvim'
+" Plug 'ggandor/lightspeed.nvim'
 Plug 'fedepujol/move.nvim'
 " addition
 Plug 'preservim/nerdtree' |
-  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+    \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'kevinhwang91/rnvimr'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
+Plug 'tversteeg/registers.nvim'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'jvgrootveld/telescope-zoxide'
 " git
-" Plug 'tpope/vim-fugitive'
-" Plug 'rbong/vim-flog'
-Plug 'cohama/agit.vim'
+Plug 'tanvirtin/vgit.nvim'
+Plug 'sindrets/diffview.nvim'
 " others
 Plug 'klen/nvim-config-local'
 Plug 'airblade/vim-rooter'
@@ -235,7 +237,6 @@ let g:coc_global_extensions = [
     \ 'coc-docker',
     \ 'coc-emoji',
     \ 'coc-esbonio',
-    \ 'coc-git',
     \ 'coc-go',
     \ 'coc-html',
     \ 'coc-java',
@@ -383,9 +384,6 @@ nmap <LEADER>ts <Plug>(coc-translator-p)
 noremap tt :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
-" tagbar
-" nnoremap <F8> :TagbarToggle<CR>
-
 " undotree
 nnoremap <F5> :UndotreeToggle<CR>
 if has("persistent_undo")
@@ -403,38 +401,6 @@ endif
 
 " tabularize
 noremap tb :Tabularize<SPACE>/
-
-" wildfire
-" nmap <leader>s <Plug>(wildfire-quick-select)
-
-" fastfold
-" nmap zuz <Plug>(FastFoldUpdate)
-" let g:fastfold_savehook = 1
-" let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
-" let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
-" let g:markdown_folding = 1
-" let g:rst_fold_enabled = 1
-" let g:tex_fold_enabled = 1
-" let g:vimsyn_folding = 'af'
-" let g:xml_syntax_folding = 1
-" let g:javaScript_fold = 1
-" let g:sh_fold_enabled= 7
-" let g:zsh_fold_enable = 1
-" let g:ruby_fold = 1
-" let g:perl_fold = 1
-" let g:perl_fold_blocks = 1
-" let g:r_syntax_folding = 1
-" let g:rust_fold = 1
-" let g:php_folding = 1
-" let g:fortran_fold=1
-" let g:clojure_fold = 1
-" let g:baan_fold=1
-" autocmd FileType c,cpp setlocal foldmethod=syntax
-" autocmd FileType python setlocal foldmethod=indent
-
-" indentline
-let g:vim_json_conceal=0
-let g:indentLine_conceallevel = 0
 
 " autopairs
 let g:AutoPairsShortcutToggle = '<M-n>'
@@ -502,9 +468,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" vim-hexokinase
-let g:Hexokinase_highlighters = ['backgroundfull']
-
 " vim-illuminate
 augroup illuminate_augroup
     autocmd!
@@ -516,10 +479,6 @@ let g:rooter_patterns = ['.git', 'Makefile', 'Cargo.toml', 'init.vim', '.gitigno
 
 " nvim-scrollbar
 lua <<EOF
--- require("scrollbar").setup({
---     set_highlights = false
--- })
--- require("scrollbar").setup()
 require("scrollbar").setup({
     handle = {
         color = '#888888',
@@ -614,5 +573,57 @@ require('telescope').setup{
         },
     },
 }
+-- plugs
 require('telescope').load_extension('fzf')
+require'telescope'.load_extension('zoxide')
 EOF
+
+" nvim-surround
+lua require("nvim-surround").setup()
+
+" marks.nvim
+lua <<EOF
+require'marks'.setup()
+EOF
+
+" nvim-colorizer.lua
+lua require'colorizer'.setup()
+
+" nvim-numbertoggle
+lua require("numbertoggle").setup()
+
+" nvim-ufo
+lua <<EOF
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = -1
+vim.o.foldenable = true
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+require('ufo').setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end
+})
+EOF
+
+" indent-blankline.nvim
+lua require("indent_blankline").setup()
+
+" nvim-autopairs
+lua require("nvim-autopairs").setup {}
+
+" vgit
+lua <<EOF
+require('vgit').setup({
+    settings = {
+        live_blame = {
+            enable = false,
+        },
+    },
+})
+EOF
+
+" diffview
+lua require("diffview").setup()

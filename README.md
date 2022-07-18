@@ -107,7 +107,7 @@
 |          | q Q                         | visual multi skip and get next / remove current         |
 |          | csxy                        | change surround x to y (left half with space)           |
 |          | dsx                         | delete surround x                                       |
-|          | yiswx                       | add surround x                                          |
+|          | ysiwx                       | add surround x                                          |
 |          | Sx                          | add surround x in visual mode                           |
 |          | \<UNUSED\> [c ]c            | gitgutter next/prev hunk                                |
 |          | \<UNUSED\> \<LEADER\>gs/p/u | gitgutter stage/preview/undo hunk                       |
@@ -143,4 +143,5 @@
 |          | if af                       | function                                                |
 |          | ic ac                       | classobj                                                |
 | commands | :GenToc[...]                | vim-markdown-toc: generate TOC                          |
-|          | :AGit                       | agit.vim: show git log messages                         |
+|          | \<UNUSED\> :AGit            | agit.vim: show git log messages                         |
+|          | :DiffviewOpen xxx / Close   | diffview                                                |
