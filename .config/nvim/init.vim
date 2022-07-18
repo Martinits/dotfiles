@@ -609,10 +609,55 @@ require('ufo').setup({
 EOF
 
 " indent-blankline.nvim
-lua require("indent_blankline").setup()
+lua <<EOF
+vim.opt.termguicolors = true
+vim.opt.list = true
+vim.cmd [[highlight IndentBlanklineIndent0 guifg=#C678DD gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#61AFEF gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#98C379 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#E5C07B gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#E56C75 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineContextChar guifg=#98C379 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineContextStart guisp=#98C379 gui=underline]]
+require("indent_blankline").setup {
+    -- char_highlight_list = {
+    --     "IndentBlanklineIndent0",
+    --     "IndentBlanklineIndent1",
+    --     "IndentBlanklineIndent2",
+    --     "IndentBlanklineIndent3",
+    --     "IndentBlanklineIndent4",
+    --     "IndentBlanklineIndent5",
+    --     "IndentBlanklineIndent6",
+    -- },
+    use_treesitter = true,
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+EOF
 
 " nvim-autopairs
-lua require("nvim-autopairs").setup {}
+lua <<EOF
+require("nvim-autopairs").setup {}
+local npairs = require("nvim-autopairs")
+local Rule = require('nvim-autopairs.rule')
+npairs.setup({
+    check_ts = true,
+    ts_config = {
+        lua = {'string'},-- it will not add a pair on that treesitter node
+        javascript = {'template_string'},
+        java = false,-- don't check treesitter on java
+    }
+})
+local ts_conds = require('nvim-autopairs.ts-conds')
+-- press % => %% only while inside a comment or string
+npairs.add_rules({
+    Rule("%", "%", "lua")
+        :with_pair(ts_conds.is_ts_node({'string','comment'})),
+    Rule("$", "$", "lua")
+        :with_pair(ts_conds.is_not_ts_node({'function'}))
+})
+EOF
 
 " vgit
 lua <<EOF
