@@ -125,6 +125,7 @@
 |          | \<LEADER\>F f fw fp         | nvim-spectre: find and replace                          |
 |          | \<LEADER\>qf rc R           | nvim-spectre: send to quickfix / replace current / all  |
 |          | \<LEADER\>tu ti th          | nvim-spectre: toggle live-update / ignore case / hidden |
+|          | \<LEADER\>ff fg fb fh       | nvim-telescope: find file/content/buffer/helptag        |
 | coc      | \<LEADER\>rn                | rename variable                                         |
 |          | \<LEADER\>- = d             | diagnostic prev / next / show all                       |
 |          | gd gt gi gr                 | goto def typedef imple reference                        |
