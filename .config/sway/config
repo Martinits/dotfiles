@@ -21,7 +21,7 @@ set $term kitty --directory ~/my/tmp
 set $menu rofi -show drun | xargs swaymsg exec --
 set $lock swaylock -e -l -S --effect-blur 50x3 --effect-compose ~/Pictures/lock.png --indicator-radius 100 --indicator-thickness 20 --fade-in 0.2 --clock
 ### Font
-font pango:monospace 10
+font pango:Source Code Pro Semi-Bold 10
 
 ### Output configuration
 #
@@ -39,7 +39,7 @@ output * bg ~/Pictures/background.png fill
 exec swayidle -w \
          timeout 600 '$lock' \
          timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep '$lock'
+         # before-sleep '$lock'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -291,6 +291,7 @@ for_window [app_id="telegramdesktop"] floating enable
 for_window [class="baidunetdisk"] floating enable
 for_window [class="listen1"] floating enable
 for_window [class="flameshot"] floating enable
+for_window [class="yesplaymusic"] floating enable
 for_window [class="com.alibabainc.dingtalk"] floating enable
 
 # Auto start
