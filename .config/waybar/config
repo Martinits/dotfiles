@@ -40,7 +40,8 @@
         "thermal-zone": 7,
         "critical-threshold": 80,
         "format": "{temperatureC}糖 {icon}",
-        "format-icons": ["", "", "", "", "", "", ""]
+        "foramt-critical": "{temperatureC}糖 ",
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", ""]
     },
     "backlight": {
         "format": "{percent}% {icon}",
