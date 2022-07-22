@@ -125,6 +125,7 @@ call plug#begin()
 " deps
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'kevinhwang91/promise-async'
 " theme, color, highlight, ui
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -141,8 +142,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'chentoast/marks.nvim'
 Plug 'sitiom/nvim-numbertoggle'
-Plug 'kevinhwang91/promise-async'
-    \ | Plug 'kevinhwang91/nvim-ufo'
+Plug 'kevinhwang91/nvim-ufo'
 " coding, completion and debug
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
@@ -418,12 +418,12 @@ let g:rnvimr_enable_ex = 1
 let g:rnvimr_enable_picker = 1
 highlight link RnvimrNormal CursorLine
 let g:rnvimr_action = {
-            \ '<C-t>':  'NvimEdit tabedit',
-            \ '<C-x>':  'NvimEdit split',
-            \ '<C-v>':  'NvimEdit vsplit',
-            \ 'gw':     'JumpNvimCwd',
-            \ 'yw':     'EmitRangerCwd'
-            \ }
+    \ '<C-t>' : 'NvimEdit tabedit',
+    \ '<C-x>' : 'NvimEdit split',
+    \ '<C-v>' : 'NvimEdit vsplit',
+    \ 'gw'    : 'JumpNvimCwd',
+    \ 'yw'    : 'EmitRangerCwd'
+    \ }
 " change ranger colorscheme for alacritty
 let g:rnvimr_ranger_cmd = ['ranger', '--cmd=set colorscheme jungle']
 
@@ -598,14 +598,55 @@ vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = -1
 vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+local handler = function(virtText, lnum, endLnum, width, truncate)
+    local newVirtText = {}
+    local suffix = ('  %d '):format(endLnum - lnum)
+    local sufWidth = vim.fn.strdisplaywidth(suffix)
+    local targetWidth = width - sufWidth
+    local curWidth = 0
+    for _, chunk in ipairs(virtText) do
+        local chunkText = chunk[1]
+        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+        if targetWidth > curWidth + chunkWidth then
+            table.insert(newVirtText, chunk)
+        else
+            chunkText = truncate(chunkText, targetWidth - curWidth)
+            local hlGroup = chunk[2]
+            table.insert(newVirtText, {chunkText, hlGroup})
+            chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            -- str width returned from truncate() may less than 2nd argument, need padding
+            if curWidth + chunkWidth < targetWidth then
+                suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+            end
+            break
+        end
+        curWidth = curWidth + chunkWidth
+    end
+    table.insert(newVirtText, {suffix, 'MoreMsg'})
+    return newVirtText
+end
+
+-- global handler
 require('ufo').setup({
+    fold_virt_text_handler = handler,
     provider_selector = function(bufnr, filetype, buftype)
         return {'treesitter', 'indent'}
     end
+
 })
+-- buffer scope handler
+-- will override global handler if it is existed
+local bufnr = vim.api.nvim_get_current_buf()
+require('ufo').setFoldVirtTextHandler(bufnr, handler)
+-- require('ufo').setup({
+--     provider_selector = function(bufnr, filetype, buftype)
+--         return {'treesitter', 'indent'}
+--     end
+-- })
 EOF
 
 " indent-blankline.nvim
@@ -643,11 +684,6 @@ local npairs = require("nvim-autopairs")
 local Rule = require('nvim-autopairs.rule')
 npairs.setup({
     check_ts = true,
-    ts_config = {
-        lua = {'string'},-- it will not add a pair on that treesitter node
-        javascript = {'template_string'},
-        java = false,-- don't check treesitter on java
-    }
 })
 local ts_conds = require('nvim-autopairs.ts-conds')
 -- press % => %% only while inside a comment or string
