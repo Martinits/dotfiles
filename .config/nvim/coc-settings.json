@@ -48,5 +48,6 @@
     "prettier.useTabs": true,
     "prettier.trailingComma": "all",
     "prettier.singleQuote": false,
-    "Lua.telemetry.enable": false
+    "Lua.telemetry.enable": false,
+    "rust-analyzer.updates.checkOnStartup": false
 }
