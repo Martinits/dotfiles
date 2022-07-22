@@ -378,6 +378,9 @@ nnoremap <silent> <LEADER>y  :<C-u>CocList -A --normal yank<CR>
 " coc-translator
 nmap <LEADER>ts <Plug>(coc-translator-p)
 
+" for termdebug
+packadd termdebug
+
 
 " ======= PLUGINS SETTINGS =======
 " nerdtree
