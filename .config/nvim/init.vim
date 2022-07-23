@@ -39,7 +39,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set clipboard=unnamedplus
-set signcolumn=yes
+set signcolumn=yes:2
 set termguicolors
 if has('mouse')
     set mouse=a
@@ -704,6 +704,9 @@ require('vgit').setup({
     settings = {
         live_blame = {
             enable = false,
+        },
+        signs = {
+            priority = 9,
         },
     },
 })
