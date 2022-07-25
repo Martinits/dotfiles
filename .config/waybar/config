@@ -36,8 +36,8 @@
         "format": "{}% "
     },
     "temperature": {
-        "interval": 5,
-        "thermal-zone": 7,
+        "interval": 3,
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
         "critical-threshold": 80,
         "format": "{temperatureC}糖 {icon}",
         "foramt-critical": "{temperatureC}糖 ",
