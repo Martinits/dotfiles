@@ -71,7 +71,7 @@ swap(){
     return 1
 }
 
-makeold(){
+mkold(){
     if (( $# != 1 )) ; then
         echo "Exact 1 command line arguments needed!" >&2
         return 1
@@ -117,4 +117,13 @@ swapold(){
 
 cless(){
     script -c "$*" /dev/null < /dev/null |& less
+}
+
+cpmd(){
+    if (( $# != 2 )) ; then
+        echo "Exact 2 command line arguments needed!" >&2
+        return 1
+    fi
+    mkdir -p `dirname "$2"` || true
+    cp -riv "$1" "$2"
 }
