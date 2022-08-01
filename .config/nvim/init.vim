@@ -155,7 +155,6 @@ Plug 'numToStr/Comment.nvim'
 Plug 'svermeulen/vim-subversive'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
-Plug 'lambdalisue/suda.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'davidgranstrom/nvim-markdown-preview'
 Plug 'mzlogin/vim-markdown-toc'
@@ -191,6 +190,7 @@ Plug 'sindrets/diffview.nvim'
 " others
 Plug 'klen/nvim-config-local'
 Plug 'airblade/vim-rooter'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 
@@ -297,8 +297,9 @@ nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gp <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use gm to show documentation in preview window.
