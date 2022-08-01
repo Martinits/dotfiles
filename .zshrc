@@ -190,3 +190,9 @@ export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # gtk theme
 export GTK_THEME=Arc-Dark
+
+# kitty ssh issue
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+
+# LS_COLORS for lf
+export LS_COLORS="$(vivid generate ayu)"
