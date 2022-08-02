@@ -301,7 +301,7 @@ exec_always --no-startup-id fcitx5 -d
 exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id killall v2ray; v2ray -c /home/martinit/.config/v2ray/config.json
+exec_always --no-startup-id ( killall v2ray || true ) && v2ray -c /home/martinit/.config/v2ray/config.json
 exec_always --no-startup-id /usr/share/sway/scripts/inactive-windows-transparency.py
 exec_always --no-startup-id wlsunset -l 30.27 -L 120.15 -T 5500 -t 3500 -g 0.8
 # exec_always --no-startup-id killall autossh; autossh -f -M 8889 -fNR 8888:localhost:22 root@47.98.134.245
