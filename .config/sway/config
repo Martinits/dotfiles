@@ -14,8 +14,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term env -u WAYLAND_DISPLAY alacritty
-# set $term kitty --directory ~/my/tmp
+# set $term env -u WAYLAND_DISPLAY alacritty
+set $term kitty --directory ~/my/tmp
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -295,6 +295,7 @@ for_window [class="listen1"] floating enable
 for_window [class="flameshot"] floating enable
 for_window [class="yesplaymusic"] floating enable
 for_window [class="com.alibabainc.dingtalk"] floating enable
+for_window [class="icalingua"] floating enable
 
 # Auto start
 exec_always --no-startup-id fcitx5 -d
