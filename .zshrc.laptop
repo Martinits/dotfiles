@@ -3,7 +3,6 @@
 #        smon m - use both monitors
 
 smon(){
-    set -x
     local arr=(`swaymsg -pt get_outputs | grep '^Output' | cut -d ' ' -f 2`)
 
     if (( $#arr < 1 )) ; then
