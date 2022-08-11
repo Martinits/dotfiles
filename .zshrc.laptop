@@ -1,3 +1,41 @@
+# smon: sway monitor
+# Usage: smon - auto switch
+#        smon m - use both monitors
+
+smon(){
+    set -x
+    local arr=(`swaymsg -pt get_outputs | grep '^Output' | cut -d ' ' -f 2`)
+
+    if (( $#arr < 1 )) ; then
+    	echo "0 monitor detected!" >&2
+    	return 1
+    elif (( $#arr == 1 )) ; then
+        swaymsg "output $arr[1] enable"
+        swaymsg "output $arr[1] pos 0 0 res 1920x1080"
+        return 0
+    fi
+
+    arr=('DP-1' 'eDP-1')
+    if (( $# < 1 )) ; then
+	for i in $arr ; do
+            swaymsg "output $i disable"
+	done
+        swaymsg "output $arr[1] enable"
+        swaymsg "output $arr[1] pos 0 0 res 1920x1080"
+    elif [ "x$#" = "x1" ] && [ "$1" = "m" ] ; then
+	for i in $arr ; do
+            swaymsg "output $i disable"
+	done
+        swaymsg "output $arr[1] enable"
+        swaymsg "output $arr[2] enable"
+        swaymsg "output $arr[2] pos 0 1080 res 1920x1080"
+        swaymsg "output $arr[1] pos 0 0 res 1920x1080"
+    else
+        echo "invalid argument!" >&2
+        return 1
+    fi
+}
+
 # xas - xrandr auto switch
 # Used to switch between monitors
 # Usage:
