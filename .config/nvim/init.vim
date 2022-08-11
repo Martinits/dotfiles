@@ -270,9 +270,9 @@ let g:coc_global_extensions = [
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1):
-        \ <SID>check_back_space() ? "\<Tab>" :
-        \ coc#refresh()
+    \ coc#pum#visible() ? coc#pum#next(1):
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -704,7 +704,7 @@ lua <<EOF
 require('vgit').setup({
     settings = {
         live_blame = {
-            enable = false,
+            enabled = false,
         },
         signs = {
             priority = 9,
