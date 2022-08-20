@@ -39,15 +39,18 @@ output * bg ~/Pictures/background.png fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 600 '$lock' \
+         timeout 1200 '$lock' \
          timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         # before-sleep '$lock'
+         before-sleep '$lock'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
+
+# lid
+bindswitch --reload --locked lid:on exec $lock
 
 
 ### Input configuration
@@ -302,6 +305,7 @@ for_window [class="flameshot"] floating enable
 for_window [class="yesplaymusic"] floating enable
 for_window [class="com.alibabainc.dingtalk"] floating enable
 for_window [class="icalingua"] floating enable
+for_window [class="alixby"] floating enable
 
 # Auto start
 exec_always --no-startup-id fcitx5 -d
