@@ -21,7 +21,7 @@ set $term kitty --directory ~/my/tmp
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun | xargs swaymsg exec --
-set $lock swaylock -e -l -S --effect-blur 50x3 --effect-compose ~/Pictures/lock.png --indicator-radius 100 --indicator-thickness 20 --fade-in 0.2 --clock
+set $lock swaylock -e -l -S --effect-blur 50x3 --effect-compose ~/Pictures/lock.png --indicator-radius 200 --indicator-thickness 20 --fade-in 0.2 --clock
 ### Font
 font pango:Source Code Pro Semi-Bold 10
 
@@ -283,6 +283,12 @@ bar swaybar_command waybar
 gaps inner 5
 gaps outer 2
 
+#hidpi
+output eDP-1 scale 1.3
+
+# auto NumLock
+input * xkb_numlock enable
+
 # Specific window settings
 default_border          none
 default_floating_border none
@@ -300,11 +306,12 @@ for_window [class="icalingua"] floating enable
 # Auto start
 exec_always --no-startup-id fcitx5 -d
 exec_always --no-startup-id nm-applet --indicator
-exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id ( killall blueman-applet || true ) && blueman-applet
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ( killall v2ray || true ) && v2ray -c /home/martinit/.config/v2ray/config.json
 exec_always --no-startup-id /usr/share/sway/scripts/inactive-windows-transparency.py
-exec_always --no-startup-id wlsunset -l 30.27 -L 120.15 -T 5500 -t 3500 -g 0.8
+exec_always --no-startup-id ( killall wlsunset || true ) && wlsunset -l 30.27 -L 120.15 -T 5500 -t 5000
 # exec_always --no-startup-id killall autossh; autossh -f -M 8889 -fNR 8888:localhost:22 root@47.98.134.245
+exec_always --no-startup-id (killall kanshi || true) && kanshi
 
 include /etc/sway/config.d/*
