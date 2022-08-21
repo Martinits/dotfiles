@@ -26,6 +26,7 @@
     - mpv
     - sway
     - waybar
+    - kanshi
 - .fzf.zsh - fzf config
 - .func.zsh - custom shell functions
 - .gdbinit - gdb-dashboard
