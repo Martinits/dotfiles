@@ -326,7 +326,18 @@ augroup illuminate_augroup
 augroup END
 
 " vim-rooter
-let g:rooter_patterns = ['.git', 'Makefile', 'Cargo.toml', 'init.vim', '.gitignore', 'init.lua', 'package.json']
+let g:rooter_patterns = [
+    \ '.git',
+    \ 'Makefile',
+    \ 'Cargo.toml',
+    \ 'init.vim',
+    \ '.gitignore',
+    \ 'init.lua',
+    \ 'package.json',
+    \ 'README.md',
+    \ 'README.rst',
+    \ 'README'
+    \ ]
 
 " nvim-scrollbar
 lua <<EOF
