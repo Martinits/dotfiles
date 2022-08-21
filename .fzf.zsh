@@ -105,14 +105,25 @@ unset -f bind-git-helper
 
 #rga-fzf
 rga-fzf() {
-	RG_PREFIX="rga --files-with-matches"
-	local file
-	file="$(
-		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
-			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
-				--phony -q "$1" \
-				--bind "change:reload:$RG_PREFIX {q}" \
-				--preview-window="70%:wrap"
-	)" &&
-	echo -n "$file"
+    RG_PREFIX="rga --files-with-matches"
+    local item
+    FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+        fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+            --phony -q "$1" \
+            --bind "change:reload:$RG_PREFIX {q}" \
+            --preview-window="70%:wrap" | while read item; do
+        echo -n "${file} "
+    done
+    local ret=$?
+    echo
+    return $ret
 }
+rga-fzf-helper() {
+    LBUFFER="${LBUFFER}$(rga-fzf)"
+    local ret=$?
+    zle reset-prompt
+    return $ret
+}
+zle -N rga-fzf-helper
+bindkey '^e' rga-fzf-helper
+
