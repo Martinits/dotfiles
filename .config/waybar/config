@@ -33,7 +33,7 @@
     },
     "memory": {
         "interval": 3,
-        "format": "{}% "
+        "format": "{percentage:2}% "
     },
     "temperature": {
         "interval": 3,
@@ -72,7 +72,8 @@
         "format-alt": "{essid} : {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "scroll-step": 1,
+        /* "scroll-step": 1, */
+        "smooth-scrolling-threshold": 1.0,
         "format": "{volume}% {icon}",
         "format-muted": " {icon}",
         "format-bluetooth": "{volume}% {icon} ",
