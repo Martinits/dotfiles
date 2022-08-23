@@ -129,10 +129,6 @@ Plug 'kevinhwang91/promise-async'
 " theme, color, highlight, ui
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'connorholyday/vim-snazzy'
-Plug 'theniceboy/nvim-deus'
-Plug 'tjdevries/colorbuddy.nvim'
-Plug 'bbenzikry/snazzybuddy.nvim'
 Plug 'Martinits/nvim-snazzi'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'norcalli/nvim-colorizer.lua'
