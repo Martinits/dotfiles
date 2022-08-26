@@ -125,5 +125,5 @@ rga-fzf-helper() {
     return $ret
 }
 zle -N rga-fzf-helper
-bindkey '^e' rga-fzf-helper
+bindkey '^y' rga-fzf-helper
 
