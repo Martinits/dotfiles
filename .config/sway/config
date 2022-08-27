@@ -21,7 +21,7 @@ set $term kitty --directory ~/my/tmp
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun | xargs swaymsg exec --
-set $lock swaylock -e -l -S --effect-blur 50x3 --effect-compose ~/Pictures/lock.png --indicator-radius 200 --indicator-thickness 20 --fade-in 0.2 --clock
+set $lock swaylock -l -S --effect-blur 50x3 --effect-compose ~/Pictures/lock.png --indicator-radius 200 --indicator-thickness 20 --fade-in 0.2 --clock
 ### Font
 font pango:Source Code Pro Semi-Bold 10
 
@@ -38,10 +38,11 @@ output * bg ~/Pictures/background.png fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-exec swayidle -w \
-         timeout 1200 '$lock' \
-         timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep '$lock'
+exec swayidle \
+         timeout 600 '$lock' \
+         timeout 601 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep '$lock' \
+         after-resume 'swaymsg "output * dpms on"'
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -311,7 +312,7 @@ for_window [class="alixby"] floating enable
 exec_always --no-startup-id fcitx5 -d
 exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id ( killall blueman-applet || true ) && blueman-applet
-exec_always --no-startup-id autotiling
+exec_always --no-startup-id ( killall autotiling || true ) && autotiling
 exec_always --no-startup-id ( killall v2ray || true ) && v2ray -c /home/martinit/.config/v2ray/config.json
 exec_always --no-startup-id /usr/share/sway/scripts/inactive-windows-transparency.py
 exec_always --no-startup-id ( killall wlsunset || true ) && wlsunset -l 30.27 -L 120.15 -T 5500 -t 5000
