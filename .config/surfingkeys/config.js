@@ -52,3 +52,5 @@ api.addSearchAlias('u', 'github', 'https://github.com/search?q=', 's', null, fun
 });
 api.unmap('<Ctrl-j>');
 api.unmap('<Ctrl-h>');
+api.map('J', 'd')
+api.map('K', 'u')
