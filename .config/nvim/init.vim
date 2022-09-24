@@ -563,9 +563,11 @@ require('vgit').setup({
         signs = {
             priority = 9,
         },
-    },
+    }
 })
 EOF
+nnoremap <LEADER>gp :VGit hunk_up<CR>
+nnoremap <LEADER>gn :VGit hunk_down<CR>
 
 " diffview
 lua require("diffview").setup()
