@@ -107,6 +107,7 @@ alias gd='git diff'
 alias gs='git status'
 alias scrot='scrot -z'
 alias duf='duf --only local,network'
+alias dk='docker'
 
 # shell functions
 source ~/.func.zsh
