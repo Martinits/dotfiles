@@ -189,6 +189,9 @@ eval "$(direnv hook zsh)"
 # ruby env
 export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
+# cargo env
+export PATH="/home/martinit/.cargo/bin:$PATH"
+
 # gtk theme
 export GTK_THEME=Arc-Dark
 
