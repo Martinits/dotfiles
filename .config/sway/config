@@ -16,6 +16,7 @@ set $right l
 # Your preferred terminal emulator
 # set $term env -u WAYLAND_DISPLAY alacritty
 set $term kitty --directory ~/my/tmp
+set $alaterm alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -75,6 +76,7 @@ bindswitch --reload --locked lid:on exec $lock
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+Ctrl+Return exec $term -e ranger
+    bindsym $mod+Shift+Return exec $alaterm
 
     # Kill focused window
     bindsym $mod+q kill
@@ -313,7 +315,7 @@ exec_always --no-startup-id fcitx5 -d
 exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id ( killall blueman-applet || true ) && blueman-applet
 exec_always --no-startup-id ( killall autotiling || true ) && autotiling
-exec_always --no-startup-id ( killall v2ray || true ) && v2ray -c /home/martinit/.config/v2ray/config.json
+exec_always --no-startup-id ( killall v2ray || true ) && v2ray run -c /home/martinit/.config/v2ray/config.json
 exec_always --no-startup-id /usr/share/sway/scripts/inactive-windows-transparency.py
 exec_always --no-startup-id ( killall wlsunset || true ) && wlsunset -l 30.27 -L 120.15 -T 5500 -t 5000
 # exec_always --no-startup-id killall autossh; autossh -f -M 8889 -fNR 8888:localhost:22 root@47.98.134.245
