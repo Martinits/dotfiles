@@ -127,3 +127,19 @@ cpmd(){
     mkdir -p `dirname "$2"` || true
     cp -riv "$1" "$2"
 }
+
+tran(){
+    if (( $# <= 0 )) ; then
+        echo "Need argument(s)!" >&2
+        return 1
+    fi
+    trans -b :zh-CN "$*"
+}
+
+dict(){
+    if (( $# <= 0 )) ; then
+        echo "Need argument(s)!" >&2
+        return 1
+    fi
+    trans -d :zh-CN "$*"
+}
