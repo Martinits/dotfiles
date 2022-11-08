@@ -194,6 +194,9 @@ eval $(thefuck --alias)
 # direnv
 eval "$(direnv hook zsh)"
 
+# custom env
+export PATH="/home/martinit/.local/bin:$PATH"
+
 # ruby env
 export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
