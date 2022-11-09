@@ -101,7 +101,7 @@ rmold(){
     mv "$1" "$name"
 }
 
-swapold(){
+shiftold(){
     if (( $# != 2 )) ; then
         echo "Exact 2 command line arguments needed!" >&2
         return 1
