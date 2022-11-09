@@ -170,7 +170,8 @@ Plug 'preservim/nerdtree' |
     \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'kevinhwang91/rnvimr'
 Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tversteeg/registers.nvim'
 Plug 'petertriho/nvim-scrollbar'
@@ -433,6 +434,7 @@ require('telescope').setup{
 }
 -- plugs
 require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf_native')
 require'telescope'.load_extension('zoxide')
 EOF
 
