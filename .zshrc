@@ -211,3 +211,6 @@ export GTK_THEME=Arc-Dark
 
 # LS_COLORS for lf
 export LS_COLORS="$(vivid generate ayu)"
+
+# QT wayland
+export QT_QPA_PLATFORM="wayland;xcb"
