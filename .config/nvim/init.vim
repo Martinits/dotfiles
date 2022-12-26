@@ -450,7 +450,7 @@ EOF
 lua require'colorizer'.setup()
 
 " nvim-numbertoggle
-lua require("numbertoggle").setup()
+" lua require("numbertoggle").setup()
 
 " nvim-ufo
 lua <<EOF
