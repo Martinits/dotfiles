@@ -302,7 +302,7 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "bash", "go", "rust", "python", "cpp", "lua", "markdown"},
     highlight = {
         enable = true,
-        disable = {"vim"},
+        -- disable = {"vim"},
     },
     indent = {
         enable = true,
