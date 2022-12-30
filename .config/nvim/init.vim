@@ -318,7 +318,9 @@ EOF
 " vim-illuminate
 augroup illuminate_augroup
     autocmd!
-    autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=darkgrey
+    autocmd VimEnter * hi IlluminatedWordText cterm=underline gui=underline
+    autocmd VimEnter * hi IlluminatedWordRead cterm=underline gui=underline
+    autocmd VimEnter * hi IlluminatedWordWrite cterm=underline gui=underline
 augroup END
 
 " vim-rooter
