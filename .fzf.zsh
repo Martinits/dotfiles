@@ -557,7 +557,7 @@ rga-fzf() {
             --phony -q "$1" \
             --bind "change:reload:$RG_PREFIX {q}" \
             --preview-window="70%:wrap" | while read item; do
-        echo -n "${file} "
+                echo -n "${(q)item} "
     done
     local ret=$?
     echo
