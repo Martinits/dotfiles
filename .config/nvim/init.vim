@@ -123,7 +123,7 @@ noremap \s :%s//gc<left><left><left>
 " ======= PLUGINS VIA VIM-PLUG =======
 call plug#begin()
 " deps
-Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kevinhwang91/promise-async'
 " theme, color, highlight, ui
@@ -135,7 +135,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'RRethy/vim-illuminate'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'chentoast/marks.nvim'
 Plug 'sitiom/nvim-numbertoggle'
 Plug 'kevinhwang91/nvim-ufo'
@@ -248,9 +248,6 @@ endif
 
 " tabularize
 noremap tb :Tabularize<SPACE>/
-
-" autopairs
-let g:AutoPairsShortcutToggle = '<M-n>'
 
 " vimspector
 let g:vimspector_base_dir='/home/martinit/.local/share/nvim/plugged/vimspector'
@@ -575,6 +572,8 @@ nnoremap <LEADER>gn :VGit hunk_down<CR>
 " diffview
 lua require("diffview").setup()
 
+" registers
+lua require('registers').setup()
 
 " ======= COC SETTINGS =======
 let g:coc_global_extensions = [
