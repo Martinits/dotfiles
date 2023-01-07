@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
     -- vim.keymap.set('n', '<LEADER>rn', vim.lsp.buf.rename, bufopts)
     -- vim.keymap.set('n', '<LEADER>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set({'n', 'v'}, '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
     -- show line diagnostic auto in hover window
     -- vim.api.nvim_create_autocmd("CursorHold", {
     --     buffer = bufnr,
@@ -88,27 +88,31 @@ end
 
 -- completion kinds icons
 local icons = {
-    Class = " ",
     Color = " ",
     Constant = " ",
     Constructor = " ",
     Enum = " ",
     EnumMember = " ",
     Field = " ",
-    File = " ",
     Folder = "ﱮ ",
     Function = " ",
     Interface = "ﰮ ",
-    Keyword = " ",
     Method = " ",
     Module = " ",
     Property = " ",
     Snippet = " ",
-    Struct = " ",
     Text = " ",
     Unit = "ﰩ ",
     Value = " ",
     Variable = " ",
+    Class = "ﴯ ",
+    Keyword = " ",
+    File = " ",
+    Reference = " ",
+    Struct = "פּ ",
+    Event = " ",
+    Operator = " ",
+    TypeParameter = " ",
 }
 local kinds = vim.lsp.protocol.CompletionItemKind
 for i, kind in ipairs(kinds) do
@@ -128,21 +132,6 @@ for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
--- formmatting motion
-function FormatRangeOperator()
-    local old_func = vim.go.operatorfunc
-    _G.op_func_formatting = function()
-        local start = vim.api.nvim_buf_get_mark(0, '[')
-        local finish = vim.api.nvim_buf_get_mark(0, ']')
-        vim.lsp.buf.range_formatting({}, start, finish)
-        vim.go.operatorfunc = old_func
-        _G.op_func_formatting = nil
-    end
-    vim.go.operatorfunc = 'v:lua.op_func_formatting'
-    vim.api.nvim_feedkeys('g@', 'n', false)
-end
-vim.api.nvim_set_keymap("n", "gm", "<cmd>lua FormatRangeOperator()<CR>", {noremap = true})
 
 -- show highest diagnostic in signcolumn only
 local ns = vim.api.nvim_create_namespace("highest_sign")
@@ -165,25 +154,31 @@ vim.diagnostic.handlers.signs = {
     end,
 }
 
+local common_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- language servers
 -- c/c++
 require('lspconfig').clangd.setup{
     on_attach = on_attach,
+    capabilities = common_capabilities
 }
 
 -- python
 require('lspconfig').pyright.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = common_capabilities
 }
 
 -- rust
 require('lspconfig').rust_analyzer.setup{
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = common_capabilities
 }
 
 -- lua
 require('lspconfig').sumneko_lua.setup{
     on_attach = on_attach,
+    capabilities = common_capabilities,
     settings = {
         Lua = {
             runtime = { version = 'LuaJIT' },
@@ -197,8 +192,6 @@ require('lspconfig').sumneko_lua.setup{
 }
 
 -- json
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.jsonls.setup {
-    capabilities = capabilities,
+    capabilities = common_capabilities,
 }

@@ -96,7 +96,6 @@
 |            | gsh                         | clangd switch between                                   |
 |            | gH                          | hover info                                              |
 |            | \<LEADER\>mt                | format                                                  |
-|            | gm                          | format with text object                                 |
 |            | \<LEADER\>ac                | code action                                             |
 |            | \<LEADER\>o                 | outline                                                 |
 |            | \<LEADER\>dp dk             | peek definition / with lspsaga                          |

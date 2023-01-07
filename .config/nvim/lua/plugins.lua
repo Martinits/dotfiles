@@ -161,6 +161,13 @@ return require('packer').startup(function(use)
         }
     }
     use {
+        "rafamadriz/friendly-snippets",
+        requires = 'L3MON4D3/LuaSnip',
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
+    }
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function()
