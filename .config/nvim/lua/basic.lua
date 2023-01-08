@@ -74,9 +74,9 @@ vim.keymap.set('', 'ct', ':join<CR>')
 vim.keymap.set('', '=', 'nzz')
 vim.keymap.set('', '-', 'Nzz')
 -- nohlsearch
-vim.keymap.set('', '<LEADER>h', ':nohlsearch<CR>')
+-- vim.keymap.set('', '<LEADER>h', ':nohlsearch<CR>')
 -- number           '
-vim.keymap.set('', '<LEADER>n', ':set relativenumber!<CR>')
+-- vim.keymap.set('', '<LEADER>n', ':set relativenumber!<CR>')
 -- command
 vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', ':', ';')

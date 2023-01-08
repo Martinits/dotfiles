@@ -87,13 +87,19 @@
 |            | % [% ]% z% i% a%            | matchpairs and text objects                             |
 |            | if af                       | function                                                |
 |            | ic ac                       | classobj                                                |
+|            | ih                          | git hunk                                                |
+| git        | \<LEADER\>hp hn             | git goto prev / next hunk                               |
+|            | \<LEADER\>hs hr hu          | git hunk stage / reset / undo_stage                     |
+|            | \<LEADER\>hS hR             | git buffer stage / reset                                |
+|            | \<LEADER\>hv hb hB          | git hunk preview / toggle_blame / blame                 |
+|            | \<LEADER\>hd hD             | git buffer diff to index / diff to HEAD                 |
+|            | \<LEADER\>ht                | git toggle show_deleted                                 |
 | lsp        | \<LEADER\>rn                | rename variable                                         |
 |            | \<LEADER\>e                 | open_float                                              |
 |            | \<LEADER\>dd                | show diagnostic loclist                                 |
 |            | \<LEADER\>- =               | diagnostic prev / next                                  |
 |            | \<LEADER\>[ ]               | diagnostic prev / next only error                       |
 |            | gd gD gt gp gr              | goto def dec typedef imple reference                    |
-|            | gsh                         | clangd switch between                                   |
 |            | gH                          | hover info                                              |
 |            | \<LEADER\>mt                | format                                                  |
 |            | \<LEADER\>ac                | code action                                             |

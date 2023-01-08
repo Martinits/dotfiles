@@ -247,6 +247,10 @@ return require('packer').startup(function(use)
             require('autopairs-init')
         end
     }
+    use {
+        'windwp/nvim-ts-autotag',
+        requires = 'nvim-treesitter/nvim-treesitter'
+    }
     use 'andymass/vim-matchup' -- viml!!!
     use {
         'godlygeek/tabular', -- viml!!!
@@ -382,14 +386,20 @@ return require('packer').startup(function(use)
         end
     }
     -- git
+    -- use {
+    --     'tanvirtin/vgit.nvim',
+    --     requires = {
+    --         'nvim-lua/plenary.nvim',
+    --         'nvim-tree/nvim-web-devicons'
+    --     },
+    --     config = function()
+    --         require('vgit-init')
+    --     end
+    -- }
     use {
-        'tanvirtin/vgit.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons'
-        },
+        'lewis6991/gitsigns.nvim',
         config = function()
-            require('vgit-init')
+            require('gitsigns-init')
         end
     }
     use {

@@ -10,5 +10,5 @@ require('vgit').setup({
         },
     }
 })
-vim.keymap.set('n', '<LEADER>gp', ':VGit hunk_up<CR>')
-vim.keymap.set('n', '<LEADER>gn', ':VGit hunk_down<CR>')
+vim.keymap.set('n', '<LEADER>hp', ':VGit hunk_up<CR>')
+vim.keymap.set('n', '<LEADER>hn', ':VGit hunk_down<CR>')
