@@ -70,6 +70,8 @@ vim.keymap.set('', '<C-e>', '$')
 vim.keymap.set('', '<C-s>', '^')
 -- join two lines (concatenate)
 vim.keymap.set('', 'ct', ':join<CR>')
+-- edit this line
+vim.keymap.set('', 'cc', '^C')
 -- search result
 vim.keymap.set('', '=', 'nzz')
 vim.keymap.set('', '-', 'Nzz')

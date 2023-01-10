@@ -108,8 +108,7 @@
 |            | \<LEADER\>lf                | lsp symbol finder                                       |
 |            | \<LEADER\>dl dc             | show line / cursor diagnostic                           |
 | completion |                             |                                                         |
-| plugins    | tt                          | nerd tree toggle                                        |
-|            | \<LEADER\>tm                | table mode toggle                                       |
+| plugins    | \<LEADER\>tm                | table mode toggle                                       |
 |            | \<LEADER\>tt                | table mode format selected lines                        |
 |            | \<LEADER\>tdd tdc           | table mode delete row or line                           |
 |            | \<LEADER\>tic tiC           | table mode insert column after or before                |
@@ -150,3 +149,5 @@
 |            | \<LEADER\>ff fg fb fh       | nvim-telescope: find file/content/buffer/helptag        |
 |            | \<M-x\>                     | lsp_signature: toggle                                   |
 |            | \<M-j\>                     | lsp_signature: select next signature                    |
+|            | z=                          | whichkey: show spell suggestions                        |
+|            | tt tf                       | nvim-tree : toggle / focus                              |

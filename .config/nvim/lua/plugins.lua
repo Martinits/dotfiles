@@ -285,14 +285,12 @@ return require('packer').startup(function(use)
     }
     -- addition
     use {
-        'preservim/nerdtree', -- viml!!!
+        'nvim-tree/nvim-tree.lua',
+        requires = 'nvim-tree/nvim-web-devicons',
         config = function()
-            vim.keymap.set('', 'tt', ':NERDTreeToggle<CR>')
-            vim.g.NERDTreeGitStatusUseNerdFonts = 1
+            require('tree-init')
         end
     }
-    use 'Xuyuanp/nerdtree-git-plugin' -- viml!!!
-    use 'tiagofumo/vim-nerdtree-syntax-highlight' -- viml!!!
     use {
         'kevinhwang91/rnvimr',
         config = function()
@@ -322,12 +320,6 @@ return require('packer').startup(function(use)
         run = './install --all'
     }
     use 'junegunn/fzf.vim' -- viml!!!
-    use {
-        'tversteeg/registers.nvim',
-	config = function()
-	    require("registers").setup()
-	end
-    }
     use {
         'petertriho/nvim-scrollbar',
         config = function()
@@ -411,6 +403,12 @@ return require('packer').startup(function(use)
     }
     -- others
     use {
+        'folke/which-key.nvim',
+        config = function()
+            require('whichkey-init')
+        end
+    }
+    use {
         'klen/nvim-config-local',
         config = function()
             require('config-local').setup {
@@ -429,7 +427,7 @@ return require('packer').startup(function(use)
                 'Makefile',
                 'Cargo.toml',
                 'init.vim',
-                '.gitig',
+                '.gitignore',
                 'init.lua',
                 'package.json',
                 'README.md',
@@ -448,6 +446,6 @@ return require('packer').startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
-      require('packer').sync()
+        require('packer').sync()
     end
 end)
