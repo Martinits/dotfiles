@@ -7,6 +7,10 @@ require('lualine').setup {
             statusline = 500,
             tabline = 500,
             winbar = 500,
+        },
+        disabled_filetypes = {
+            statusline = { 'lspsagaoutline' },
+            winbar = { 'lspsagaoutline' }
         }
     },
     sections = {
@@ -46,5 +50,11 @@ require('lualine').setup {
             'location'
         }
     },
-    extensions = {}
+    extensions = {
+        'nvim-dap-ui',
+        'nvim-tree',
+        'symbols-outline',
+        'toggleterm',
+        'quickfix'
+    }
 }

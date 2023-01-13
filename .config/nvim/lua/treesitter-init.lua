@@ -1,8 +1,8 @@
 ------- NVIM-TREESITTER -------
 
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = vim.fn['nvim_treesitter#foldexpr']()
-vim.o.foldlevel = 100
+-- vim.o.foldmethod = 'expr'
+-- vim.o.foldexpr = vim.fn['nvim_treesitter#foldexpr']()
+-- vim.o.foldlevel = 99
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"c", "bash", "go", "rust", "python", "cpp", "lua", "markdown"},
     highlight = {
@@ -18,7 +18,12 @@ require'nvim-treesitter.configs'.setup {
         extended_mode = true,
         max_file_lines = nil,
     },
+    -- nvim-ts-autotag
     autotag = {
         enable = true
-    }
+    },
+    -- nvim-treesitter-endwise
+    endwise = {
+        enable = true,
+    },
 }

@@ -18,17 +18,8 @@ require('which-key').setup{
     },
     disable = {
         buftypes = { "NvimTree" },
-        filetypes = { "NvimTree", "TelescopePrompt" },
+        filetypes = { "NvimTree", "TelescopePrompt", "lspsagaoutline" },
     },
 }
 
 vim.cmd.highlight({ "link", "WhichKeyValue", "Info" })
-
--- custom key mappings hint
-local wk = require('which-key')
-wk.register({
-    h = {
-        name = 'git operations',
-        t = 'toggle_show_deleted',
-    },
-}, { prefix = '<LEADER>' })

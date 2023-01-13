@@ -62,17 +62,6 @@ return require('packer').startup(function(use)
             require'colorizer'.setup()
         end
     }
-    -- use {
-    --     'RRethy/vim-illuminate',
-    --     config = function()
-    --         vim.cmd([[
-    --             augroup illuminate_augroup
-    --                 autocmd!
-    --                 autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guisp=darkgrey
-    --             augroup END
-    --         ]])
-    --     end
-    -- }
     use 'p00f/nvim-ts-rainbow'
     use 'nvim-tree/nvim-web-devicons'
     use {
@@ -82,13 +71,6 @@ return require('packer').startup(function(use)
         end
     }
     use 'sitiom/nvim-numbertoggle'
-    use {
-        'kevinhwang91/nvim-ufo',
-        requires = 'kevinhwang91/promise-async',
-        config = function()
-            require('ufo-init')
-        end
-    }
     -- coding, completion and debug
     use {
         'neovim/nvim-lspconfig',
@@ -96,21 +78,14 @@ return require('packer').startup(function(use)
             require('lsp-init')
         end
     }
-    use({
+    use {
         "glepnir/lspsaga.nvim",
-        branch = "main",
+        commit = "db0c141",
         requires = 'neovim/nvim-lspconfig',
         config = function()
             require("lspsaga-init")
         end,
-    })
-    -- use {
-    --     "SmiteshP/nvim-navic",
-    --     requires = "neovim/nvim-lspconfig",
-    --     config = function()
-    --         require('navic-init')
-    --     end
-    -- }
+    }
     use {
         "ray-x/lsp_signature.nvim",
         config = function()
@@ -168,63 +143,69 @@ return require('packer').startup(function(use)
         end
     }
     use {
+        'kevinhwang91/nvim-bqf',
+        ft = 'qf',
+        requires = 'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('bqf').setup()
+        end
+    }
+    -- text process
+    use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        -- run = ':TSUpdate',
         config = function()
             require('treesitter-init')
         end
     }
     use {
-        'puremourning/vimspector', -- viml!!!
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
-            vim.g.vimspector_base_dir = '/home/martinit/.local/share/nvim/plugged/vimspector'
+            require('textobjects-init')
         end
     }
     use {
-        'liuchengxu/vista.vim', -- viml!!!
-        config = function()
-            vim.keymap.set('n', '<F8>', ':Vista!!<CR>')
-        end
+        'RRethy/nvim-treesitter-endwise',
+        requires = 'nvim-treesitter/nvim-treesitter'
     }
-    use {
-        'nvim-pack/nvim-spectre',
-        config = function()
-            vim.keymap.set('n', '<leader>F',  [[<cmd>lua require('spectre').open()<CR>]])
-            vim.keymap.set('n', '<leader>fw', [[<cmd>lua require('spectre').open_visual({select_word=true})<CR>]])
-            vim.keymap.set('v', '<leader>f',  [[<cmd>lua require('spectre').open_visual()<CR>]])
-            vim.keymap.set('n', '<leader>fp', [[viw:lua require('spectre').open_file_search()<cr>]])
-        end
-    }
-    use 'AndrewRadev/splitjoin.vim' -- viml!!!
     use {
         'numToStr/Comment.nvim',
+        requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
             require('Comment').setup()
         end
     }
-    -- text process
     use {
-        'svermeulen/vim-subversive', -- viml!!!
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
         config = function()
-            -- s for substitute
-            vim.keymap.set('n', 's',          [[<plug>(SubversiveSubstitute)]])
-            vim.keymap.set('n', 'ss',         [[<plug>(SubversiveSubstituteLine)]])
-            vim.keymap.set('n', '<LEADER>s',  [[<plug>(SubversiveSubstituteRange)]])
-            vim.keymap.set('x', '<LEADER>s',  [[<plug>(SubversiveSubstituteRange)]])
-            vim.keymap.set('n', '<LEADER>ss', [[<plug>(SubversiveSubstituteWordRange)]])
+            require('todo-init')
         end
     }
     use {
-        'junegunn/vim-easy-align', -- viml!!!
+        'Wansmer/treesj',
+        requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
-            vim.keymap.set('x', 'ga', [[<use>(EasyAlign)]])
-            vim.keymap.set('n', 'ga', [[<use>(EasyAlign)]])
+            require('treesj-init')
+        end,
+    }
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = {
+            'kevinhwang91/promise-async',
+            'nvim-treesitter/nvim-treesitter'
+        },
+        config = function()
+            require('ufo-init')
         end
     }
-    use 'easymotion/vim-easymotion' -- viml!!!
-    use 'dhruvasagar/vim-table-mode' -- viml!!!
-    use 'davidgranstrom/nvim-markdown-preview' -- viml!!!
-    use 'mzlogin/vim-markdown-toc' -- viml!!!
+    use {
+        'gbprod/substitute.nvim',
+        config = function()
+            require('substitute-init')
+        end
+    }
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
@@ -233,45 +214,24 @@ return require('packer').startup(function(use)
     }
     use {
         'kylechui/nvim-surround',
+        tag = "*",
+        requires = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-treesitter/nvim-treesitter-textobjects'
+        },
         config = function()
             require("nvim-surround").setup()
         end
     }
     use {
-        'mg979/vim-visual-multi', -- viml!!!
-        branch = 'master'
-    }
-    use {
-        'windwp/nvim-autopairs',
+        'phaazon/hop.nvim',
+        branch = 'v2',
         config = function()
-            require('autopairs-init')
+            require('hop-init')
         end
     }
     use {
-        'windwp/nvim-ts-autotag',
-        requires = 'nvim-treesitter/nvim-treesitter'
-    }
-    use 'andymass/vim-matchup' -- viml!!!
-    use {
-        'godlygeek/tabular', -- viml!!!
-        config = function()
-            vim.keymap.set('', 'tb', ':Tabularize<SPACE>/')
-        end
-    }
-    use 'gcmt/wildfire.vim' -- viml!!!
-    use 'tpope/vim-repeat' -- viml!!!
-    -- use {
-    --     'ggandor/lightspeed.nvim',
-    --     config = function()
-    --         vim.cmd([[nmap <expr> f reg_recording() . reg_executing() == "" ? "<use>Lightspeed_f" : "f"]])
-    --         vim.cmd([[nmap <expr> F reg_recording() . reg_executing() == "" ? "<use>Lightspeed_F" : "F"]])
-    --         vim.cmd([[nmap <expr> t reg_recording() . reg_executing() == "" ? "<use>Lightspeed_t" : "t"]])
-    --         vim.cmd([[nmap <expr> T reg_recording() . reg_executing() == "" ? "<use>Lightspeed_T" : "T"]])
-    --         vim.cmd([[map <nowait> " <use>Lightspeed_omni_s]])
-    --     end
-    -- }
-    use {
-        'fedepujol/move.nvim',
+        'hinell/move.nvim',
         config = function()
             vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>',    {silent = true})
             vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>',   {silent = true})
@@ -283,7 +243,54 @@ return require('packer').startup(function(use)
             vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', {silent = true})
         end
     }
+    use {
+        'windwp/nvim-autopairs',
+        config = function()
+            require('autopairs-init')
+        end
+    }
+    use {
+        'windwp/nvim-ts-autotag',
+        requires = 'nvim-treesitter/nvim-treesitter'
+    }
+    use {
+        'nvim-pack/nvim-spectre',
+        config = function()
+            vim.keymap.set('n', '<leader>F',  [[<cmd>lua require('spectre').open()<CR>]])
+            vim.keymap.set('n', '<leader>fw', [[<cmd>lua require('spectre').open_visual({select_word=true})<CR>]])
+            vim.keymap.set('v', '<leader>f',  [[<cmd>lua require('spectre').open_visual()<CR>]])
+            vim.keymap.set('n', '<leader>fp', [[viw:lua require('spectre').open_file_search()<cr>]])
+        end
+    }
+    use 'dhruvasagar/vim-table-mode' -- viml!!!
+    use {
+        'mg979/vim-visual-multi', -- viml!!!
+        branch = 'master'
+    }
+    use {
+        'junegunn/vim-easy-align', -- viml!!!
+        config = function()
+            vim.keymap.set('x', 'ga', [[<use>(EasyAlign)]])
+            vim.keymap.set('n', 'ga', [[<use>(EasyAlign)]])
+        end
+    }
+    use {
+        'godlygeek/tabular', -- viml!!!
+        config = function()
+            vim.keymap.set('', 'tb', ':Tabularize<SPACE>/')
+        end
+    }
+    use 'andymass/vim-matchup' -- viml!!!
+    use 'tpope/vim-repeat' -- viml!!!
     -- addition
+    use 'ellisonleao/glow.nvim'
+    use {
+        'toppair/peek.nvim',
+        run = 'deno task --quiet build:fast',
+        config = function()
+            require('peek-init')
+        end
+    }
     use {
         'nvim-tree/nvim-tree.lua',
         requires = 'nvim-tree/nvim-web-devicons',
@@ -292,10 +299,20 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'kevinhwang91/rnvimr',
+        'kevinhwang91/rnvimr', -- viml!!!
         config = function()
             require('rnvimr-init')
         end
+    }
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            {'kkharji/sqlite.lua', module = 'sqlite'},
+            'nvim-telescope/telescope.nvim',
+        },
+        config = function()
+            require('neoclip-init')
+        end,
     }
     use {
         'mbbill/undotree', -- viml!!!
@@ -316,11 +333,6 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'junegunn/fzf', -- viml!!!
-        run = './install --all'
-    }
-    use 'junegunn/fzf.vim' -- viml!!!
-    use {
         'petertriho/nvim-scrollbar',
         config = function()
             require('scrollbar-init')
@@ -336,40 +348,25 @@ return require('packer').startup(function(use)
     use {
         'akinsho/toggleterm.nvim',
         config = function()
-            require("toggleterm").setup{
-                open_mapping = [[<C-\>]],
-                direction = 'float',
-                float_opts = {
-                    border = 'curved',
-                }
-            }
+            require('toggleterm-init')
         end
-    }
-    use {
-        'kevinhwang91/nvim-bqf',
-        requires = {
-            'junegunn/fzf',
-            'nvim-treesitter/nvim-treesitter'
-        },
-        ft = 'qf'
     }
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
         requires = {
             'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzf-native.nvim',
-            'jvgrootveld/telescope-zoxide',
             'nvim-treesitter/nvim-treesitter',
-            'nvim-tree/nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                run = 'make'
+            },
+            -- 'nvim-telescope/telescope-ui-select.nvim'
         },
         config = function()
             require('telescope-init')
         end
-    }
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     }
     use {
         'rcarriga/nvim-notify',
@@ -377,17 +374,14 @@ return require('packer').startup(function(use)
             require('notify-init')
         end
     }
+    use {
+        'j-hui/fidget.nvim',
+        requires = 'neovim/nvim-lspconfig',
+        config = function()
+            require('fidget-init')
+        end
+    }
     -- git
-    -- use {
-    --     'tanvirtin/vgit.nvim',
-    --     requires = {
-    --         'nvim-lua/plenary.nvim',
-    --         'nvim-tree/nvim-web-devicons'
-    --     },
-    --     config = function()
-    --         require('vgit-init')
-    --     end
-    -- }
     use {
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -402,6 +396,18 @@ return require('packer').startup(function(use)
         end
     }
     -- others
+    use {
+        'rmagatti/auto-session',
+        config = function()
+            require('autosession-init')
+        end
+    }
+    use {
+        'ethanholz/nvim-lastplace',
+        config = function()
+            require('lastplace-init')
+        end
+    }
     use {
         'folke/which-key.nvim',
         config = function()

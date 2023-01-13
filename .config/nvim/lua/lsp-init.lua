@@ -1,11 +1,10 @@
 ------- NVIM.LSPCONFIG -------
 
 -- mapping
-local opts = { silent=true }
-vim.keymap.set('n', '<LEADER>e', vim.diagnostic.open_float, opts)
--- vim.keymap.set('n', '<LEADER>-', vim.diagnostic.goto_prev, opts)
--- vim.keymap.set('n', '<LEADER>=', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<LEADER>dd', vim.diagnostic.setloclist, opts)
+-- vim.keymap.set('n', '<LEADER>e', vim.diagnostic.open_float, { silent = true, desc = "diagnostic open float" })
+-- vim.keymap.set('n', '<LEADER>-', vim.diagnostic.goto_prev, { silent = true, desc = "diagnostic goto prev" })
+-- vim.keymap.set('n', '<LEADER>=', vim.diagnostic.goto_next, { silent = true, desc = "diagnostic goto next" })
+vim.keymap.set('n', '<LEADER>dd', vim.diagnostic.setloclist, { silent = true, desc = "diagnostic loclist" })
 
 local function preview_location_callback(_, result)
     if result == nil or vim.tbl_isempty(result) then
@@ -22,18 +21,43 @@ end
 local on_attach = function(client, bufnr)
     -- LSP functions mapping
     local bufopts = { silent=true, buffer=bufnr }
+
+    bufopts.desc = "goto declaration"
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+
+    bufopts.desc = "goto definition"
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+
+    bufopts.desc = "peek definition"
     vim.keymap.set('n', '<LEADER>dp', PeekDefinition, bufopts)
+
+    bufopts.desc = "clangd switch source header"
     vim.keymap.set('n', 'gsh', '<CMD>ClangdSwitchSourceHeader<CR>', bufopts)
+
+    bufopts.desc = "hover doc"
     vim.keymap.set('n', 'gH', vim.lsp.buf.hover, bufopts)
+
+    bufopts.desc = "goto implementation"
     vim.keymap.set('n', 'gp', vim.lsp.buf.implementation, bufopts)
+
+    -- bufopts.desc = "signature help"
     -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+
+    bufopts.desc = "goto type definition"
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+
+    -- bufopts.desc = "rename symbol"
     -- vim.keymap.set('n', '<LEADER>rn', vim.lsp.buf.rename, bufopts)
+
+    -- bufopts.desc = "code action"
     -- vim.keymap.set('n', '<LEADER>ca', vim.lsp.buf.code_action, bufopts)
+
+    bufopts.desc = "show references"
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+
+    bufopts.desc = "format"
     vim.keymap.set({'n', 'v'}, '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
+
     -- show line diagnostic auto in hover window
     -- vim.api.nvim_create_autocmd("CursorHold", {
     --     buffer = bufnr,
@@ -47,6 +71,7 @@ local on_attach = function(client, bufnr)
     --             vim.diagnostic.open_float(nil, opts)
     --         end
     -- })
+
     -- highlight cursor word
     if client.server_capabilities.documentHighlightProvider then
         vim.cmd [[
@@ -72,10 +97,6 @@ local on_attach = function(client, bufnr)
             callback = vim.lsp.buf.clear_references,
         })
     end
-    -- nvim.navic
-    -- if client.server_capabilities.documentSymbolProvider then
-    --     require('nvim-navic').attach(client, bufnr)
-    -- end
 end
 
 -- float window border

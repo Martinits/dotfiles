@@ -22,7 +22,7 @@ require('bufferline').setup {
         offsets = {
             {
                 filetype = "NvimTree",
-                text = "Files",
+                text = "📂 Files",
                 text_align = "center",
                 separator = true
             }
@@ -55,15 +55,15 @@ require('bufferline').setup {
     }
 }
 
-vim.keymap.set('n', '<LEADER>bg', '<CMD>BufferLinePick<CR>', {silent = true})
-vim.keymap.set('n', '<LEADER>bc', '<CMD>BufferLinePickClose<CR>', {silent = true})
-vim.keymap.set('n', '<LEADER>bp', '<CMD>BufferLineTogglePin<CR>', {silent = true})
-vim.keymap.set('n', '<LEADER>1', '<cmd>lua require("bufferline").go_to_buffer(1, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>2', '<cmd>lua require("bufferline").go_to_buffer(2, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>3', '<cmd>lua require("bufferline").go_to_buffer(3, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>4', '<cmd>lua require("bufferline").go_to_buffer(4, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', {silent = true})
-vim.keymap.set('n', '<LEADER>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>', {silent = true})
+vim.keymap.set('n', '<LEADER>bg', '<CMD>BufferLinePick<CR>', {silent = true, desc = "bufferline pick" })
+vim.keymap.set('n', '<LEADER>bc', '<CMD>BufferLinePickClose<CR>', {silent = true, desc = "bufferline pick close" })
+vim.keymap.set('n', '<LEADER>bp', '<CMD>BufferLineTogglePin<CR>', {silent = true, desc = "bufferline toggle pin" })
+vim.keymap.set('n', '<LEADER>1', '<CMD>lua require("bufferline").go_to_buffer(1, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 1"})
+vim.keymap.set('n', '<LEADER>2', '<CMD>lua require("bufferline").go_to_buffer(2, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 2"})
+vim.keymap.set('n', '<LEADER>3', '<CMD>lua require("bufferline").go_to_buffer(3, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 3"})
+vim.keymap.set('n', '<LEADER>4', '<CMD>lua require("bufferline").go_to_buffer(4, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 4"})
+vim.keymap.set('n', '<LEADER>5', '<CMD>lua require("bufferline").go_to_buffer(5, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 5"})
+vim.keymap.set('n', '<LEADER>6', '<CMD>lua require("bufferline").go_to_buffer(6, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 6"})
+vim.keymap.set('n', '<LEADER>7', '<CMD>lua require("bufferline").go_to_buffer(7, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 7"})
+vim.keymap.set('n', '<LEADER>8', '<CMD>lua require("bufferline").go_to_buffer(8, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 8"})
+vim.keymap.set('n', '<LEADER>9', '<CMD>lua require("bufferline").go_to_buffer(9, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 9"})

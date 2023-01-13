@@ -36,27 +36,6 @@ vim.o.scrolloff = 3
 vim.o.inccommand = 'split'
 vim.o.visualbell = true
 vim.o.virtualedit = 'block'
--- return to last editing place
-vim.api.nvim_create_autocmd('BufReadPost',
-    {
-        pattern = '*',
-        command = [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-    }
-)
--- terminal setting
-vim.api.nvim_create_autocmd('TermOpen',
-    {
-        pattern = 'term://*',
-        command = 'startinsert'
-    }
-)
--- highlight yanked
-vim.api.nvim_create_autocmd('TextYankPost',
-    {
-        pattern = '*',
-        callback = function() vim.highlight.on_yank({timeout=500}) end
-    }
-)
 
 
 ------- KEY MAPPINGS -------
@@ -122,13 +101,15 @@ vim.keymap.set('i', '<C-e>', '<End>')
 -- find and replace
 vim.keymap.set('', [[\s]], [[:%s//gc<Left><Left><Left>]])
 
-vim.cmd([[
-nnoremap <leader>sp :call SynStack()<CR>
-function! SynStack()
-  if !exists("*synstack")
-    echo "netexist"
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-]])
+
+------- COMMANDS -------
+-- highlight yanked
+vim.cmd [[
+    au TextYankPost * silent! lua vim.highlight.on_yank{timeout=500}
+]]
+-- vim.api.nvim_create_autocmd('TextYankPost',
+--     {
+--         pattern = '*',
+--         callback = function() vim.highlight.on_yank({timeout=500}) end
+--     }
+-- )
