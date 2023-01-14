@@ -150,6 +150,29 @@ return require('packer').startup(function(use)
             require('bqf').setup()
         end
     }
+    use {
+        'mfussenegger/nvim-dap',
+        config = function()
+            require('dap-init')
+        end
+    }
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = "mfussenegger/nvim-dap",
+        config = function()
+            require('dapui-init')
+        end
+    }
+    use {
+        'theHamsta/nvim-dap-virtual-text',
+        requires = {
+            'mfussenegger/nvim-dap',
+            'nvim-treesitter/nvim-treesitter'
+        },
+        config = function()
+            require('dapvt-init')
+        end
+    }
     -- text process
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -271,7 +294,7 @@ return require('packer').startup(function(use)
     use {
         'godlygeek/tabular', -- viml!!!
         config = function()
-            vim.keymap.set('', 'tb', ':Tabularize<SPACE>/')
+            vim.keymap.set('', '<LEADER>tb', ':Tabularize<SPACE>/')
         end
     }
     use 'andymass/vim-matchup' -- viml!!!
@@ -365,7 +388,7 @@ return require('packer').startup(function(use)
     use {
         'mbbill/undotree', -- viml!!!
         config = function()
-            vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>')
+            vim.keymap.set('n', '<F2>', ':UndotreeToggle<CR>')
             vim.cmd([[
                 if has("persistent_undo")
                     let target_path = expand('~/.undodir')
@@ -426,12 +449,12 @@ return require('packer').startup(function(use)
             }
         end
     }
-    -- use {
-    --     'notjedi/nvim-rooter.lua',
-    --     config = function()
-    --         require('rooter-init')
-    --     end
-    -- }
+    use {
+        'notjedi/nvim-rooter.lua',
+        config = function()
+            require('rooter-init')
+        end
+    }
     use {
         'airblade/vim-rooter', -- viml!!!
         config = function()

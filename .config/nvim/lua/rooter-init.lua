@@ -14,6 +14,5 @@ require('nvim-rooter').setup {
         'README.rst',
         'README'
     },
+    manual = true
 }
-
--- require('nvim-rooter').rooter()

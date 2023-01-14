@@ -120,6 +120,14 @@
    |              | \<LEADER\>ci co              | call hierachy: incoming / outcoming                     |
    |              | \<M-x\>                      | lsp_signature: toggle                                   |
    |              | \<M-j\>                      | lsp_signature: select next signature                    |
+   | dap          | tb tB                        | toggle breakpoint / set conditional breakpoint          |
+   |              | \<F4\>                       | terminate                                               |
+   |              | \<F5\>                       | continue                                                |
+   |              | \<F6\>                       | step over                                               |
+   |              | \<F7\>                       | step into                                               |
+   |              | \<F8\>                       | step out                                                |
+   |              | \<F9\>                       | run last                                                |
+   |              | \<M-v\>                      | dapui: eval                                             |
    | cmp          | \<TAB\> \<S-TAB\> \<CR\>     | choose item and confirm                                 |
    |              | \<C-J\> \<C-K\>              | cycle through items                                     |
    |              | \<C-F\> \<F-B\>              | scroll doc                                              |
@@ -150,7 +158,7 @@
    |              | \<C-c\>                      | quit                                                    |
    | spectre      | \<LEADER\>pp pw pf           | spectre: normal / current word / current file           |
    | whichkey     | z=                           | whichkey: show spell suggestions                        |
-   |              | :WhichKey                    | show all keymaps                                        |
+   |              | ! :WhichKey                  | show all keymaps                                        |
    | treesj       | gJ gS gT                     | join / split / toggle                                   |
    | hop          | \<LEADER\>hw hh              | hop word / anywhere                                     |
    | matchup      | % [% ]% z%                   | matchpairs and text objects                             |
@@ -159,8 +167,8 @@
    |              | \<LEADER\>tdd tdc            | table mode delete row or line                           |
    |              | \<LEADER\>tic tiC            | table mode insert column after or before                |
    |              | [\| ]\| {\| }\|              | table mode move left right up down                      |
-   | undotree     | \<F5\>                       | undo tree toggle                                        |
-   | tabular      | tb                           | tabularize                                              |
+   | undotree     | \<F2\>                       | undo tree toggle                                        |
+   | tabular      | \<LEADER\>tb                 | tabularize                                              |
    | visual multi | \<C-n\> \<C-Up\> \<C-Down\>  | visual multi select                                     |
    |              | n N [ ]                      | visual multi get/select next/prev                       |
    |              | q Q                          | visual multi skip and get next / remove current         |
