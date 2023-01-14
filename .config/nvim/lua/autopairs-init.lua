@@ -7,7 +7,9 @@ npairs.setup({
     check_ts = true,
     enable_check_bracket_line = false,
     -- ignored_next_char = "[%w%.]",
-    fast_wrap = {}
+    fast_wrap = {
+        pattern = [=[[%'%"%)%>%]%)%}%,%;]]=],
+    }
 })
 
 local ts_conds = require('nvim-autopairs.ts-conds')

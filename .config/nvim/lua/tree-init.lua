@@ -89,9 +89,14 @@ require("nvim-tree").setup({
         cmd = "trash",
         require_confirm = true,
     },
+    sync_root_with_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_root = true
+    },
 })
 
-vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR>")
-vim.keymap.set('n', 'tf', ":NvimTreeFocus<CR>")
+vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR>", { desc = "nivm-tree toggle" })
+vim.keymap.set('n', 'tf', ":NvimTreeFocus<CR>", { desc = "nvim-tree focus" })
 
 vim.cmd.highlight({ "NvimTreeModifiedFile", "guifg=#F36E7A" })

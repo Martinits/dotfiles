@@ -1,6 +1,5 @@
 ------- WHICHKEY.NVIM -------
 
-
 require('which-key').setup{
     plugins = {
         marks = true,
@@ -18,7 +17,12 @@ require('which-key').setup{
     },
     disable = {
         buftypes = { "NvimTree" },
-        filetypes = { "NvimTree", "TelescopePrompt", "lspsagaoutline" },
+        filetypes = {
+            "NvimTree",
+            "TelescopePrompt",
+            "lspsagaoutline",
+            "spectre_panel"
+        },
     },
 }
 

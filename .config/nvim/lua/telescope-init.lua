@@ -1,14 +1,14 @@
 ------- TELESCOPE.NVIM -------
 
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files)
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep)
-vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers)
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags)
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string)
-vim.keymap.set('n', '<leader>fs', require('telescope.builtin').lsp_document_symbols)
-vim.keymap.set('n', '<leader>fS', require('telescope.builtin').lsp_workspace_symbols)
-vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics)
-vim.keymap.set('n', 'gR', require('telescope.builtin').lsp_references)
+vim.keymap.set('n', '<LEADER>ff', require('telescope.builtin').find_files, { desc = 'telescope: find files' })
+vim.keymap.set('n', '<LEADER>fg', require('telescope.builtin').live_grep, { desc = 'telescope: live grep' })
+vim.keymap.set('n', '<LEADER>fb', require('telescope.builtin').buffers, { desc = 'telescope: find buffer' })
+vim.keymap.set('n', '<LEADER>fh', require('telescope.builtin').help_tags, { desc = 'telescope: help tags' })
+vim.keymap.set('n', '<LEADER>fw', require('telescope.builtin').grep_string, { desc = 'telescope: search cursor string' })
+vim.keymap.set('n', '<LEADER>fs', require('telescope.builtin').lsp_document_symbols, { desc = 'telescope: lsp buffer symbols' })
+vim.keymap.set('n', '<LEADER>fS', require('telescope.builtin').lsp_workspace_symbols, { desc = 'telescope: lsp workspace symbols' })
+vim.keymap.set('n', '<LEADER>fd', require('telescope.builtin').diagnostics, { desc = 'telescope: diagnostics' })
+vim.keymap.set('n', 'gR', require('telescope.builtin').lsp_references, { desc = 'telescope: lsp references' })
 
 require('telescope').setup{
     defaults = {

@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
     }
     use {
         'nvim-lualine/lualine.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
+        requires = 'nvim-tree/nvim-web-devicons',
         config = function()
             require('lualine-init')
         end
@@ -233,14 +233,7 @@ return require('packer').startup(function(use)
     use {
         'hinell/move.nvim',
         config = function()
-            vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>',    {silent = true})
-            vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>',   {silent = true})
-            vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>',   {silent = true})
-            vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>',  {silent = true})
-            vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>',   {silent = true})
-            vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>',  {silent = true})
-            vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>',  {silent = true})
-            vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', {silent = true})
+            require('move-init')
         end
     }
     use {
@@ -255,11 +248,12 @@ return require('packer').startup(function(use)
     }
     use {
         'nvim-pack/nvim-spectre',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
         config = function()
-            vim.keymap.set('n', '<leader>F',  [[<cmd>lua require('spectre').open()<CR>]])
-            vim.keymap.set('n', '<leader>fw', [[<cmd>lua require('spectre').open_visual({select_word=true})<CR>]])
-            vim.keymap.set('v', '<leader>f',  [[<cmd>lua require('spectre').open_visual()<CR>]])
-            vim.keymap.set('n', '<leader>fp', [[viw:lua require('spectre').open_file_search()<cr>]])
+            require('spectre-init')
         end
     }
     use 'dhruvasagar/vim-table-mode' -- viml!!!
@@ -270,8 +264,8 @@ return require('packer').startup(function(use)
     use {
         'junegunn/vim-easy-align', -- viml!!!
         config = function()
-            vim.keymap.set('x', 'ga', [[<use>(EasyAlign)]])
-            vim.keymap.set('n', 'ga', [[<use>(EasyAlign)]])
+            vim.keymap.set('x', 'ga', [[<Plug>(EasyAlign)]])
+            vim.keymap.set('n', 'ga', [[<Plug>(EasyAlign)]])
         end
     }
     use {
@@ -299,12 +293,6 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'kevinhwang91/rnvimr', -- viml!!!
-        config = function()
-            require('rnvimr-init')
-        end
-    }
-    use {
         "AckslD/nvim-neoclip.lua",
         requires = {
             {'kkharji/sqlite.lua', module = 'sqlite'},
@@ -315,25 +303,11 @@ return require('packer').startup(function(use)
         end,
     }
     use {
-        'mbbill/undotree', -- viml!!!
-        config = function()
-            vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>')
-            vim.cmd([[
-                if has("persistent_undo")
-                    let target_path = expand('~/.undodir')
-                    " create the directory and any parent directories
-                    " if the location does not exist.
-                    if !isdirectory(target_path)
-                      call mkdir(target_path, "p", 0700)
-                    endif
-                    let &undodir=target_path
-                    set undofile
-                endif
-            ]])
-        end
-    }
-    use {
         'petertriho/nvim-scrollbar',
+        requires = {
+            'kevinhwang91/nvim-hlslens',
+            'lewis6991/gitsigns.nvim'
+        },
         config = function()
             require('scrollbar-init')
         end
@@ -347,6 +321,7 @@ return require('packer').startup(function(use)
     }
     use {
         'akinsho/toggleterm.nvim',
+        tag = '*',
         config = function()
             require('toggleterm-init')
         end
@@ -381,6 +356,30 @@ return require('packer').startup(function(use)
             require('fidget-init')
         end
     }
+    use {
+        'kevinhwang91/rnvimr', -- viml!!!
+        config = function()
+            require('rnvimr-init')
+        end
+    }
+    use {
+        'mbbill/undotree', -- viml!!!
+        config = function()
+            vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>')
+            vim.cmd([[
+                if has("persistent_undo")
+                    let target_path = expand('~/.undodir')
+                    " create the directory and any parent directories
+                    " if the location does not exist.
+                    if !isdirectory(target_path)
+                      call mkdir(target_path, "p", 0700)
+                    endif
+                    let &undodir=target_path
+                    set undofile
+                endif
+            ]])
+        end
+    }
     -- git
     use {
         'lewis6991/gitsigns.nvim',
@@ -390,7 +389,10 @@ return require('packer').startup(function(use)
     }
     use {
         'sindrets/diffview.nvim',
-        requires = 'nvim-lua/plenary.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons'
+        },
         config = function()
             require('diffview').setup()
         end
@@ -418,13 +420,18 @@ return require('packer').startup(function(use)
         'klen/nvim-config-local',
         config = function()
             require('config-local').setup {
-                -- Default configuration (optional)
                 config_files = { ".init.lua", ".init.vim" },
                 silent = true,
                 lookup_parents = true,
             }
         end
     }
+    -- use {
+    --     'notjedi/nvim-rooter.lua',
+    --     config = function()
+    --         require('rooter-init')
+    --     end
+    -- }
     use {
         'airblade/vim-rooter', -- viml!!!
         config = function()
