@@ -56,7 +56,7 @@ dap.configurations.cpp = {
         request = 'launch',
         program = executable_prompt,
         cwd = '${workspaceFolder}',
-        stopOnEntry = true,
+        stopOnEntry = false,
         args = {},
     },
 }

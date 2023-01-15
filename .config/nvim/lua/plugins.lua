@@ -110,7 +110,7 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp-document-symbol',
             'hrsh7th/cmp-emoji',
             'ray-x/cmp-treesitter',
-            -- 'rcarriga/cmp-dap',
+            'rcarriga/cmp-dap',
             {
                 "KadoBOT/cmp-plugins",
                 config = function()
