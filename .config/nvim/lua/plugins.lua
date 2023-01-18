@@ -456,23 +456,6 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'airblade/vim-rooter', -- viml!!!
-        config = function()
-            vim.g.rooter_patterns = {
-                '.git',
-                'Makefile',
-                'Cargo.toml',
-                'init.vim',
-                '.gitignore',
-                'init.lua',
-                'package.json',
-                'README.md',
-                'README.rst',
-                'README'
-            }
-        end
-    }
-    use {
         'lambdalisue/suda.vim', -- viml!!!
         config = function()
             vim.g.suda_smart_edit = 1
