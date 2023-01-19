@@ -2,9 +2,8 @@
 
 require('nvim-rooter').setup {
     rooter_patterns = {
+        'compile_commands.json',
         '.git',
-        '.hg',
-        '.svn',
         'Makefile',
         'Cargo.toml',
         '.gitignore',
@@ -14,5 +13,5 @@ require('nvim-rooter').setup {
         'README.rst',
         'README'
     },
-    -- manual = true
+    manual = true
 }
