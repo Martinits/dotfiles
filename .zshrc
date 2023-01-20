@@ -116,6 +116,11 @@ alias gch='git checkout'
 alias scrot='scrot -z'
 alias duf='duf --only local,network'
 alias dk='docker'
+alias cby='cb copy'
+alias cbc='cb cut'
+alias cbp='cb paste'
+alias cbs='cb show'
+alias cbr='cb clear'
 
 # shell functions
 source ~/.func.zsh
