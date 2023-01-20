@@ -197,16 +197,23 @@ require('lspconfig').rust_analyzer.setup{
 }
 
 -- lua
-require('lspconfig').sumneko_lua.setup{
+require('lspconfig').sumneko_lua.setup {
     on_attach = on_attach,
     capabilities = common_capabilities,
     settings = {
         Lua = {
             runtime = { version = 'LuaJIT' },
-            diagnostics = { globals = {'vim'} },
+            diagnostics = { globals = { 'vim' } },
             workspace = {
                 library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false
+            },
+            format = {
+                enable = true,
+                defaultConfig = {
+                    indent_style = "space",
+                    indent_size = "4",
+                }
             }
         }
     }
