@@ -27,3 +27,19 @@ require('which-key').setup{
 }
 
 vim.cmd.highlight({ "link", "WhichKeyValue", "Info" })
+
+-- custom key mappings hint
+local wk = require('which-key')
+wk.register({
+    b = { name = '<buffer>' },
+    c = { name = '<codeaction> <call-hierachy>' },
+    d = { name = '<diagnostic> <definition>' },
+    f = { name = '<telescope>' },
+    g = { name = '<git>' },
+    h = { name = '<hop>' },
+    l = { name = '<lsp-finder>' },
+    p = { name = '<spectre>' },
+    r = { name = '<rename-symbol>' },
+    s = { name = '<swap>' },
+        t = { name = '<tabular> <table-mode> <todo>' },
+}, { prefix = '<LEADER>' })

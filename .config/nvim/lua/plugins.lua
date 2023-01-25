@@ -287,8 +287,8 @@ return require('packer').startup(function(use)
     use {
         'junegunn/vim-easy-align', -- viml!!!
         config = function()
-            vim.keymap.set('x', 'ga', [[<Plug>(EasyAlign)]])
-            vim.keymap.set('n', 'ga', [[<Plug>(EasyAlign)]])
+            vim.keymap.set('x', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
+            vim.keymap.set('n', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
         end
     }
     use {

@@ -48,9 +48,9 @@ vim.keymap.set('', 'L', '7l')
 vim.keymap.set('', '<C-e>', '$')
 vim.keymap.set('', '<C-s>', '^')
 -- join two lines (concatenate)
-vim.keymap.set('', 'ct', ':join<CR>')
+vim.keymap.set('', 'ct', ':join<CR>', {desc = 'join lines'})
 -- edit this line
-vim.keymap.set('', 'cc', '^C')
+vim.keymap.set('', 'cc', '^C', {desc = 'change line'})
 -- search result
 vim.keymap.set('', '=', 'nzz')
 vim.keymap.set('', '-', 'Nzz')

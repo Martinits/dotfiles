@@ -25,5 +25,5 @@ require('neoclip').setup{
     },
 }
 
-vim.keymap.set('n', '<LEADER>y', ':Telescope neoclip<CR>')
--- vim.keymap.set('n', '<LEADER>ym', ':Telescope macroscope<CR>')
+vim.keymap.set('n', '<LEADER>y', ':Telescope neoclip<CR>', {desc = 'yank history'})
+-- vim.keymap.set('n', '<LEADER>ym', ':Telescope macroscope<CR>', {desc = 'macro history'})
