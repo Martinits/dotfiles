@@ -475,7 +475,7 @@ return require('packer').startup(function(use)
     use {
         'lambdalisue/suda.vim', -- viml!!!
         config = function()
-            vim.g.suda_smart_edit = 1
+            vim.g.suda_smart_edit = 0
         end
     }
 

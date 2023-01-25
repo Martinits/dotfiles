@@ -179,7 +179,7 @@ local common_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- language servers
 -- c/c++
-require('lspconfig').clangd.setup{
+require('lspconfig').ccls.setup{
     on_attach = on_attach,
     capabilities = common_capabilities
 }
