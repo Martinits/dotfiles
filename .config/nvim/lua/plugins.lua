@@ -231,6 +231,7 @@ return require('packer').startup(function(use)
     }
     use {
         'lukas-reineke/indent-blankline.nvim',
+        requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
             require('indent-init')
         end
@@ -254,7 +255,7 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'hinell/move.nvim',
+        'fedepujol/move.nvim',
         config = function()
             require('move-init')
         end

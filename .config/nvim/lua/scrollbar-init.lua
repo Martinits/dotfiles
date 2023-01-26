@@ -13,5 +13,3 @@ require("scrollbar").setup({
         Misc = { color = '#ffff00' },
     }
 })
-require("scrollbar.handlers.search").setup()
-require("scrollbar.handlers.gitsigns").setup()

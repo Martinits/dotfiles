@@ -9,6 +9,7 @@ vim.cmd [[highlight IndentBlanklineIndent3 guifg=#E5C07B gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent4 guifg=#E56C75 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineContextChar guifg=#98C379 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineContextStart guisp=#98C379 gui=underline]]
+
 require("indent_blankline").setup {
     -- char_highlight_list = {
     --     "IndentBlanklineIndent0",

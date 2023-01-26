@@ -36,3 +36,5 @@ require('gitsigns').setup {
         map({'o', 'x'}, 'ig', ':<C-U>Gitsigns select_hunk<CR>', {desc = 'hunk object'})
     end
 }
+
+require("scrollbar.handlers.gitsigns").setup()
