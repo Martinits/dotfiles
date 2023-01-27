@@ -79,23 +79,30 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        "glepnir/lspsaga.nvim",
-        commit = "db0c141",
+        'glepnir/lspsaga.nvim',
+        commit = 'db0c141',
         requires = 'neovim/nvim-lspconfig',
         config = function()
-            require("lspsaga-init")
+            require('lspsaga-init')
         end,
     }
     use {
-        "ray-x/lsp_signature.nvim",
+        'j-hui/fidget.nvim',
+        requires = 'neovim/nvim-lspconfig',
+        config = function()
+            require('fidget-init')
+        end
+    }
+    use {
+        'ray-x/lsp_signature.nvim',
         config = function()
             require('signature-init')
         end
     }
     use {
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
         config = function()
-            require("cmp-init")
+            require('cmp-init')
         end,
         requires = {
             'hrsh7th/cmp-path',
@@ -112,10 +119,10 @@ return require('packer').startup(function(use)
             'ray-x/cmp-treesitter',
             'rcarriga/cmp-dap',
             {
-                "KadoBOT/cmp-plugins",
+                'KadoBOT/cmp-plugins',
                 config = function()
-                    require("cmp-plugins").setup({
-                        files = { "plugins.lua" }
+                    require('cmp-plugins').setup({
+                        files = { 'plugins.lua' }
                     })
                 end,
             },
@@ -130,16 +137,16 @@ return require('packer').startup(function(use)
                 'petertriho/cmp-git',
                 requires = 'nvim-lua/plenary.nvim',
                 config = function()
-                    require("cmp_git").setup()
+                    require('cmp_git').setup()
                 end
             }
         }
     }
     use {
-        "rafamadriz/friendly-snippets",
+        'rafamadriz/friendly-snippets',
         requires = 'L3MON4D3/LuaSnip',
         config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
+            require('luasnip.loaders.from_vscode').lazy_load()
         end
     }
     use {
@@ -157,8 +164,8 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        "rcarriga/nvim-dap-ui",
-        requires = "mfussenegger/nvim-dap",
+        'rcarriga/nvim-dap-ui',
+        requires = 'mfussenegger/nvim-dap',
         config = function()
             require('dapui-init')
         end
@@ -200,8 +207,8 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        'folke/todo-comments.nvim',
+        requires = 'nvim-lua/plenary.nvim',
         config = function()
             require('todo-init')
         end
@@ -214,44 +221,20 @@ return require('packer').startup(function(use)
         end,
     }
     use {
-        'kevinhwang91/nvim-ufo',
-        requires = {
-            'kevinhwang91/promise-async',
-            'nvim-treesitter/nvim-treesitter'
-        },
-        config = function()
-            require('ufo-init')
-        end
-    }
-    use {
         'gbprod/substitute.nvim',
         config = function()
             require('substitute-init')
         end
     }
     use {
-        'lukas-reineke/indent-blankline.nvim',
-        requires = 'nvim-treesitter/nvim-treesitter',
-        config = function()
-            require('indent-init')
-        end
-    }
-    use {
         'kylechui/nvim-surround',
-        tag = "*",
+        tag = '*',
         requires = {
             'nvim-treesitter/nvim-treesitter',
             'nvim-treesitter/nvim-treesitter-textobjects'
         },
         config = function()
-            require("nvim-surround").setup()
-        end
-    }
-    use {
-        'phaazon/hop.nvim',
-        branch = 'v2',
-        config = function()
-            require('hop-init')
+            require('nvim-surround').setup()
         end
     }
     use {
@@ -271,17 +254,6 @@ return require('packer').startup(function(use)
         requires = 'nvim-treesitter/nvim-treesitter'
     }
     use {
-        'nvim-pack/nvim-spectre',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        config = function()
-            require('spectre-init')
-        end
-    }
-    use 'dhruvasagar/vim-table-mode' -- viml!!!
-    use {
         'mg979/vim-visual-multi', -- viml!!!
         branch = 'master'
     }
@@ -300,56 +272,7 @@ return require('packer').startup(function(use)
     }
     use 'andymass/vim-matchup' -- viml!!!
     use 'tpope/vim-repeat' -- viml!!!
-    -- addition
-    use 'ellisonleao/glow.nvim'
-    use {
-        'toppair/peek.nvim',
-        run = 'deno task --quiet build:fast',
-        config = function()
-            require('peek-init')
-        end
-    }
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require('tree-init')
-        end
-    }
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            {'kkharji/sqlite.lua', module = 'sqlite'},
-            'nvim-telescope/telescope.nvim',
-        },
-        config = function()
-            require('neoclip-init')
-        end,
-    }
-    use {
-        'petertriho/nvim-scrollbar',
-        requires = {
-            'kevinhwang91/nvim-hlslens',
-            'lewis6991/gitsigns.nvim'
-        },
-        config = function()
-            require('scrollbar-init')
-        end
-    }
-    use {
-        'kevinhwang91/nvim-hlslens',
-        requires = 'kevinhwang91/nvim-ufo',
-        config = function()
-            require('hlslens-init')
-        end
-    }
-    use {
-        'akinsho/toggleterm.nvim',
-        tag = '*',
-        config = function()
-            require('toggleterm-init')
-        end
-    }
+    -- search, replace and jump
     use {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.0',
@@ -368,22 +291,103 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'rcarriga/nvim-notify',
+        'nvim-pack/nvim-spectre',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
         config = function()
-            require('notify-init')
+            require('spectre-init')
         end
     }
     use {
-        'j-hui/fidget.nvim',
-        requires = 'neovim/nvim-lspconfig',
+        'phaazon/hop.nvim',
+        branch = 'v2',
         config = function()
-            require('fidget-init')
+            require('hop-init')
+        end
+    }
+    -- markdown
+    use 'ellisonleao/glow.nvim'
+    use {
+        'toppair/peek.nvim',
+        run = 'deno task --quiet build:fast',
+        config = function()
+            require('peek-init')
+        end
+    }
+    use 'dhruvasagar/vim-table-mode' -- viml!!!
+    -- file explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            require('tree-init')
         end
     }
     use {
         'kevinhwang91/rnvimr', -- viml!!!
         config = function()
             require('rnvimr-init')
+        end
+    }
+    -- ui addition
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = {
+            'kevinhwang91/promise-async',
+            'nvim-treesitter/nvim-treesitter'
+        },
+        config = function()
+            require('ufo-init')
+        end
+    }
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        requires = 'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('indent-init')
+        end
+    }
+    use {
+        'petertriho/nvim-scrollbar',
+        requires = {
+            'kevinhwang91/nvim-hlslens',
+            'lewis6991/gitsigns.nvim'
+        },
+        config = function()
+            require('scrollbar-init')
+        end
+    }
+    use {
+        'kevinhwang91/nvim-hlslens',
+        requires = 'kevinhwang91/nvim-ufo',
+        config = function()
+            require('hlslens-init')
+        end
+    }
+    -- additional modules
+    use {
+        'AckslD/nvim-neoclip.lua',
+        requires = {
+            {'kkharji/sqlite.lua', module = 'sqlite'},
+            'nvim-telescope/telescope.nvim',
+        },
+        config = function()
+            require('neoclip-init')
+        end,
+    }
+    use {
+        'akinsho/toggleterm.nvim',
+        tag = '*',
+        config = function()
+            require('toggleterm-init')
+        end
+    }
+    use {
+        'rcarriga/nvim-notify',
+        config = function()
+            require('notify-init')
         end
     }
     use {
@@ -444,7 +448,7 @@ return require('packer').startup(function(use)
         'klen/nvim-config-local',
         config = function()
             require('config-local').setup {
-                config_files = { ".init.lua", ".init.vim" },
+                config_files = { '.init.lua', '.init.vim' },
                 silent = true,
                 lookup_parents = true,
             }
