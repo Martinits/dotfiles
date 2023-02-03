@@ -143,3 +143,7 @@ dict(){
     fi
     trans -d :zh-CN "$*"
 }
+
+gitup(){
+    git log --reverse --pretty=%H origin/master | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git reset --hard
+}
