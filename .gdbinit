@@ -2327,3 +2327,4 @@ python Dashboard.start()
 # custom settings
 dashboard -layout !threads !breakpoints !stack source variables
 dashboard source -style height 22
+set debuginfod enabled off
