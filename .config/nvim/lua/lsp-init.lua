@@ -221,5 +221,12 @@ require('lspconfig').sumneko_lua.setup {
 
 -- json
 require'lspconfig'.jsonls.setup {
+    on_attach = on_attach,
+    capabilities = common_capabilities,
+}
+
+-- bash
+require'lspconfig'.bashls.setup {
+    on_attach = on_attach,
     capabilities = common_capabilities,
 }

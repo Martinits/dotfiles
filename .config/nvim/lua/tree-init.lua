@@ -6,7 +6,6 @@ vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
     hijack_cursor = true,
-    open_on_setup = true,
     sort_by = "case_sensitive",
     view = {
         mappings = {
@@ -94,6 +93,9 @@ require("nvim-tree").setup({
         enable = true,
         update_root = true
     },
+    git = {
+        ignore = false
+    }
 })
 
 vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR>", { desc = "nivm-tree toggle" })

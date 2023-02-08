@@ -12,11 +12,13 @@ npairs.setup({
 })
 
 -- press % => %% only while inside a comment or string
--- local Rule = require('nvim-autopairs.rule')
+local Rule = require('nvim-autopairs.rule')
 -- local ts_conds = require('nvim-autopairs.ts-conds')
--- npairs.add_rules({
---     Rule("%", "%", "lua")
---         :with_pair(ts_conds.is_ts_node({'string','comment'})),
---     Rule("$", "$", "lua")
---         :with_pair(ts_conds.is_not_ts_node({'function'}))
--- })
+npairs.add_rules({
+    Rule('#include <', '>', "c"),
+    Rule('#include <', '>', "cpp")
+    -- Rule("%", "%", "lua")
+    --     :with_pair(ts_conds.is_ts_node({'string','comment'})),
+    -- Rule("$", "$", "lua")
+    --     :with_pair(ts_conds.is_not_ts_node({'function'}))
+})

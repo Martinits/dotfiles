@@ -2,7 +2,7 @@
 
 require('neoclip').setup{
     enable_persistent_history = true,
-    -- default_register = '+',
+    default_register = '+',
     keys = {
         telescope = {
             i = {
