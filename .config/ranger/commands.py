@@ -272,3 +272,28 @@ class fd_prev(Command):
         elif len(fd_search.SEARCH_RESULTS) == 1:
             self.fm.select_file(fd_search.SEARCH_RESULTS[0])
 # end of fd integration
+
+class paste_with_cp(Command):
+    """
+    :paste_with_cp
+    paste with the cp command for server side copy
+    """
+    def execute(self):
+        dest = self.fm.thistab.path
+        if len(self.fm.copy_buffer) == 0:
+            return
+        if os.path.isdir(dest):
+            if self.fm.do_cut:
+                cmd = ['mv', '-iv']
+            else:
+                cmd = ['cp', '-riv']
+            for eachsrc in self.fm.copy_buffer:
+                cmd.append(os.path.abspath(eachsrc.path))
+            cmd.append(dest)
+            try:
+                self.fm.execute_command(cmd)
+            except Exception as e:
+                self.fm.notify(e, bad=True)
+            self.do_cut = False
+        else:
+            self.fm.notify('Failed to paste. The destination is invalid.', bad=True)
