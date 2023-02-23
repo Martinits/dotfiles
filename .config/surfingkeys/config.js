@@ -54,3 +54,4 @@ api.unmap('<Ctrl-j>');
 api.unmap('<Ctrl-h>');
 api.map('J', 'd')
 api.map('K', 'u')
+settings.blocklistPattern = /.*192\.168\.31\..*/i;
