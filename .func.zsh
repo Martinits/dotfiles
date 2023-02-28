@@ -147,3 +147,45 @@ dict(){
 gitup(){
     git log --reverse --pretty=%H origin/master | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git reset --hard
 }
+
+rr(){
+    if [[ $# == 0 ]];
+    then
+        echo 'Argument needed!'
+        exit 1
+    fi
+    while [[ -n $1 ]];
+    do
+        echo -n "Are you SURE to remove \"${1}\" FOREVER ??? "
+        read ans
+        ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
+        if [[ $ans == y || $and == yes ]];
+        then
+            \rm -rv "$1"
+        else
+            echo "Not removing \"${1}\""
+        fi
+        shift
+    done
+}
+
+rf(){
+    if [[ $# == 0 ]];
+    then
+        echo 'Argument needed!'
+        exit 1
+    fi
+    while [[ -n $1 ]];
+    do
+        echo -n "Are you SURE to remove \"${1}\" FORCE and FOREVER ??? "
+        read ans
+        ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
+        if [[ $ans == y || $and == yes ]];
+        then
+            \rm -rfv "$1"
+        else
+            echo "Not removing \"${1}\""
+        fi
+        shift
+    done
+}
