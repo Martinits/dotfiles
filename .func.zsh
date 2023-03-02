@@ -152,7 +152,7 @@ rr(){
     if [[ $# == 0 ]];
     then
         echo 'Argument needed!'
-        exit 1
+        return 1
     fi
     while [[ -n $1 ]];
     do
@@ -173,7 +173,7 @@ rf(){
     if [[ $# == 0 ]];
     then
         echo 'Argument needed!'
-        exit 1
+        return 1
     fi
     while [[ -n $1 ]];
     do
