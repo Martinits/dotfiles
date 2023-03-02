@@ -1,84 +1,100 @@
 ------- LSPSAGA.NVIM -------
 
-require('lspsaga').init_lsp_saga{
-    -- scroll_preview = {
-    --     scroll_down = '<C-j>',
-    --     scroll_up = '<C-k>',
-    -- },
-    -- lightbulb = {
-    --     -- sign_priority = 40,
-    --     virtual_text = false,
-    -- },
-    -- diagnostic = {
-    --     twice_into = true,
-    --     show_code_action = true,
-    --     show_source = true,
-    -- },
-    -- rename = {
-    --     quit = '<C-c>',
-    --     exec = '<CR>',
-    --     in_select = true,
-    -- },
-
-    -- old config for commit db0c141
-    move_in_saga = { prev = '<C-k>', next = '<C-j>'},
-    diagnostic_header = { " ", " ", " ", " " },
-    code_action_lightbulb = {
-        -- sign_priority = 20,
+require('lspsaga').setup{
+    scroll_preview = {
+        scroll_down = '<C-j>',
+        scroll_up = '<C-k>',
+    },
+    lightbulb = {
+        -- sign_priority = 40,
         virtual_text = false,
     },
-    finder_icons = {
-        def = '🔑 ',
-        ref = '🧲 ',
-        link = '🔗 ',
+    finder = {
+        keys = {
+            jump_to = 'o',
+            edit = '<CR>',
+        },
     },
-    finder_action_keys = {
-        open = {'o', '<CR>'},
-        vsplit = 's',
-        split = 'i',
-        tabe = 't',
-        quit = {'q', '<ESC>'},
+    diagnostic = {
+        show_code_action = false,
+        custom_msg = nil,
     },
-    definition_action_keys = {
-        edit = '<C-c>o',
-        vsplit = '<C-c>v',
-        split = '<C-c>i',
-        tabe = '<C-c>t',
-        quit = 'q',
+    outline = {
+        win_width = 40,
+        keys = {
+            jump = "<CR>",
+        },
     },
-    rename_action_quit = '<ESC>',
     symbol_in_winbar = {
-        enable = true,
         separator = '  ',
-        file_formatter = "%:.",
-        click_support = function(node, clicks, button, modifiers)
-                -- To see all available details: vim.pretty_print(node)
-                local st = node.range.start
-                local en = node.range['end']
-                if button == "l" then
-                    if clicks == 2 then
-                        -- double left click to do nothing
-                    else -- jump to node's starting line+char
-                        vim.fn.cursor(st.line + 1, st.character + 1)
-                    end
-                elseif button == "r" then
-                    if modifiers == "s" then
-                        print "lspsaga" -- shift right click to print "lspsaga"
-                    end -- jump to node's ending line+char
-                    vim.fn.cursor(en.line + 1, en.character + 1)
-                elseif button == "m" then
-                    -- middle click to visual select node
-                    vim.fn.cursor(st.line + 1, st.character + 1)
-                    vim.cmd "normal v"
-                    vim.fn.cursor(en.line + 1, en.character + 1)
-                end
-            end
+        respect_root = true,
     },
-    show_outline = {
-        win_with = 'LspsagaOutline',
-        win_width = 50,
-        jump_key = '<CR>',
-    }
+    callhierarchy = {
+        show_detail = true,
+        keys = {
+            jump = "<CR>",
+            quit = "<ESC>",
+        },
+    },
+    ui = {
+        incoming = " ",
+        outgoing = " ",
+    },
+
+    -- old config for commit db0c141
+    -- move_in_saga = { prev = '<C-k>', next = '<C-j>'},
+    -- diagnostic_header = { " ", " ", " ", " " },
+    -- code_action_lightbulb = {
+    --     -- sign_priority = 20,
+    --     virtual_text = false,
+    -- },
+    -- finder_icons = {
+    --     def = '🔑 ',
+    --     ref = '🧲 ',
+    --     link = '🔗 ',
+    -- },
+    -- finder_action_keys = {
+    --     open = {'o', '<CR>'},
+    --     vsplit = 's',
+    --     split = 'i',
+    --     tabe = 't',
+    --     quit = {'q', '<ESC>'},
+    -- },
+    -- definition_action_keys = {
+    --     edit = '<C-c>o',
+    --     vsplit = '<C-c>v',
+    --     split = '<C-c>i',
+    --     tabe = '<C-c>t',
+    --     quit = 'q',
+    -- },
+    -- rename_action_quit = '<ESC>',
+    -- symbol_in_winbar = {
+    --     enable = true,
+    --     separator = '  ',
+    --     file_formatter = "%:.",
+    --     click_support = function(node, clicks, button, modifiers)
+    --             -- To see all available details: vim.pretty_print(node)
+    --             local st = node.range.start
+    --             local en = node.range['end']
+    --             if button == "l" then
+    --                 if clicks == 2 then
+    --                     -- double left click to do nothing
+    --                 else -- jump to node's starting line+char
+    --                     vim.fn.cursor(st.line + 1, st.character + 1)
+    --                 end
+    --             elseif button == "r" then
+    --                 if modifiers == "s" then
+    --                     print "lspsaga" -- shift right click to print "lspsaga"
+    --                 end -- jump to node's ending line+char
+    --                 vim.fn.cursor(en.line + 1, en.character + 1)
+    --             elseif button == "m" then
+    --                 -- middle click to visual select node
+    --                 vim.fn.cursor(st.line + 1, st.character + 1)
+    --                 vim.cmd "normal v"
+    --                 vim.fn.cursor(en.line + 1, en.character + 1)
+    --             end
+    --         end
+    -- },
 }
 
 vim.keymap.set("n", "<LEADER>lf", "<CMD>Lspsaga lsp_finder<CR>", { desc = "lspsaga: lsp finder" }) -- use <C-t> to jump back
