@@ -156,14 +156,19 @@ rr(){
     fi
     while [[ -n $1 ]];
     do
-        echo -n "Are you SURE to remove \"${1}\" FOREVER ??? "
-        read ans
-        ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
-        if [[ $ans == y || $and == yes ]];
+        if [[ ! -e $1 ]];
         then
-            \rm -rv "$1"
+            echo "\"${1}\" doesn't exist, skipping."
         else
-            echo "Not removing \"${1}\""
+            echo -n "Are you SURE to remove \"${1}\" FOREVER ??? "
+            read ans
+            ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
+            if [[ $ans == y || $and == yes ]];
+            then
+                \rm -rv "$1"
+            else
+                echo "Not removing \"${1}\""
+            fi
         fi
         shift
     done
@@ -177,14 +182,19 @@ rf(){
     fi
     while [[ -n $1 ]];
     do
-        echo -n "Are you SURE to remove \"${1}\" FORCE and FOREVER ??? "
-        read ans
-        ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
-        if [[ $ans == y || $and == yes ]];
+        if [[ ! -e $1 ]];
         then
-            \rm -rfv "$1"
+            echo "\"${1}\" doesn't exist, skipping."
         else
-            echo "Not removing \"${1}\""
+            echo -n "Are you SURE to remove \"${1}\" FORCE and FOREVER ??? "
+            read ans
+            ans=`echo $ans | tr '[:upper:]' '[:lower:]'`
+            if [[ $ans == y || $and == yes ]];
+            then
+                \rm -rfv "$1"
+            else
+                echo "Not removing \"${1}\""
+            fi
         fi
         shift
     done
