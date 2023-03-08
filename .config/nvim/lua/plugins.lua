@@ -154,7 +154,7 @@ return require('packer').startup(function(use)
         ft = 'qf',
         requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
-            require('bqf').setup()
+            require('bqf-init')
         end
     }
     use {
