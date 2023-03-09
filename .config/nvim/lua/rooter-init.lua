@@ -2,6 +2,8 @@
 
 require('nvim-rooter').setup {
     rooter_patterns = {
+        'vmlinux',
+        'vmlinuz',
         'compile_commands.json',
         '.git',
         'Makefile',

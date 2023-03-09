@@ -2,7 +2,22 @@
 
 require("todo-comments").setup{
     keywords = {
-        TODO = { icon = " ", color = "info", alt = { "TODO 1", "TODO 2", "TODO 3" } },
+        TODO = {
+            icon = " ",
+            color = "info",
+            alt = {
+                "TODO 1",
+                "TODO 2",
+                "TODO 3",
+                "TODO 4",
+                "TODO 5",
+                "TODO 6",
+                "TODO 7",
+                "TODO 8",
+                "TODO 9",
+                "TODO 0",
+            },
+        },
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         TEST = { icon = "漣", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },

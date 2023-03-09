@@ -41,5 +41,6 @@ wk.register({
     p = { name = '<spectre>' },
     r = { name = '<rename-symbol>' },
     s = { name = '<swap>' },
-        t = { name = '<tabular> <table-mode> <todo>' },
+    t = { name = '<tabular> <table-mode> <todo>' },
+    m = { name = 'format' },
 }, { prefix = '<LEADER>' })
