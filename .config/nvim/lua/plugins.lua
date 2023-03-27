@@ -308,7 +308,12 @@ return require('packer').startup(function(use)
         end
     }
     -- markdown
-    use 'ellisonleao/glow.nvim'
+    use {
+        'ellisonleao/glow.nvim',
+        config = function()
+            require("glow").setup()
+        end
+    }
     use {
         'toppair/peek.nvim',
         run = 'deno task --quiet build:fast',
