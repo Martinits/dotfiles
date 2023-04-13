@@ -1,6 +1,6 @@
 ------- SUBSTITUTE.NVIM -------
 
-require('substitute').setup{}
+require("substitute").setup{}
 
 vim.keymap.set("n", "s", "<CMD>lua require('substitute').operator()<CR>", { desc = "swap" })
 vim.keymap.set("n", "ss", "<CMD>lua require('substitute').line()<CR>", { desc = "swap line" })
