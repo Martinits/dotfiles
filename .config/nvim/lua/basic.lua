@@ -27,6 +27,7 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.signcolumn = 'yes:2'
+vim.o.colorcolumn = '80'
 vim.o.termguicolors = true
 vim.o.mouse = 'a'
 vim.o.mousemodel = 'extend'
