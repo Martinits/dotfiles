@@ -8,6 +8,7 @@ require("nvim-tree").setup({
     hijack_cursor = true,
     sort_by = "case_sensitive",
     view = {
+        width = 50,
         mappings = {
             list = {
                 { key = "gh", action = "toggle_help"},
