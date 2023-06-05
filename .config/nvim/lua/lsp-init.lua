@@ -230,3 +230,9 @@ require'lspconfig'.bashls.setup {
     on_attach = on_attach,
     capabilities = common_capabilities,
 }
+
+--go
+require'lspconfig'.gopls.setup {
+    on_attach = on_attach,
+    capabilities = common_capabilities,
+}
