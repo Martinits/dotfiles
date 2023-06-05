@@ -7,8 +7,8 @@ require('bufferline').setup {
         mode = "buffers",
         numbers = function(opts)
             -- local tmpid = opts.ordinal > 9 and 10 or opts.ordinal
-            local icons = {"", "", "", "", "", "", "", "", "", ""}
-            return opts.ordinal > 9 and opts.ordinal or icons[opts.ordinal]
+            local icons = {"󰎤", "󰎧", "󰎪", "󰎭", "󰎱", "󰎳", "󰎶", "󰎹", "󰎼", "󰽽"}
+            return opts.ordinal > 10 and opts.ordinal or icons[opts.ordinal]
         end,
         indicator = {
             style = 'underline'
