@@ -19,7 +19,7 @@ require("todo-comments").setup{
             },
         },
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        TEST = { icon = "漣", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },
 }
 
