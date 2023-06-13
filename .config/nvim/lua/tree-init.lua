@@ -99,7 +99,7 @@ require("nvim-tree").setup({
     hijack_cursor = true,
     sort_by = "case_sensitive",
     view = {
-        width = 50,
+        width = 45,
     },
     renderer = {
         add_trailing = true,
