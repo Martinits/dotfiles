@@ -26,7 +26,7 @@ require('lspsaga').setup{
         },
     },
     symbol_in_winbar = {
-        separator = '  ',
+        separator = '  ',
         respect_root = true,
     },
     callhierarchy = {

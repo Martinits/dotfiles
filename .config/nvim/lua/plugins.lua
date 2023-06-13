@@ -89,6 +89,7 @@ return require('packer').startup(function(use)
     use {
         'j-hui/fidget.nvim',
         requires = 'neovim/nvim-lspconfig',
+        tag = 'legacy',
         config = function()
             require('fidget-init')
         end
