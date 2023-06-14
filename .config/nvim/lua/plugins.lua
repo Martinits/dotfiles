@@ -80,8 +80,11 @@ return require('packer').startup(function(use)
     }
     use {
         'glepnir/lspsaga.nvim',
-        commit = '438b54cba00fca27d280ae4d9242615282045bcb',
-        requires = 'neovim/nvim-lspconfig',
+        requires = {
+            'neovim/nvim-lspconfig',
+            'nvim-tree/nvim-web-devicons',
+            'nvim-treesitter/nvim-treesitter',
+        },
         config = function()
             require('lspsaga-init')
         end,

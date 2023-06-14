@@ -40,6 +40,46 @@ require('lspsaga').setup{
         incoming = " ",
         outgoing = " ",
     },
+    -- config for 438b54cba00fca27
+    -- scroll_preview = {
+    --     scroll_down = '<C-j>',
+    --     scroll_up = '<C-k>',
+    -- },
+    -- lightbulb = {
+    --     -- sign_priority = 40,
+    --     virtual_text = false,
+    -- },
+    -- finder = {
+    --     keys = {
+    --         jump_to = 'o',
+    --         edit = '<CR>',
+    --     },
+    -- },
+    -- diagnostic = {
+    --     show_code_action = false,
+    --     custom_msg = nil,
+    -- },
+    -- outline = {
+    --     win_width = 40,
+    --     keys = {
+    --         jump = "<CR>",
+    --     },
+    -- },
+    -- symbol_in_winbar = {
+    --     separator = '  ',
+    --     respect_root = true,
+    -- },
+    -- callhierarchy = {
+    --     show_detail = true,
+    --     keys = {
+    --         jump = "<CR>",
+    --         quit = "<ESC>",
+    --     },
+    -- },
+    -- ui = {
+    --     incoming = " ",
+    --     outgoing = " ",
+    -- },
 
     -- old config for commit db0c141
     -- move_in_saga = { prev = '<C-k>', next = '<C-j>'},
