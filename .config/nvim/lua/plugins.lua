@@ -492,6 +492,7 @@ return require('packer').startup(function(use)
             vim.g.suda_smart_edit = 0
         end
     }
+    use 'eandrju/cellular-automaton.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
