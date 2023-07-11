@@ -355,7 +355,7 @@ require("lazy").setup({
     -- },
     {
         'shellRaining/hlchunk.nvim',
-        lazy = false,
+        -- lazy = false,
         event = { "UIEnter" },
         config = function()
             require('hlchunk-init')
