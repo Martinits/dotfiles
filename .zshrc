@@ -62,11 +62,15 @@ export EDITOR="$VISUAL"
 # export ARCHFLAGS="-arch x86_64"
 
 # aliases
-alias exa='exa --icons '
-alias l='exa -l'
-alias ll='exa -la'
-alias lt='exa -la -s newest'
-alias ltt='exa -T'
+alias l='lsd -l'
+alias ll='lsd -lA'
+alias lt='lsd -lAtr'
+alias ltt='lsd --tree -l'
+# alias exa='exa --icons '
+# alias l='exa -l'
+# alias ll='exa -la'
+# alias lt='exa -la -s newest'
+# alias ltt='exa -T'
 # alias rr='\rm -rv'
 # alias rf='\rm -rfv'
 alias rm='echo "Do you really want RM ??? Use th to trash!"; false'
