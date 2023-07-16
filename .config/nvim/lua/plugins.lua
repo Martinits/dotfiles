@@ -70,7 +70,7 @@ require("lazy").setup({
         end
     },
     {
-        'glepnir/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim',
         dependencies = {
             'neovim/nvim-lspconfig',
             'nvim-tree/nvim-web-devicons',
