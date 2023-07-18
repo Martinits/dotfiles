@@ -1,5 +1,9 @@
 require('hlchunk').setup({
     chunk = {
+        exclude_filetypes = {
+            qf = true,
+            asm = true
+        },
         support_filetypes = {
             "*.lua",
             "*.js",
