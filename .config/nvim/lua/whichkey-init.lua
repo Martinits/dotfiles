@@ -43,4 +43,5 @@ wk.register({
     s = { name = '<swap>' },
     t = { name = '<tabular> <table-mode> <todo>' },
     m = { name = 'format' },
+    i = { name = 'inlay-hint' },
 }, { prefix = '<LEADER>' })

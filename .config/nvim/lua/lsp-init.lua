@@ -58,6 +58,9 @@ local on_attach = function(client, bufnr)
     bufopts.desc = "format"
     vim.keymap.set({'n', 'v'}, '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
 
+    bufopts.desc = "toggle inlay hint for current buffer"
+    vim.keymap.set('n', '<LEADER>i', function() vim.lsp.inlay_hint(0, nil) end, bufopts)
+
     -- show line diagnostic auto in hover window
     -- vim.api.nvim_create_autocmd("CursorHold", {
     --     buffer = bufnr,
@@ -175,31 +178,31 @@ vim.diagnostic.handlers.signs = {
     end,
 }
 
-local common_capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local common_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- language servers
 -- c/c++
 require('lspconfig').ccls.setup{
     on_attach = on_attach,
-    capabilities = common_capabilities
+    -- capabilities = common_capabilities
 }
 
 -- python
 require('lspconfig').pyright.setup{
     on_attach = on_attach,
-    capabilities = common_capabilities
+    -- capabilities = common_capabilities
 }
 
 -- rust
 require('lspconfig').rust_analyzer.setup{
     on_attach = on_attach,
-    capabilities = common_capabilities
+    -- capabilities = common_capabilities
 }
 
 -- lua
 require('lspconfig').lua_ls.setup {
     on_attach = on_attach,
-    capabilities = common_capabilities,
+    -- capabilities = common_capabilities,
     settings = {
         Lua = {
             runtime = { version = 'LuaJIT' },
@@ -222,17 +225,30 @@ require('lspconfig').lua_ls.setup {
 -- json
 require'lspconfig'.jsonls.setup {
     on_attach = on_attach,
-    capabilities = common_capabilities,
+    -- capabilities = common_capabilities,
 }
 
 -- bash
 require'lspconfig'.bashls.setup {
     on_attach = on_attach,
-    capabilities = common_capabilities,
+    -- capabilities = common_capabilities,
 }
 
 --go
 require'lspconfig'.gopls.setup {
     on_attach = on_attach,
-    capabilities = common_capabilities,
+    -- capabilities = common_capabilities,
+    settings = {
+        gopls = {
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            }
+        }
+    }
 }

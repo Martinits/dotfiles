@@ -6,3 +6,6 @@ require"fidget".setup{
         done = "🗸",
     },
 }
+
+-- FidgetTask is gray_6
+vim.cmd.highlight({'FidgetTask', 'guifg=#5E6C70'})
