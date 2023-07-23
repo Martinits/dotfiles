@@ -1,8 +1,12 @@
 require('hlchunk').setup({
     chunk = {
+        notify = false,
         exclude_filetypes = {
             qf = true,
-            asm = true
+            asm = true,
+            sagafinder = true,
+            sagacallhierarchy = true,
+            sagaoutline = true,
         },
         support_filetypes = {
             "*.lua",
