@@ -457,6 +457,10 @@ require("lazy").setup({
         event = { "CmdlineEnter" },
         ft = { "go", 'gomod' },
     },
+    -- nvim lua dev
+    {
+        "rafcamlet/nvim-luapad",
+    },
     -- others
     {
         'rmagatti/auto-session',
