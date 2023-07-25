@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/martinit/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -178,7 +178,7 @@ _fix_cursor() {
 precmd_functions+=(_fix_cursor)
 
 # The following lines were added by compinstall
-# zstyle :compinstall filename '/home/martinit/.zshrc'
+# zstyle :compinstall filename '$HOME/.zshrc'
 # autoload -Uz compinit
 # compinit
 # End of lines added by compinstall
@@ -204,13 +204,13 @@ eval $(thefuck --alias)
 eval "$(direnv hook zsh)"
 
 # custom env
-export PATH="/home/martinit/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # ruby env
-export PATH="/home/martinit/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # cargo env
-export PATH="/home/martinit/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # gtk theme
 export GTK_THEME=Arc-Dark
