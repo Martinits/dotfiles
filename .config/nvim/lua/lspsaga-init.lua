@@ -11,7 +11,7 @@ require('lspsaga').setup{
         virtual_text = false,
     },
     outline = {
-        enable = false,
+        enable = true,
         win_width = 40,
         keys = {
             jump = "<CR>",

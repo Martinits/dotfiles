@@ -2,7 +2,7 @@
 
 require('dropbar').setup{
     general = {
-        enable = true
+        enable = false
     },
     icons = {
         ui = {
