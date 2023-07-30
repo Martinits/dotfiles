@@ -378,6 +378,12 @@ require("lazy").setup({
             require('hlslens-init')
         end
     },
+    {
+        'Bekaboo/dropbar.nvim',
+        config = function()
+            require('dropbar-init')
+        end
+    },
     -- additional modules
     {
         'AckslD/nvim-neoclip.lua',

@@ -57,7 +57,7 @@ require('bufferline').setup {
 
 vim.keymap.set('n', '<LEADER>bg', '<CMD>BufferLinePick<CR>', {silent = true, desc = "bufferline pick" })
 vim.keymap.set('n', '<LEADER>bc', '<CMD>BufferLinePickClose<CR>', {silent = true, desc = "bufferline pick close" })
-vim.keymap.set('n', '<LEADER>bp', '<CMD>BufferLineTogglePin<CR>', {silent = true, desc = "bufferline toggle pin" })
+vim.keymap.set('n', '<LEADER>bi', '<CMD>BufferLineTogglePin<CR>', {silent = true, desc = "bufferline toggle pin" })
 vim.keymap.set('n', '<LEADER>1', '<CMD>lua require("bufferline").go_to_buffer(1, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 1"})
 vim.keymap.set('n', '<LEADER>2', '<CMD>lua require("bufferline").go_to_buffer(2, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 2"})
 vim.keymap.set('n', '<LEADER>3', '<CMD>lua require("bufferline").go_to_buffer(3, true)<CR>', {silent = true, desc = "bufferlnie go to buffer 3"})
