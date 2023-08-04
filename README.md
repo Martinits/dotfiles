@@ -118,6 +118,7 @@
    |              | \<LEADER\>lf                 | lsp symbol finder                                       |
    |              | \<LEADER\>dl dc db           | show line / cursor / buffer diagnostic                  |
    |              | \<LEADER\>ci co              | call hierachy: incoming / outcoming                     |
+   |              | \<LEADER\>i                  | toggle inlay hint                                       |
    |              | \<M-x\>                      | lsp_signature: toggle                                   |
    |              | \<M-j\>                      | lsp_signature: select next signature                    |
    | dap          | tb tB                        | toggle breakpoint / set conditional breakpoint          |
@@ -161,6 +162,11 @@
    |              | ! :WhichKey                  | show all keymaps                                        |
    | treesj       | gJ gS gT                     | join / split / toggle                                   |
    | hop          | \<LEADER\>hw hh              | hop word / anywhere                                     |
+   | flash        | \<LEADER\>jj                 | flash: jump                                             |
+   |              | \<LEADER\>jt                 | flash: treesitter                                       |
+   |              | \<C-S\>                      | toggle flash anytime                                    |
+   |              | r                            | operator pending: remote mode                           |
+   |              | R                            | treesitter search                                       |
    | matchup      | % [% ]% z%                   | matchpairs and text objects                             |
    | table mode   | \<LEADER\>tm                 | table mode toggle                                       |
    |              | \<LEADER\>tt                 | table mode format selected lines                        |
