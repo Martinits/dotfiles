@@ -104,15 +104,17 @@ require("nvim-tree").setup({
     renderer = {
         add_trailing = true,
         group_empty = true,
-        highlight_git = true,
+        highlight_git = false,
         highlight_modified = "icon",
+        highlight_diagnostics = true,
         indent_markers = {
             enable = true,
             inline_arrows = false,
         },
         icons = {
-            git_placement = "before",
+            git_placement = "signcolumn",
             modified_placement = "after",
+            diagnostics_placement = 'after',
             glyphs = {
                 folder = {
                     arrow_closed = " ",
