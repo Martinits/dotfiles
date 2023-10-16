@@ -62,10 +62,10 @@ export EDITOR="$VISUAL"
 # export ARCHFLAGS="-arch x86_64"
 
 # aliases
-alias l='lsd -l'
-alias ll='lsd -lA'
-alias lt='lsd -lAtr'
-alias ltt='lsd --tree -l'
+alias l='lsd -lF'
+alias ll='lsd -lAF'
+alias lt='lsd -lAtrF'
+alias ltt='lsd --tree -lF'
 # alias eza='eza --icons '
 # alias l='eza -l'
 # alias ll='eza -la'
