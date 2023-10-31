@@ -4,7 +4,8 @@ require('go').setup {
     lsp_inlay_hints = {
         enable = false,
         highlight = 'NonText'
-    }
+    },
+    diagnostic = false,
 }
 
 -- auto format before save
