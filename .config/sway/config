@@ -319,7 +319,7 @@ exec_always --no-startup-id nm-applet --indicator
 exec_always --no-startup-id ( killall blueman-applet || true ) && blueman-applet
 exec_always --no-startup-id ( killall autotiling || true ) && autotiling
 # exec_always --no-startup-id ( killall v2ray || true ) && v2ray run -c /home/martinit/.config/v2ray/config.json
-exec_always --no-startup-id dex /usr/share/applications/clash-for-windows.desktop
+# exec_always --no-startup-id dex /usr/share/applications/clash-for-windows.desktop
 exec_always --no-startup-id /usr/share/sway/scripts/inactive-windows-transparency.py
 exec_always --no-startup-id ( killall wlsunset || true ) && wlsunset -l 30.27 -L 120.15 -T 5500 -t 5000
 # exec_always --no-startup-id killall autossh; autossh -f -M 8889 -fNR 8888:localhost:22 root@47.98.134.245
