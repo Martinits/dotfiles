@@ -12,12 +12,6 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true,
     },
-    -- nvim-ts-rainbow
-    rainbow = {
-        enable = true,
-        extended_mode = true,
-        max_file_lines = nil,
-    },
     -- nvim-ts-autotag
     autotag = {
         enable = true
