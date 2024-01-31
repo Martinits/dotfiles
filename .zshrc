@@ -223,3 +223,6 @@ export LS_COLORS="$(vivid generate ayu)"
 
 # QT wayland
 export QT_QPA_PLATFORM="wayland;xcb"
+
+# deno env
+export PATH="$HOME/.deno/bin:$PATH"
