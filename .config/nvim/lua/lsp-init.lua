@@ -180,6 +180,15 @@ vim.diagnostic.handlers.signs = {
 
 -- local common_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+------- NEOCONF.NVIM -------
+require("neoconf").setup {
+    import = {
+        vscode = false,
+        coc = false,
+        nlsp = false,
+    },
+}
+
 -- language servers
 -- c/c++
 require('lspconfig').ccls.setup {

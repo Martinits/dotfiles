@@ -68,13 +68,9 @@ require("lazy").setup({
         config = function()
             require('lsp-init')
         end,
-        dependencies = 'folke/neoconf.nvim',
     },
     {
         'folke/neoconf.nvim',
-        config = function()
-            require('neoconf-init')
-        end,
     },
     {
         'nvimdev/lspsaga.nvim',
