@@ -67,7 +67,14 @@ require("lazy").setup({
         'neovim/nvim-lspconfig',
         config = function()
             require('lsp-init')
-        end
+        end,
+        dependencies = 'folke/neoconf.nvim',
+    },
+    {
+        'folke/neoconf.nvim',
+        config = function()
+            require('neoconf-init')
+        end,
     },
     {
         'nvimdev/lspsaga.nvim',
@@ -125,7 +132,7 @@ require("lazy").setup({
                 'saecki/crates.nvim',
                 dependencies = 'nvim-lua/plenary.nvim',
                 config = function()
-                    require('crates').setup()
+                    require('crates').setup {}
                 end,
             },
             {
@@ -409,7 +416,7 @@ require("lazy").setup({
     {
         'AckslD/nvim-neoclip.lua',
         dependencies = {
-            {'kkharji/sqlite.lua', module = 'sqlite'},
+            {'kkharji/sqlite.lua'},
             'nvim-telescope/telescope.nvim',
         },
         config = function()

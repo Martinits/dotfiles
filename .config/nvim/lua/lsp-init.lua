@@ -14,13 +14,13 @@ local function preview_location_callback(_, result)
 end
 
 function PeekDefinition()
-  local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
+    local params = vim.lsp.util.make_position_params()
+    return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
 end
 
 local on_attach = function(client, bufnr)
     -- LSP functions mapping
-    local bufopts = { silent=true, buffer=bufnr }
+    local bufopts = { silent = true, buffer = bufnr }
 
     bufopts.desc = "goto declaration"
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
     bufopts.desc = "format"
-    vim.keymap.set({'n', 'v'}, '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set({ 'n', 'v' }, '<LEADER>mt', function() vim.lsp.buf.format { async = true } end, bufopts)
 
     bufopts.desc = "toggle inlay hint for current buffer"
     vim.keymap.set('n', '<LEADER>i', function() vim.lsp.inlay_hint(0, nil) end, bufopts)
@@ -165,10 +165,10 @@ vim.diagnostic.handlers.signs = {
         local diagnostics = vim.diagnostic.get(bufnr)
         local max_severity_per_line = {}
         for _, d in pairs(diagnostics) do
-              local m = max_severity_per_line[d.lnum]
-              if not m or d.severity < m.severity then
-                  max_severity_per_line[d.lnum] = d
-              end
+            local m = max_severity_per_line[d.lnum]
+            if not m or d.severity < m.severity then
+                max_severity_per_line[d.lnum] = d
+            end
         end
         local filtered_diagnostics = vim.tbl_values(max_severity_per_line)
         orig_signs_handler.show(ns, bufnr, filtered_diagnostics, opts)
@@ -182,19 +182,19 @@ vim.diagnostic.handlers.signs = {
 
 -- language servers
 -- c/c++
-require('lspconfig').ccls.setup{
+require('lspconfig').ccls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities
 }
 
 -- python
-require('lspconfig').pyright.setup{
+require('lspconfig').pyright.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities
 }
 
 -- rust
-require('lspconfig').rust_analyzer.setup{
+require('lspconfig').rust_analyzer.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities
 }
@@ -223,19 +223,19 @@ require('lspconfig').lua_ls.setup {
 }
 
 -- json
-require'lspconfig'.jsonls.setup {
+require 'lspconfig'.jsonls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 }
 
 -- bash
-require'lspconfig'.bashls.setup {
+require 'lspconfig'.bashls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 }
 
 --go
-require'lspconfig'.gopls.setup {
+require 'lspconfig'.gopls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
     settings = {
