@@ -495,6 +495,10 @@ require("lazy").setup({
     {
         "rafcamlet/nvim-luapad",
     },
+    {
+        'folke/neodev.nvim',
+        opts = {},
+    },
     -- others
     {
         'rmagatti/auto-session',

@@ -223,19 +223,19 @@ require('lspconfig').lua_ls.setup {
 }
 
 -- json
-require 'lspconfig'.jsonls.setup {
+require('lspconfig').jsonls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 }
 
 -- bash
-require 'lspconfig'.bashls.setup {
+require('lspconfig').bashls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 }
 
 --go
-require 'lspconfig'.gopls.setup {
+require('lspconfig').gopls.setup {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
     settings = {
