@@ -35,7 +35,7 @@ foreground = "0xffffff"
 TERM = "alacritty"
 
 [font]
-size = 18.0
+size = 15.0
 
 [font.bold]
 family = "Hack Nerd Font Mono"
@@ -81,3 +81,6 @@ mods = "Control|Shift"
 [selection]
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+opacity = 0.95
