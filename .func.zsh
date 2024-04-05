@@ -145,7 +145,11 @@ dict(){
 }
 
 gitup(){
-    git log --reverse --pretty=%H origin/master | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git reset --hard
+    upstream=master
+    if [[ $# > 0 ]] then
+        upstream=$1
+    fi
+    git log --reverse --pretty=%H origin/$upstream | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git reset --hard
 }
 
 rr(){
