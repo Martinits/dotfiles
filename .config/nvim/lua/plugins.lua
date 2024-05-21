@@ -43,6 +43,7 @@ require("lazy").setup({
             'nvim-tree/nvim-web-devicons',
             'nvim-snazzi',
         },
+        version = "*",
         config = function()
             require('bufferline-init')
         end
