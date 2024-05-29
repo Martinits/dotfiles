@@ -1,5 +1,6 @@
 require('hlchunk').setup({
     chunk = {
+        enable = true,
         notify = false,
         exclude_filetypes = {
             qf = true,
@@ -12,6 +13,7 @@ require('hlchunk').setup({
             "*.lua",
             "*.js",
             "*.c",
+            "*.cpp",
             "*.h",
             "*.rs",
             "*.go",
@@ -33,13 +35,14 @@ require('hlchunk').setup({
     },
     indent = {
         enable = true,
-        use_treesitter = false,
+        use_treesitter = true,
         chars = { "│", "¦", "┆", "┊"},
         style = {
             { fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") }
         },
     },
     line_num = {
+        enable = true,
         style = "#AB8AA5",
     },
     blank = {

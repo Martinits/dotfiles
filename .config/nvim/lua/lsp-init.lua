@@ -100,6 +100,7 @@ local on_attach = function(client, bufnr)
             callback = vim.lsp.buf.clear_references,
         })
     end
+    client.server_capabilities.semanticTokensProvider = nil
 end
 
 -- float window border

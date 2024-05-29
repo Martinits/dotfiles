@@ -25,7 +25,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- theme, color, highlight, ui
     {
+        'rktjmp/lush.nvim'
+    },
+    {
         'martinits/nvim-snazzi',
+        dependencies='rktjmp/lush.nvim',
         config = function()
             vim.cmd.colorscheme('snazzi')
         end
@@ -384,7 +388,7 @@ require("lazy").setup({
     {
         'shellRaining/hlchunk.nvim',
         -- lazy = false,
-        event = { "UIEnter" },
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             require('hlchunk-init')
         end
