@@ -8,11 +8,11 @@ require('which-key').setup{
             enabled = true,
         },
     },
-    popup_mappings = {
+    keys = {
         scroll_down = '<c-j>',
         scroll_up = '<c-k>',
     },
-    window = {
+    win = {
         border = "rounded",
     },
     disable = {
@@ -30,18 +30,18 @@ vim.cmd.highlight({ "link", "WhichKeyValue", "Info" })
 
 -- custom key mappings hint
 local wk = require('which-key')
-wk.register({
-    b = { name = '<buffer>' },
-    c = { name = '<codeaction> <call-hierachy>' },
-    d = { name = '<diagnostic> <definition>' },
-    f = { name = '<telescope>' },
-    g = { name = '<git>' },
-    h = { name = '<hop>' },
-    l = { name = '<lsp-finder>' },
-    p = { name = '<spectre>' },
-    r = { name = '<rename-symbol>' },
-    s = { name = '<swap>' },
-    t = { name = '<tabular> <table-mode> <todo>' },
-    m = { name = 'format' },
-    i = { name = 'inlay-hint' },
-}, { prefix = '<LEADER>' })
+wk.add({
+    { "<LEADER>b", desc = '<buffer>'},
+    { "<LEADER>c", desc = '<codeaction> <call-hierachy>'},
+    { "<LEADER>d", desc = '<diagnostic> <definition>'},
+    { "<LEADER>f", desc = '<telescope>'},
+    { "<LEADER>g", desc = '<git>'},
+    { "<LEADER>h", desc = '<hop>'},
+    { "<LEADER>l", desc = '<lsp-finder>'},
+    { "<LEADER>p", desc = '<spectre>'},
+    { "<LEADER>r", desc = '<rename-symbol>'},
+    { "<LEADER>s", desc = '<swap>'},
+    { "<LEADER>t", desc = '<tabular> <table-mode> <todo>'},
+    { "<LEADER>m", desc = 'format'},
+    { "<LEADER>i", desc = 'inlay-hint'},
+})

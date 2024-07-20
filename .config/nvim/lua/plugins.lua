@@ -29,7 +29,7 @@ require("lazy").setup({
     },
     {
         'martinits/nvim-snazzi',
-        dependencies='rktjmp/lush.nvim',
+        dependencies = 'rktjmp/lush.nvim',
         config = function()
             vim.cmd.colorscheme('snazzi')
         end
@@ -518,6 +518,10 @@ require("lazy").setup({
     },
     {
         'folke/which-key.nvim',
+        event = "VeryLazy",
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        },
         config = function()
             require('whichkey-init')
         end
