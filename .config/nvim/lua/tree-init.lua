@@ -172,7 +172,11 @@ require("nvim-tree").setup({
     },
     git = {
         ignore = false
-    }
+    },
+    filters = {
+        git_ignored = false,
+        dotfiles = true,
+    },
 })
 
 vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR>", { desc = "nivm-tree toggle" })
