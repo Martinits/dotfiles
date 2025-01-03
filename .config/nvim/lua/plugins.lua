@@ -361,11 +361,27 @@ require("lazy").setup({
             require('tree-init')
         end
     },
+    -- {
+    --     'kevinhwang91/rnvimr', -- viml!!!
+    --     config = function()
+    --         require('rnvimr-init')
+    --     end
+    -- },
     {
-        'kevinhwang91/rnvimr', -- viml!!!
-        config = function()
-            require('rnvimr-init')
-        end
+        "mikavilpas/yazi.nvim",
+        event = "VeryLazy",
+        keys = {
+          -- {
+          --   "<M-o>-",
+          --   "<CMD>Yazi<CR>",
+          --   desc = "Open yazi at the current file",
+          -- },
+          {
+            "<M-o>",
+            "<CMD>Yazi cwd<CR>",
+            desc = "Open yazi in nvim's working directory" ,
+          },
+        },
     },
     -- ui addition
     {
