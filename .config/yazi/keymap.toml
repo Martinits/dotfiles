@@ -1,0 +1,24 @@
+[[manager.prepend_keymap]]
+on   = "l"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+on   = "<Right>"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[manager.prepend_keymap]]
+on   = "K"
+run  = 'arrow -5'
+desc = "Move up 5 lines"
+
+[[manager.prepend_keymap]]
+on   = "J"
+run  = 'arrow 5'
+desc = "Move down 5 lines"
+
+[[manager.prepend_keymap]]
+on   = "S"
+run  = 'shell "$SHELL" --block'
+desc = "Open interactive shell right here"
