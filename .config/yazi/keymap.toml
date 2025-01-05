@@ -89,3 +89,13 @@ desc = "Create new file"
 on = [ "N" ]
 run = "create --dir"
 desc = "Create new directory"
+
+[[manager.prepend_keymap]]
+on = [ "v" ]
+run = "toggle_all --state=on"
+desc = "Select all files"
+
+[[manager.prepend_keymap]]
+on = [ "u" ]
+run = "toggle_all --state=off"
+desc = "Select all files"
