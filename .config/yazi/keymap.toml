@@ -1,12 +1,17 @@
 [[manager.prepend_keymap]]
 on   = "l"
 run  = "plugin smart-enter"
-desc = "Enter the child directory, or open the file"
+desc = "Enter the child directory, or open the hovered file"
 
 [[manager.prepend_keymap]]
 on   = "<Right>"
 run  = "plugin smart-enter"
-desc = "Enter the child directory, or open the file"
+desc = "Enter the child directory, or open the hovered file"
+
+[[manager.prepend_keymap]]
+on   = "<Enter>"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the hovered file"
 
 [[manager.prepend_keymap]]
 on   = "K"
@@ -29,3 +34,58 @@ run = '''
         shell 'dragon-drop -a -x -T "$@"' --confirm
 '''
 desc = "Run Dragon-Drop on selected files"
+
+[[manager.prepend_keymap]]
+on = [ "<Backspace>" ]
+run = "hidden toggle"
+desc = "Toggle whether showing hidden files"
+
+[[manager.prepend_keymap]]
+on = [ "a" ]
+run = "rename --hovered --cursor=before_ext"
+desc = "Rename file basename appendingly"
+
+[[manager.prepend_keymap]]
+on = [ "A" ]
+run = "rename --hovered --cursor=end"
+desc = "Rename file fullname appendingly"
+
+[[manager.prepend_keymap]]
+on = [ "r" ]
+run = "rename --hovered --empty=stem --cursor=start"
+desc = "Rename file basename from scratch"
+
+[[manager.prepend_keymap]]
+on = [ "R" ]
+run = "rename --hovered --empty=all"
+desc = "Rename file fullname from scratch"
+
+[[manager.prepend_keymap]]
+on = [ "i" ]
+run = "rename --hovered --cursor=start"
+desc = "Rename file from start"
+
+[[manager.prepend_keymap]]
+on = [ "b" ]
+run = "rename"
+desc = "Bulkrename selected files"
+
+[[manager.prepend_keymap]]
+on = [ "d" ]
+run = "yank --cut"
+desc = "Cut selected files"
+
+[[manager.prepend_keymap]]
+on = [ "t" ]
+run = "remove"
+desc = "Trash selected files"
+
+[[manager.prepend_keymap]]
+on = [ "n" ]
+run = "create"
+desc = "Create new file"
+
+[[manager.prepend_keymap]]
+on = [ "N" ]
+run = "create --dir"
+desc = "Create new directory"
