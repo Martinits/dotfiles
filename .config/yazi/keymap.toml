@@ -22,3 +22,10 @@ desc = "Move down 5 lines"
 on   = "S"
 run  = 'shell "$SHELL" --block'
 desc = "Open interactive shell right here"
+
+[[manager.prepend_keymap]]
+on = [ "<C-d>" ]
+run = '''
+        shell 'dragon-drop -a -x -T "$@"' --confirm
+'''
+desc = "Run Dragon-Drop on selected files"
