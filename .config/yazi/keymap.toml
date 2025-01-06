@@ -99,3 +99,13 @@ desc = "Select all files"
 on = [ "u" ]
 run = "toggle_all --state=off"
 desc = "Select all files"
+
+[[manager.prepend_keymap]]
+on = [ "m" ]
+run = "plugin bookmarks --args=save"
+desc = "Save current position as a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "'" ]
+run = "plugin bookmarks --args=jump"
+desc = "Jump to a bookmark"
