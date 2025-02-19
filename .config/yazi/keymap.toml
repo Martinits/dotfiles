@@ -107,10 +107,10 @@ desc = "Select all files"
 
 [[manager.prepend_keymap]]
 on = [ "m" ]
-run = "plugin bookmarks --args=save"
+run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
 [[manager.prepend_keymap]]
 on = [ "'" ]
-run = "plugin bookmarks --args=jump"
+run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
