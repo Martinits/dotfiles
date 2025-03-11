@@ -92,7 +92,7 @@ desc = "Create new directory"
 
 [[manager.prepend_keymap]]
 on = [ "v" ]
-run = "toggle_all --state=on"
+run = "toggle_all"
 desc = "Select all files"
 
 [[manager.prepend_keymap]]
@@ -103,7 +103,7 @@ desc = "Enter visual mode (selection mode)"
 [[manager.prepend_keymap]]
 on = [ "u" ]
 run = "toggle_all --state=off"
-desc = "Select all files"
+desc = "Deselect all files"
 
 [[manager.prepend_keymap]]
 on = [ "m" ]
