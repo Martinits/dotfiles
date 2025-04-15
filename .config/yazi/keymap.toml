@@ -178,3 +178,8 @@ desc = "Sort by size (reverse)"
 on = [ "o", "r" ]
 run = "sort random --reverse=no"
 desc = "Sort randomly"
+
+[[manager.prepend_keymap]]
+on = "z"
+run = "plugin zoxide"
+desc = "Jump to a directory via zoxide"
