@@ -179,7 +179,7 @@ require("nvim-tree").setup({
     },
 })
 
-vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR>", { desc = "nivm-tree toggle" })
+vim.keymap.set('n', 'tt', ":NvimTreeToggle<CR><C-w>l", { desc = "nvim-tree toggle" })
 vim.keymap.set('n', 'tf', ":NvimTreeFocus<CR>", { desc = "nvim-tree focus" })
 
 vim.cmd.highlight({ "NvimTreeModifiedFile", "guifg=#F36E7A" })
