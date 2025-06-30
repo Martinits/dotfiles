@@ -5,7 +5,12 @@ vim.keymap.set('n', '<LEADER>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<LEADER>fb', require('telescope.builtin').buffers, { desc = 'telescope: find buffer' })
 vim.keymap.set('n', '<LEADER>fh', require('telescope.builtin').help_tags, { desc = 'telescope: help tags' })
 vim.keymap.set('n', '<LEADER>fw',
-    function() require('telescope.builtin').grep_string { word_match = '-w' } end,
+    -- function() require('telescope.builtin').grep_string { word_match = '-w' } end,
+    function()
+      require("telescope.builtin").live_grep({
+        default_text = "\\b"..vim.fn.expand("<cword>").."\\b",
+      })
+    end,
     { desc = 'telescope: search cursor string' }
 )
 vim.keymap.set('n', '<LEADER>fs', require('telescope.builtin').lsp_document_symbols, { desc = 'telescope: lsp buffer symbols' })
