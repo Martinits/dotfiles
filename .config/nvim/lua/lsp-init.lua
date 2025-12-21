@@ -192,25 +192,24 @@ require("neoconf").setup {
 
 -- language servers
 -- c/c++
-require('lspconfig').ccls.setup {
+vim.lsp.config('ccls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities
-}
+})
 
 -- python
-require('lspconfig').pyright.setup {
-    on_attach = on_attach,
+vim.lsp.config('pyright', {
     -- capabilities = common_capabilities
-}
+})
 
 -- rust
-require('lspconfig').rust_analyzer.setup {
+vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     -- capabilities = common_capabilities
-}
+})
 
 -- lua
-require('lspconfig').lua_ls.setup {
+vim.lsp.config('lua_ls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
     settings = {
@@ -230,22 +229,22 @@ require('lspconfig').lua_ls.setup {
             }
         }
     }
-}
+})
 
 -- json
-require('lspconfig').jsonls.setup {
+vim.lsp.config('jsonls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
-}
+})
 
 -- bash
-require('lspconfig').bashls.setup {
+vim.lsp.config('bashls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
-}
+})
 
 --go
-require('lspconfig').gopls.setup {
+vim.lsp.config('gopls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
     settings = {
@@ -261,4 +260,4 @@ require('lspconfig').gopls.setup {
             }
         }
     }
-}
+})
