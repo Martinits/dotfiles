@@ -113,45 +113,45 @@ require("lazy").setup({
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-nvim-lua',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
+            -- 'L3MON4D3/LuaSnip',
+            -- 'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-calc',
             'f3fora/cmp-spell',
             'hrsh7th/cmp-nvim-lsp-document-symbol',
-            'hrsh7th/cmp-emoji',
+            -- 'hrsh7th/cmp-emoji',
             'ray-x/cmp-treesitter',
             -- 'rcarriga/cmp-dap',
-            {
-                'KadoBOT/cmp-plugins',
-                config = function()
-                    require('cmp-plugins').setup({
-                        files = { 'plugins.lua' }
-                    })
-                end,
-            },
-            {
-                'saecki/crates.nvim',
-                dependencies = 'nvim-lua/plenary.nvim',
-                config = function()
-                    require('crates').setup {}
-                end,
-            },
-            {
-                'petertriho/cmp-git',
-                dependencies = 'nvim-lua/plenary.nvim',
-                config = function()
-                    require('cmp_git').setup()
-                end
-            }
+            -- {
+            --     'KadoBOT/cmp-plugins',
+            --     config = function()
+            --         require('cmp-plugins').setup({
+            --             files = { 'plugins.lua' }
+            --         })
+            --     end,
+            -- },
+            -- {
+            --     'saecki/crates.nvim',
+            --     dependencies = 'nvim-lua/plenary.nvim',
+            --     config = function()
+            --         require('crates').setup {}
+            --     end,
+            -- },
+            -- {
+            --     'petertriho/cmp-git',
+            --     dependencies = 'nvim-lua/plenary.nvim',
+            --     config = function()
+            --         require('cmp_git').setup()
+            --     end
+            -- }
         }
     },
-    {
-        'rafamadriz/friendly-snippets',
-        dependencies = 'L3MON4D3/LuaSnip',
-        config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-        end
-    },
+    -- {
+    --     'rafamadriz/friendly-snippets',
+    --     dependencies = 'L3MON4D3/LuaSnip',
+    --     config = function()
+    --         require('luasnip.loaders.from_vscode').lazy_load()
+    --     end
+    -- },
     {
         'kevinhwang91/nvim-bqf',
         ft = 'qf',
