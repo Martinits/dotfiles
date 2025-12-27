@@ -1,6 +1,6 @@
 require('hlchunk').setup({
     chunk = {
-        enable = true,
+        enable = false,
         notify = false,
         exclude_filetypes = {
             qf = true,
@@ -42,7 +42,7 @@ require('hlchunk').setup({
         },
     },
     line_num = {
-        enable = true,
+        enable = false,
         style = "#AB8AA5",
     },
     blank = {

@@ -261,20 +261,20 @@ require("lazy").setup({
         dependencies = 'nvim-treesitter/nvim-treesitter'
     },
     { 'mg979/vim-visual-multi' }, -- viml!!!
-    {
-        'junegunn/vim-easy-align', -- viml!!!
-        config = function()
-            vim.keymap.set('x', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
-            vim.keymap.set('n', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
-        end
-    },
+    -- {
+    --     'junegunn/vim-easy-align', -- viml!!!
+    --     config = function()
+    --         vim.keymap.set('x', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
+    --         vim.keymap.set('n', 'ga', [[<Plug>(EasyAlign)]], {desc = 'easy align'})
+    --     end
+    -- },
     {
         'godlygeek/tabular', -- viml!!!
         config = function()
             vim.keymap.set('', '<LEADER>tb', ':Tabularize<SPACE>/')
         end
     },
-    { 'andymass/vim-matchup' }, -- viml!!!
+    -- { 'andymass/vim-matchup' }, -- viml!!!
     { 'tpope/vim-repeat' }, -- viml!!!
     -- search, replace and jump
     {
@@ -304,13 +304,13 @@ require("lazy").setup({
             require('spectre-init')
         end
     },
-    {
-        'phaazon/hop.nvim',
-        branch = 'v2',
-        config = function()
-            require('hop-init')
-        end
-    },
+    -- {
+    --     'phaazon/hop.nvim',
+    --     branch = 'v2',
+    --     config = function()
+    --         require('hop-init')
+    --     end
+    -- },
     -- {
     --     "folke/flash.nvim",
     --     event = "VeryLazy",
@@ -339,13 +339,13 @@ require("lazy").setup({
             require("glow").setup()
         end
     },
-    {
-        'toppair/peek.nvim',
-        build = 'deno task --quiet build:fast',
-        config = function()
-            require('peek-init')
-        end
-    },
+    -- {
+    --     'toppair/peek.nvim',
+    --     build = 'deno task --quiet build:fast',
+    --     config = function()
+    --         require('peek-init')
+    --     end
+    -- },
     {
         'kaymmm/bullets.nvim',
         config = function()
@@ -456,12 +456,12 @@ require("lazy").setup({
             require('notify-init')
         end
     },
-    {
-        'stevearc/dressing.nvim',
-        config = function()
-            require('dressing').setup{}
-        end
-    },
+    -- {
+    --     'stevearc/dressing.nvim',
+    --     config = function()
+    --         require('dressing').setup{}
+    --     end
+    -- },
     {
         'mbbill/undotree', -- viml!!!
         config = function()
@@ -498,34 +498,30 @@ require("lazy").setup({
         end
     },
     -- languages
-    {
-        "ray-x/go.nvim",
-        dependencies = {
-            "ray-x/guihua.lua",
-            "neovim/nvim-lspconfig",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-            require("go-init")
-        end,
-        event = { "CmdlineEnter" },
-        ft = { "go", 'gomod' },
-    },
+    -- {
+    --     "ray-x/go.nvim",
+    --     dependencies = {
+    --         "ray-x/guihua.lua",
+    --         "neovim/nvim-lspconfig",
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     config = function()
+    --         require("go-init")
+    --     end,
+    --     event = { "CmdlineEnter" },
+    --     ft = { "go", 'gomod' },
+    -- },
     -- nvim lua dev
     {
         "rafcamlet/nvim-luapad",
     },
-    {
-        'folke/neodev.nvim',
-        opts = {},
-    },
     -- others
-    {
-        'rmagatti/auto-session',
-        config = function()
-            require('autosession-init')
-        end
-    },
+    -- {
+    --     'rmagatti/auto-session',
+    --     config = function()
+    --         require('autosession-init')
+    --     end
+    -- },
     {
         'ethanholz/nvim-lastplace',
         config = function()
