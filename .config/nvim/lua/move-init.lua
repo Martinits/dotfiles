@@ -1,4 +1,5 @@
 ------- MOVE.NVIM -------
+require('move').setup({})
 
 vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>',    {silent = true})
 vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>',   {silent = true})
