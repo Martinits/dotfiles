@@ -120,7 +120,7 @@ require("lazy").setup({
             'hrsh7th/cmp-nvim-lsp-document-symbol',
             'hrsh7th/cmp-emoji',
             'ray-x/cmp-treesitter',
-            'rcarriga/cmp-dap',
+            -- 'rcarriga/cmp-dap',
             {
                 'KadoBOT/cmp-plugins',
                 config = function()
@@ -160,32 +160,32 @@ require("lazy").setup({
             require('bqf-init')
         end
     },
-    {
-        'mfussenegger/nvim-dap',
-        config = function()
-            require('dap-init')
-        end
-    },
-    {
-        'rcarriga/nvim-dap-ui',
-        dependencies = {
-            'mfussenegger/nvim-dap',
-            'nvim-neotest/nvim-nio',
-        },
-        config = function()
-            require('dapui-init')
-        end
-    },
-    {
-        'theHamsta/nvim-dap-virtual-text',
-        dependencies = {
-            'mfussenegger/nvim-dap',
-            'nvim-treesitter/nvim-treesitter'
-        },
-        config = function()
-            require('dapvt-init')
-        end
-    },
+    -- {
+    --     'mfussenegger/nvim-dap',
+    --     config = function()
+    --         require('dap-init')
+    --     end
+    -- },
+    -- {
+    --     'rcarriga/nvim-dap-ui',
+    --     dependencies = {
+    --         'mfussenegger/nvim-dap',
+    --         'nvim-neotest/nvim-nio',
+    --     },
+    --     config = function()
+    --         require('dapui-init')
+    --     end
+    -- },
+    -- {
+    --     'theHamsta/nvim-dap-virtual-text',
+    --     dependencies = {
+    --         'mfussenegger/nvim-dap',
+    --         'nvim-treesitter/nvim-treesitter'
+    --     },
+    --     config = function()
+    --         require('dapvt-init')
+    --     end
+    -- },
     -- text process
     {
         'nvim-treesitter/nvim-treesitter',

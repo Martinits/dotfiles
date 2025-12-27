@@ -80,10 +80,10 @@ cmp.setup({
         end,
     },
     -- for cmp-dap
-    enabled = function()
-        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-            or require("cmp_dap").is_dap_buffer()
-    end,
+    -- enabled = function()
+    --     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+    --         or require("cmp_dap").is_dap_buffer()
+    -- end,
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
@@ -104,8 +104,8 @@ cmp.setup.cmdline(':', {
 })
 
 -- for cmp-dap
-cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-    sources = {
-        { name = "dap" },
-    },
-})
+-- cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+--     sources = {
+--         { name = "dap" },
+--     },
+-- })
