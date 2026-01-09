@@ -20,7 +20,7 @@ require('gitsigns').setup {
         end
 
         map('n', '<LEADER>gn', ':Gitsigns next_hunk<CR>', {desc = 'next hunk'})
-        map('n', '<LEADER>gp', ':Gitsigns next_hunk<CR>', {desc = 'previous hunk'})
+        map('n', '<LEADER>gp', ':Gitsigns prev_hunk<CR>', {desc = 'previous hunk'})
         map({'n', 'v'}, '<LEADER>gs', ':Gitsigns stage_hunk<CR>', {desc = 'stage hunk'})
         map({'n', 'v'}, '<LEADER>gr', ':Gitsigns reset_hunk<CR>', {desc = 'reset hunk'})
         map('n', '<LEADER>gS', gs.stage_buffer, {desc = 'stage current buffer'})
