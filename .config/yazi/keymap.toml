@@ -1,185 +1,185 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "l"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the hovered file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<Right>"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the hovered file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<Enter>"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the hovered file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "K"
 run  = 'arrow -5'
 desc = "Move up 5 lines"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "J"
 run  = 'arrow 5'
 desc = "Move down 5 lines"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "S"
-run  = 'shell "$SHELL" --block'
+run  = 'shell /bin/zsh --block'
 desc = "Open interactive shell right here"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<C-d>" ]
 run = '''
         shell 'dragon-drop -a -x -T "$@"' --confirm
 '''
 desc = "Run Dragon-Drop on selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "<Backspace>" ]
 run = "hidden toggle"
 desc = "Toggle whether showing hidden files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "a" ]
 run = "rename --hovered --cursor=before_ext"
 desc = "Rename file basename appendingly"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "A" ]
 run = "rename --hovered --cursor=end"
 desc = "Rename file fullname appendingly"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "r" ]
 run = "rename --hovered --empty=stem --cursor=start"
 desc = "Rename file basename from scratch"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "R" ]
 run = "rename --hovered --empty=all"
 desc = "Rename file fullname from scratch"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "i" ]
 run = "rename --hovered --cursor=start"
 desc = "Rename file from start"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "b" ]
 run = "rename"
 desc = "Bulkrename selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "d" ]
 run = "yank --cut"
 desc = "Cut selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "t" ]
 run = "remove"
 desc = "Trash selected files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "n" ]
 run = "create"
 desc = "Create new file"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "N" ]
 run = "create --dir"
 desc = "Create new directory"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "v" ]
 run = "toggle_all"
 desc = "Select all files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "V" ]
 run = "visual_mode"
 desc = "Enter visual mode (selection mode)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "u" ]
 run = "toggle_all --state=off"
 desc = "Deselect all files"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "m" ]
 run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "'" ]
 run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "m" ]
 run = [ "sort mtime --reverse=no", "linemode mtime" ]
 desc = "Sort by modified time"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "M" ]
 run = [ "sort mtime --reverse", "linemode mtime" ]
 desc = "Sort by modified time (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "b" ]
 run = [ "sort btime --reverse=no", "linemode btime" ]
 desc = "Sort by birth time"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "B" ]
 run = [ "sort btime --reverse", "linemode btime" ]
 desc = "Sort by birth time (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "e" ]
 run = "sort extension --reverse=no"
 desc = "Sort by extension"
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "E" ]
 run = "sort extension --reverse"
 desc = "Sort by extension (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "a" ]
 run = "sort alphabetical --reverse=no"
 desc = "Sort alphabetically"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "A" ]
 run = "sort alphabetical --reverse"
 desc = "Sort alphabetically (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "n" ]
 run = "sort natural --reverse=no"
 desc = "Sort naturally"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "N" ]
 run = "sort natural --reverse"
 desc = "Sort naturally (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "s" ]
 run = [ "sort size --reverse=no", "linemode size" ]
 desc = "Sort by size"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "S" ]
 run = [ "sort size --reverse", "linemode size" ]
 desc = "Sort by size (reverse)"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "o", "r" ]
 run = "sort random --reverse=no"
 desc = "Sort randomly"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "z"
 run = "plugin zoxide"
 desc = "Jump to a directory via zoxide"
