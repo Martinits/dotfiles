@@ -196,17 +196,20 @@ vim.lsp.config('ccls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities
 })
+vim.lsp.enable('ccls')
 
 -- python
 vim.lsp.config('pyright', {
     -- capabilities = common_capabilities
 })
+vim.lsp.enable('pyright')
 
 -- rust
 vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     -- capabilities = common_capabilities
 })
+vim.lsp.enable('rust_analyzer')
 
 -- lua
 vim.lsp.config('lua_ls', {
@@ -230,18 +233,21 @@ vim.lsp.config('lua_ls', {
         }
     }
 })
+vim.lsp.enable('lua_ls')
 
 -- json
 vim.lsp.config('jsonls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 })
+vim.lsp.enable('jsonls')
 
 -- bash
 vim.lsp.config('bashls', {
     on_attach = on_attach,
     -- capabilities = common_capabilities,
 })
+vim.lsp.enable('bashls')
 
 --go
 vim.lsp.config('gopls', {
@@ -261,3 +267,4 @@ vim.lsp.config('gopls', {
         }
     }
 })
+vim.lsp.enable('gopls')
