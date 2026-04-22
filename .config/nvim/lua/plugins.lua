@@ -574,9 +574,16 @@ require("lazy").setup({
     --     end
     -- },
     {
-        "ahmedkhalf/project.nvim",
+        "DrKJeff16/project.nvim",
+        dependencies = { -- OPTIONAL. Choose any of the following
+            {
+              'nvim-telescope/telescope.nvim',
+              dependencies = { 'nvim-lua/plenary.nvim' },
+            },
+        },
+        opts = {},
         config = function()
-            require("project_nvim").setup {
+            require("project").setup {
                 patterns = {
                     'complie_commands.json',
                     '.git',
