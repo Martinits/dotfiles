@@ -8,7 +8,7 @@ max_height = 2000
 
 [opener]
 play = [
-	{ run = 'mpv --geometry=3200x1800 -- "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv --geometry=3200x1800 -- %s', orphan = true, for = "unix" },
 ]
 
 [[plugin.prepend_fetchers]]
